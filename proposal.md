@@ -1,6 +1,6 @@
-#COGS 121 Project
+# COGS 121 Project
 
-##Group Members:
+## Group Members:
 
     - Ryan Chambers (A12750317)
 
@@ -11,4 +11,4 @@
     - Juan Zapien ()
 
 
-##Proposal Idea:
+## Proposal Idea:
