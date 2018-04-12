@@ -1,14 +1,16 @@
 # COGS 121 Project
 
+## Group Name: 
+
 ## Group Members:
 
-    - Ryan Chambers (A12750317)
+    - Ryan Chambers
 
-    - Amparo Davalos ()
+    - Amparo Davalos 
 
-    - Ellisa Lee ()
+    - Ellisa Lee 
 
-    - Juan Zapien ()
+    - Juan Zapien 
 
 
 ## Proposal Idea:
