@@ -20,8 +20,7 @@
 ## Prototype
 
 ### Prototype #1 
-
-Home & Saved Screen
+#### Home & Saved Screens
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/prototype_/iPhone%206-7-8%20%E2%80%93%201.png)
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/prototype_/iPhone%206-7-8%20%E2%80%93%202.png)
 
