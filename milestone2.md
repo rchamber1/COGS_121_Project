@@ -40,7 +40,7 @@
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/prototype_/iPhone%206-7-8%20%E2%80%93%204.1.png)
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/prototype_/iPhone%206-7-8%20%E2%80%93%204.2.png)
 
-### Prototype #2
+### Prototype #2 (UI based around home screen interactions and search, with additional information available through tapping icons.)
 #### Home Screen
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/prototype_2_fixed/Home_Screen.png)
 
