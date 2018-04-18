@@ -11,11 +11,11 @@
 ## Storyboards
 
 ### Storyboard #1 (Student) 
-![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/storyboard_student.jpg)
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/prototype_/storyboard_student.png)
 
 
 ### Storyboard #2 (Doctor & Patient)
-![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/Storyboard_patient.jpg)
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/prototype_/Storyboard_patient.png)
 
 ## Prototype
 
