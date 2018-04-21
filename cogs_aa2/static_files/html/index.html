@@ -3,22 +3,80 @@
 <title>COGS 121</title>
 
 <script src="jquery-3.3.1.min.js"></script>
-
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <script type="text/javascript">
-// write your JavaScript code here
+ $(document).ready(() => {
+     ('#searchBtn')
+ })
 </script>
 
 </head>
 <body>
-  <h1>Login</h1>
 
- Username: <input id="nameBox" type="text" size="20"/>
+<div class = "content-wrap">
+    <div class = "content">
+<br><br>
 
-Password: <input id="nameBox" type="text" size="20"/>
-  <button id="searchBtn"><a href="home.html">Login</a></button>
-  <button id="regionsBtn">Create Account</button>
+        <section id = "top_login">
+            <div class = "container">
+                <div class = "row">
+                    <div class = "col-lg-4"></div>
+                    <div class = "col-lg-4"><h4>logo image placeholder</h4></div>
+                    <div class = "col-lg-4"></div>
+                </div>
+            </div>
+        </section>
+
+        <section id = "mid_login">
+            <div class = "content">
+                <div class = "container">
+
+                    <div class = "row">
+                        <br><br>
+                        <div class="col-lg-4"></div>
+                        <div class= "col-lg-4">
+                            <br><br>
+                            <form>
+                                <div class="form-group">
+                                    <label for="exampleInputEmail1">Email address</label>
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1">Password</label>
+                                    <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
+                                </div>
+                                <button type="submit" ><a href = "home.html">Submit</a></button>
+                            </form>
+                        </div>
+                        <div class="col-lg-4"></div>
+
+                    </div> <!-- end of row-->
+
+                    <div class = "row">
+                        <br><br>
+                        <div class="col-lg-4"></div>
+                        <div class= "col-lg-2">
+                            <br><br>
+                            <button id ="signupBtn">Signup</button>
+                        </div>
+                        <div class="col-lg-2">
+                            <br><br>
+                            <button id = "fbBtn">Facebook</button>
+                        </div>
+                        <div class="col-lg-4"></div>
+
+                    </div> <!-- end of row-->
+
+                </div>
+            </div>
+        </section>
 
   </div>
-
+</div>
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </body>
 </html>
