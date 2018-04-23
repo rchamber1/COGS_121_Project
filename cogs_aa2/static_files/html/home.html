@@ -17,16 +17,29 @@
   $(document).ready(() => {
     console.log("hello browser!!!!");
 
-     $j('#searchBtn').click(() => {
+     $('#searchBtn').click(() => {
        const srchREQ = 'options/' + $('#homeSearch').val();
        console.log("searching for ", srchREQ);
 
-       $j.ajax({
-         url: 'html/options/',
+       $.ajax({
+         url: srchREQ,
          type: 'GET',
          dataType: 'json',
          success: (data) => {
            console.log('ajax success!', data);
+
+        if (data.inst) {
+          $('#status').html('Successfully fetched data at URL: ' + srchREQ);
+          $('#jobDiv').html('My job is ' + data.inst);
+          /*$('#petImage').attr('src', data.pet).attr('width', '300px');-->*/
+          console.log("hello 33333333!!!!");
+        } else {
+          $('#status').html('Error: could not find user at URL: ' + srchREQ);
+          // clear the display
+          $('#jobDiv').html('');
+          $('#petImage').attr('src', '').attr('width', '0px');
+          console.log("hello 000000!!!!");
+        }
          }
        });
 
@@ -68,6 +81,9 @@
   </div>
 </nav> <!-- end of head navbar-->
 
+
+<div id="jobDiv">Hello</div>
+
 <div class = "content-wrap">
     <div class = "content">
         <section id = "top_home">
@@ -79,7 +95,7 @@
                         <form class="form-inline my-2 my-lg-0">
                             <br><br>
                           <input class="form-control ml-sm-2 " type="search" placeholder="Search" aria-label="Search" id="homeSearch">
-                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn"><!--<a href="search.html">-->Search<!--</a>--></button>
+                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn" ><!--<a href="search.html">-->Search<!--</a>--></button>
                         </form> <!-- search form-->
                     </div>
                 </div>
