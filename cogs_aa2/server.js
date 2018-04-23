@@ -17,17 +17,16 @@
 		'forebrain': {inst: "forebrain is in regions"}
 	}
 
-	app.get ('html/options', (req, res) => {
+	app.get ('/options', (req, res) => {
 		const allOptions = Object.keys(fakeDatabase);
 		console.log('allOptions is: ', allOptions);
 		res.send(allOptions);
 	});
 
-	app.get('html/options/:optionsid', (req, res) => {
-		const optionToLookup = req.params.userid;
+	app.get('/options/:optionsid', (req, res) => {
+		const optionToLookup = req.params.optionsid;
 		const val = fakeDatabase[optionToLookup];
-		console.log (optionToLookup, '-->', val);
-
+		console.log (optionToLookup, '->', val);
 		if (val) {
 			res.send(val);
 		}
