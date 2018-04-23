@@ -1,0 +1,38 @@
+body{
+    height:100%;
+    width: 100%;
+    background-color: #fdfdfd;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.form-control {
+    width: 50%;
+}
+
+
+
+button#regionsBtn, button#conditionsBtn{
+    width: 100px;
+    height: 80px;
+}
+
+
+
+

@@ -2,12 +2,19 @@
 	const app = express();
 
 	app.use(express.static('static_files/'));
+    app.use(express.static('static_files/html/'));
 
 	const fakeDatabase = {
 		
 	}
 
 
+    
+    
+    
 	app.listen(3000, () => {
 		console.log('Server started on http://localhost:3000/');
 	});
+
+
+    
