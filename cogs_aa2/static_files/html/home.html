@@ -3,15 +3,42 @@
 <title>COGS 121</title>
 
 <script src="jquery-3.3.1.min.js"></script>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
+<!--functionality javascript code-->
 <script type="text/javascript">
- $(document).ready(() => {
-     ('#searchBtn')
- })
+
+  //on page startup
+  $(document).ready(() => {
+    console.log("hello browser!!!!");
+
+     $j('#searchBtn').click(() => {
+       const srchREQ = 'options/' + $('#homeSearch').val();
+       console.log("searching for ", srchREQ);
+
+       $j.ajax({
+         url: 'html/options/',
+         type: 'GET',
+         dataType: 'json',
+         success: (data) => {
+           console.log('ajax success!', data);
+         }
+       });
+
+     });
+ });
+
 </script>
 
 </head>
+
+<!-- body of html page starts -->
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="home.html">Logo</a>
@@ -22,7 +49,7 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav text-center">
       <li class="nav-item active">
-        <a class="nav-link" href="home.html">Home <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="home.html"> Home <span class="sr-only">(current)</span></a>
       </li>
 
     </ul>
@@ -52,8 +79,8 @@
                     <div class = "col-lg-4">
                         <form class="form-inline my-2 my-lg-0">
                             <br><br>
-                          <input class="form-control ml-sm-2 " type="search" placeholder="Search" aria-label="Search">
-                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><a href="search.html">Search</a></button>
+                          <input class="form-control ml-sm-2 " type="search" placeholder="Search" aria-label="Search" id="homeSearch">
+                          <button class="btn btn-outline-success my-2 my-sm-0" type="submit" id="searchBtn"><!--<a href="search.html">-->Search<!--</a>--></button>
                         </form> <!-- search form-->
                     </div>
                 </div>
@@ -98,7 +125,11 @@
 
   </div>
 </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+
+  <script type="text/javascript">
+    var $j = $.noConflict(true);
+  </script>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </body>
