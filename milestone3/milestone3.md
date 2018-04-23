@@ -51,4 +51,7 @@
 	in order to better understand the effects of the illnesses. The new 
 	pages for the two sections will contain pictures and labels as links to 
 	the individual pages for each condition or brain region.
-	
+
+##Added AJAX Screenshots 
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/cogs_aa2/static_files/img/Screen%20Shot%202018-04-23%20at%202.44.21%20PM.png)
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/cogs_aa2/static_files/img/Screen%20Shot%202018-04-23%20at%202.44.33%20PM.png)
