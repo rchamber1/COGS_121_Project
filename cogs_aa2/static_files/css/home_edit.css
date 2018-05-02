@@ -3,39 +3,25 @@ body{
     width: 100%;
     background-color: #fdfdfd;
 }
-
-
-
-
-
-
-h1{
+h3{
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: center;
 	font-style: serif;
 }
-
-
-
-
-
-
-
-
-
-
-
-
 .form-control {
     width: 50%;
 }
-
-
-
 button#regionsBtn, button#conditionsBtn{
     width: 100px;
     height: 80px;
 }
+#pw_div {
+	margin-top: 50px;
+}
+#submit_btn {
+	margin-top: 50px;
+}
+
 
 
 
