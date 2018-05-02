@@ -30,6 +30,7 @@ For our homescreen, we've added a new button called, 'Tracking', which will allo
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone4/screenshots/Screenshot%202018-05-02%2002.43.13.png)
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone4/screenshots/Screenshot%202018-05-02%2002.43.18.png)
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone4/screenshots/Screenshot%202018-05-02%2002.43.24.png)
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone4/screenshots/conditions_detail.jpg)
 The regions screen had the most change on our overall UI skeleton. Firstly, breadcrumb and jumbotron features were added to make the contents to be more organized. Breadcrumb in the header shows the user, in which page he/she is in. The contents within the Jumbotron will work as a hero-content, where it grabs the user's attention by displaying the main regions in a bigger font and details in smaller fonts. There are four button laid out horizontally to inform the user what other parts of the regions could be shown. Due to this feature, our 'regions.html' was deleted, because it seemed redundant. The darker grey part, which is technically the body section, will have more detailed information about the corresponding region with visualizations. 
 
 ## Conditions Screen
