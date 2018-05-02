@@ -10,25 +10,117 @@
 <script type="text/javascript">
 
  $(document).ready(() => {
-     console.log('hello browser!');
 
-     $('#hindbrain').click(() => {
+     $('#midbrain').click(() => {
+        const requestURL = 'options/' + 'midbrain';
+        console.log('making ajax request to: ', requestURL);
 
       $.ajax({
         url: 'options/',
         type: 'GET',
         dataType: 'json',
-        success: (data) => {
-          $('#hero_title').html(data['regions'][0]['name']);
-          //$('#lead').html('this should show the lead ' + data);
-
+        success: (data) => { //when my ajax succeeds 
+          $('#hero_title').html(data[8]);
       }});
 
-     });
+      $.ajax({
+        url: requestURL,
+        type:'GET',
+        dataType: 'json',
+        success: (data) => {
+
+           $('#lead').html(data.inst);
+
+           $('#detail_content').html(data.detail.tectum);
+           $('#detail_content').html(data.detail.tegmentum);
+
+        }
+
+      })
+     }); //end of midbrain
 
 
+     $('#hindbrain').click(() => {
+        const requestURL = 'options/' + 'hindbrain';
+
+      $.ajax({
+        url: 'options/',
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => { //when my ajax succeeds 
+          console.log('ajax success ', data[7]);
+          //$('#lead').html('this should show up ' + data[7][1]);
+          $('#hero_title').html(data[7]);
+          //$('#lead').html('this should show the lead ' + data);
+
+      }
+      });
+
+        $.ajax({
+        url: requestURL,
+        type:'GET',
+        dataType: 'json',
+        success: (data) => {
+
+           $('#lead').html(data.inst);
+
+           $('#detail_content').html(data.detail.pons);
+           $('#detail_content').html(data.detail.medulla);
+           $('#detail_content').html(data.detail.cerebellum);
+
+        }
+      })
+     }); // end of hindbrain
+
+    $('#cerebral').click(() => {
+        const requestURL = 'options/' + 'cerebral cortex';
+        console.log('making ajax request to: ', requestURL);
+
+      $.ajax({
+        url: 'options/',
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => { //when my ajax succeeds 
+          $('#hero_title').html(data[6]);
+      }});
+
+      $.ajax({
+        url: requestURL,
+        type:'GET',
+        dataType: 'json',
+        success: (data) => {
+
+           $('#lead').html(data.inst);
+           $('#detail_content').html(data.detail.occipital_lobe);
+        }
+
+      })
+     }); //end of cerebral
+
+    $('#forebrain').click(() => {
+        const requestURL = 'options/' + 'forebrain';
+
+      $.ajax({
+        url: 'options/',
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => { //when my ajax succeeds 
+          $('#hero_title').html(data[9]);
+      }});
+
+      $.ajax({
+        url: requestURL,
+        type:'GET',
+        dataType: 'json',
+        success: (data) => {
+
+           $('#lead').html(data.inst);
+           $('#detail_content').html(data.detail.diencephalon);
+        }
+
+      })
+     }); //end of forebrain
  });
-
 
 </script>
 
@@ -44,13 +136,14 @@
     <ul class="navbar-nav text-center">
       <li class="nav-item active">
           <!-- start of breadcrumb --> 
+          <!--
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="home.html">Home</a></li>
               <li class="breadcrumb-item"><a href="region.html">Regions</a></li>
               <li class="breadcrumb-item active" aria-current="page">Cerebral Cortex</li>
             </ol>
-          </nav> <!-- end of breadcrumb -->
+          </nav>--> <!-- end of breadcrumb -->
         <!-- <a class="nav-link" href="profile.html">Regions Page <span class="sr-only">(current)</span></a>-->
       </li>
 
@@ -82,19 +175,9 @@
                       <hr>
                       <p id="lead"> </p>
                       <button id="hindbrain">hindbrain</button>
-                      <button id="mindbrain">midbrain</button>
+                      <button id="midbrain">midbrain</button>
                       <button id="forebrain">forebrain</button>
                       <button id="cerebral">cerebral cortex</button>
-                      <!--
-                      <div class="dropdown show">
-                          <a class="btn btn-secondary btn-lg dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Other Regions</a>
-
-                          <div id="other_regions" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                            <a class="dropdown-item" href="forebrain.html">Forebrain</a>
-                            <a class="dropdown-item" href="midbrain.html">Midbrain</a>
-                            <a class="dropdown-item" href="hindbrain.html">Hindbrain</a>
-                            <a class="dropdown-item" href="cerebra.html">Cerebral Cortex</a>
-                          </div> -->
                         </div>
                     </div>
                   </div>
@@ -109,6 +192,16 @@
                 <div class = "container-fluid">
                     <div class = "row">
                         <br><br>
+                      <div id="detail_div">
+                                <div class="col-md-2"></div>
+                                <div class="col-md-8">
+                                  <h3 id="detail_title"></h3>
+                                  <p id="detail_content"></p>
+                                </div>
+                               
+                                <div class="col-md-2"></div>
+                        </div>
+                        <!--
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
                           <ol class="carousel-indicators">
                             <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
@@ -124,10 +217,8 @@
                               <div class="carousel-content">
                                 <div class="col-md-2"></div>
                                 <div class="col-md-8">
-                                  <h3>Occipital Lobe</h3>
-                                  <p>    (ventral posterior): Visual ProcessingIncludes
-                                      primary projection area (V1 or Striate) from LGN of Thalamus & some higher visual areas
-                                      <li>- Divided into separate pathways for Color, Detail, Motion, Depth, etc that move into other lobes</li></p>
+                                  <h3 ></h3>
+                                  <p></p>
                                 </div>
                                
                                 <div class="col-md-2"></div>
@@ -196,10 +287,7 @@
                                 <div class="col-md-2"></div>
                               </div>
                             </div>
-                            <!--
-                            <div class="carousel-item">
-                              <img class="d-block w-100" src="../img/regions.jpg" alt="Third slide">
-                            </div>-->
+                           
                           </div>
                           <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
                             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
@@ -209,7 +297,7 @@
                             <span class="carousel-control-next-icon" aria-hidden="true"></span>
                             <span class="sr-only">Next</span>
                           </a>
-                        </div>
+                        </div> -->
                     </div>
                   </div>
                 </div>
