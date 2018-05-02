@@ -21,6 +21,7 @@
         dataType: 'json',
         success: (data) => { //when my ajax succeeds 
           $('#hero_title').html(data[8]);
+	  $('#bread_title').html(data[8]);
       }});
 
       $.ajax({
@@ -49,9 +50,8 @@
         dataType: 'json',
         success: (data) => { //when my ajax succeeds 
           console.log('ajax success ', data[7]);
-          //$('#lead').html('this should show up ' + data[7][1]);
           $('#hero_title').html(data[7]);
-          //$('#lead').html('this should show the lead ' + data);
+	  $('#bread_title').html(data[7]);
 
       }
       });
@@ -82,6 +82,7 @@
         dataType: 'json',
         success: (data) => { //when my ajax succeeds 
           $('#hero_title').html(data[6]);
+	  $('#bread_title').html(data[6]);
       }});
 
       $.ajax({
@@ -106,6 +107,7 @@
         dataType: 'json',
         success: (data) => { //when my ajax succeeds 
           $('#hero_title').html(data[9]);
+	  $('#bread_title').html(data[9]);
       }});
 
       $.ajax({
@@ -136,14 +138,14 @@
     <ul class="navbar-nav text-center">
       <li class="nav-item active">
           <!-- start of breadcrumb --> 
-          <!--
+        
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="home.html">Home</a></li>
               <li class="breadcrumb-item"><a href="region.html">Regions</a></li>
-              <li class="breadcrumb-item active" aria-current="page">Cerebral Cortex</li>
+              <li class="breadcrumb-item active" aria-current="page" id="bread_title"></li>
             </ol>
-          </nav>--> <!-- end of breadcrumb -->
+          </nav> <!-- end of breadcrumb -->
         <!-- <a class="nav-link" href="profile.html">Regions Page <span class="sr-only">(current)</span></a>-->
       </li>
 
@@ -174,10 +176,10 @@
                       <h1 class="display-4" id="hero_title"></h1>
                       <hr>
                       <p id="lead"> </p>
-                      <button id="hindbrain">hindbrain</button>
-                      <button id="midbrain">midbrain</button>
-                      <button id="forebrain">forebrain</button>
-                      <button id="cerebral">cerebral cortex</button>
+                      <button id="hindbrain" type="button" class="btn btn-outline-dark">hindbrain</button>
+                      <button id="midbrain" type="button" class="btn btn-outline-dark">midbrain</button>
+                      <button id="forebrain" type="button" class="btn btn-outline-dark">forebrain</button>
+                      <button id="cerebral" type="button" class="btn btn-outline-dark">cerebral cortex</button>
                         </div>
                     </div>
                   </div>
