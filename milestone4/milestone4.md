@@ -34,6 +34,7 @@ The regions screen had the most change on our overall UI skeleton. Firstly, brea
 
 ## Conditions Screen
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone4/screenshots/conditions_detail.jpg)
+
 Above is the example screen of one of the conditions page, where it will display the text and images that correspond to the condition. 
 
 ## Tracking Screen
