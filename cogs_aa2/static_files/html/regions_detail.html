@@ -12,28 +12,28 @@
  $(document).ready(() => {
 
      $('#midbrain').click(() => {
-        const requestURL = 'options/' + 'midbrain';
-        console.log('making ajax request to: ', requestURL);
+        const requestURL = 'options/' + 'Midbrain';
 
+      /*
       $.ajax({
         url: 'options/',
         type: 'GET',
         dataType: 'json',
         success: (data) => { //when my ajax succeeds 
-          $('#hero_title').html(data[8]);
-	  $('#bread_title').html(data[8]);
-      }});
+          //$('#hero_title').html(data[8]);
+          //$('#bread_title').html(data[8]);
+      }}); */
 
       $.ajax({
         url: requestURL,
         type:'GET',
         dataType: 'json',
         success: (data) => {
+           $('#hero_title').html(data.region);
+           $('#bread_title').html(data.region);
 
            $('#lead').html(data.inst);
-
-           $('#detail_content').html(data.detail.tectum);
-           $('#detail_content').html(data.detail.tegmentum);
+           $('#detail_content').html(data.detail);
 
         }
 
@@ -42,82 +42,54 @@
 
 
      $('#hindbrain').click(() => {
-        const requestURL = 'options/' + 'hindbrain';
-
-      $.ajax({
-        url: 'options/',
-        type: 'GET',
-        dataType: 'json',
-        success: (data) => { //when my ajax succeeds 
-          console.log('ajax success ', data[7]);
-          $('#hero_title').html(data[7]);
-	  $('#bread_title').html(data[7]);
-
-      }
-      });
+        const requestURL = 'options/' + 'Hindbrain';
 
         $.ajax({
         url: requestURL,
         type:'GET',
         dataType: 'json',
         success: (data) => {
-
+           $('#hero_title').html(data.region);
+           $('#bread_title').html(data.region);
            $('#lead').html(data.inst);
+           $('#detail_content').html(data.detail);
 
-           $('#detail_content').html(data.detail.pons);
-           $('#detail_content').html(data.detail.medulla);
-           $('#detail_content').html(data.detail.cerebellum);
 
         }
       })
      }); // end of hindbrain
 
     $('#cerebral').click(() => {
-        const requestURL = 'options/' + 'cerebral cortex';
-        console.log('making ajax request to: ', requestURL);
-
-      $.ajax({
-        url: 'options/',
-        type: 'GET',
-        dataType: 'json',
-        success: (data) => { //when my ajax succeeds 
-          $('#hero_title').html(data[6]);
-	  $('#bread_title').html(data[6]);
-      }});
+        const requestURL = 'options/' + 'Cerebral Cortex';
 
       $.ajax({
         url: requestURL,
         type:'GET',
         dataType: 'json',
-        success: (data) => {
+        success: (data) => {  
+           $('#hero_title').html(data.region);
+           $('#bread_title').html(data.region);
 
            $('#lead').html(data.inst);
-           $('#detail_content').html(data.detail.occipital_lobe);
+           $('#detail_content').html(data.detail);
         }
 
       })
      }); //end of cerebral
 
     $('#forebrain').click(() => {
-        const requestURL = 'options/' + 'forebrain';
-
-      $.ajax({
-        url: 'options/',
-        type: 'GET',
-        dataType: 'json',
-        success: (data) => { //when my ajax succeeds 
-          $('#hero_title').html(data[9]);
-	  $('#bread_title').html(data[9]);
-      }});
+        const requestURL = 'options/' + 'Forebrain';
 
       $.ajax({
         url: requestURL,
         type:'GET',
         dataType: 'json',
         success: (data) => {
+           $('#hero_title').html(data.region);
+           $('#bread_title').html(data.region);
 
            $('#lead').html(data.inst);
-           $('#detail_content').html(data.detail.diencephalon);
+           $('#detail_content').html(data.detail);
         }
 
       })
@@ -128,7 +100,7 @@
 
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="home.html">Logo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -137,24 +109,23 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav text-center">
       <li class="nav-item active">
-          <!-- start of breadcrumb --> 
-        
+          <!-- start of breadcrumb -->    
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
               <li class="breadcrumb-item"><a href="home.html">Home</a></li>
-              <li class="breadcrumb-item"><a href="region.html">Regions</a></li>
+              <!-- <li class="breadcrumb-item"><a href="region.html">Regions</a></li>-->
               <li class="breadcrumb-item active" aria-current="page" id="bread_title"></li>
             </ol>
-          </nav> <!-- end of breadcrumb -->
-        <!-- <a class="nav-link" href="profile.html">Regions Page <span class="sr-only">(current)</span></a>-->
-      </li>
+          </nav<!-- end of breadcrumb -->
 
+      </li>
     </ul>
+
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </a>
+            Account 
+          </a> 
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="favorites.html">Favorite</a>
                 <a class="dropdown-item" href="profile.html">Profile</a>
@@ -163,6 +134,7 @@
           </div>
         </li>
     </ul>
+
   </div>
 </nav> <!-- end of head navbar-->
 
@@ -176,10 +148,10 @@
                       <h1 class="display-4" id="hero_title"></h1>
                       <hr>
                       <p id="lead"> </p>
-                      <button id="hindbrain" type="button" class="btn btn-outline-dark">hindbrain</button>
-                      <button id="midbrain" type="button" class="btn btn-outline-dark">midbrain</button>
-                      <button id="forebrain" type="button" class="btn btn-outline-dark">forebrain</button>
-                      <button id="cerebral" type="button" class="btn btn-outline-dark">cerebral cortex</button>
+                      <button type="button" class="btn btn-outline-dark" id="hindbrain">hindbrain</button>
+                      <button type="button" class="btn btn-outline-dark" id="midbrain">midbrain</button>
+                      <button type="button" class="btn btn-outline-dark" id="forebrain">forebrain</button>
+                      <button type="button" class="btn btn-outline-dark" id="cerebral">cerebral cortex</button>
                         </div>
                     </div>
                   </div>
@@ -192,16 +164,15 @@
         <section id = "body_container">
             <div class = "content">
                 <div class = "container-fluid">
-                    <div class = "row">
+                    <div class = "row" id="detail_div">
                         <br><br>
-                      <div id="detail_div">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
-                                  <h3 id="detail_title"></h3>
-                                  <p id="detail_content"></p>
-                                </div>
+                        <div class="col-md-2"></div>
+                        <div class="col-md-8">
+                            <h3 id="detail_title"></h3>
+                            <p id="detail_content"></p>
+                        </div>
                                
-                                <div class="col-md-2"></div>
+                        <div class="col-md-2"></div>
                         </div>
                         <!--
                         <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
