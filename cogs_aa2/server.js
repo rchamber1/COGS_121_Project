@@ -81,17 +81,6 @@
 	});
 
 
-			const val = conditionsFake[conditionToLookup];
-			console.log ('val: ', val);
-
-			if (val){
-				res.send(val);
-				//return res.redirect('/conditions_detail')
-			}
-			else {
-				res.send({});
-			}
-		});
 	/* finish conditions */
 
 
@@ -177,6 +166,7 @@ app.get('/users/:userid', (req, res) => {
 });
 
 
-	app.listen(3000, () => {
+
+app.listen(3000, () => {
 		console.log('Server started on http://localhost:3000/');
-	});
+});
