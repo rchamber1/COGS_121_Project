@@ -30,7 +30,7 @@ $(document).ready(() => {
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
-          $('#lead').html(data.subtitle);
+          $('#subtitle-content').html(data.subtitle);
           $('#description-content').html(data.description);
           $('#symptoms-content').html(data.symptom);
           $('#treatment-content').html(data.treatment);
@@ -56,11 +56,11 @@ $(document).ready(() => {
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
-          $('#lead').html(data.subtitle);
+          $('#subtitle-content').html(data.subtitle);
           $('#description-content').html(data.description);
           $('#symptoms-content').html(data.symptom);
           $('#treatment-content').html(data.treatment);
-          $('#compare-img').attr('src', data.image);
+          $('#compare-img').attr('src' + data.image);
         } else {
           $('#conditionName').html('Condition not available.');
         }
@@ -82,7 +82,7 @@ $(document).ready(() => {
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
-          $('#lead').html(data.subtitle);
+          $('#subtitle-content').html(data.subtitle);
           $('#description-content').html(data.description);
           $('#symptoms-content').html(data.symptom);
           $('#treatment-content').html(data.treatment);
@@ -108,7 +108,7 @@ $(document).ready(() => {
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
-          $('#lead').html(data.subtitle);
+          $('#subtitle-content').html(data.subtitle);
           $('#description-content').html(data.description);
           $('#symptoms-content').html(data.symptom);
           $('#treatment-content').html(data.treatment);
@@ -134,7 +134,7 @@ $(document).ready(() => {
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
-          $('#lead').html(data.subtitle);
+          $('#subtitle-content').html(data.subtitle);
           $('#description-content').html(data.description);
           $('#symptoms-content').html(data.symptom);
           $('#treatment-content').html(data.treatment);
@@ -160,7 +160,7 @@ $(document).ready(() => {
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
-          $('#lead').html(data.subtitle);
+          $('#subtitle-content').html(data.subtitle);
           $('#description-content').html(data.description);
           $('#symptoms-content').html(data.symptom);
           $('#treatment-content').html(data.treatment);
@@ -225,7 +225,7 @@ $(document).ready(() => {
                           <div class="container" id="top_jumbo">
                             <h1 class="display-4" id="conditionName">Parkinson's Disease</h1>
                             <hr>
-                            <p id="lead"> </p>
+                            <p id="subtitle-content"> </p>
                             <!-- for the conditions buttons -->
                             <button type="button" class="btn btn-outline-dark" id="Parkinsons"> Parkinson's </button>
                             <button type="button" class="btn btn-outline-dark" id="Alzheimers"> Alzheimer's </button>
@@ -242,10 +242,12 @@ $(document).ready(() => {
           <section id ="body_container">
             <div class="content">
               <div class="container">
+
+                      <!-- description -->
                      <div class="row">
                           <h4> Description </h4>
                       </div>
-                      
+
                       <div class="row">
                           <p id="description-content">A disorder of the central nervous system that affects movement, often including tremors.</p>
                       </div>
@@ -254,7 +256,7 @@ $(document).ready(() => {
                       <div class="row">
                           <h4> Symptoms </h4>
                       </div>
-                       
+
                       <div class="row">
                           <p id="symptoms-content">Parkinson's often starts with a tremor in one hand. Other symptoms are slow movement, stiffness, and loss of balance.</p>
                       </div>
@@ -282,7 +284,7 @@ $(document).ready(() => {
                     </div> <!-- end of content div -->
               </div>
           </div>
-        </section> <!-- end of body container --> 
+        </section> <!-- end of body container -->
 <!-- end of content -->
 
 <!-- example code --> <!--
