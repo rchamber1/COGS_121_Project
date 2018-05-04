@@ -25,7 +25,7 @@ body {
 }
 
 #detail_div {
-    width: 100%;
+    width: auto;
     height: 50%;
     padding: 50px;
     background-color: #A8A8A8;

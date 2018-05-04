@@ -5,12 +5,14 @@
 	/* import sqlite3 */
 	const sqlite3 = require('sqlite3');
 	const db = new sqlite3.Database('regions_detail.db');
+	const db1 = new sqlite3.Database('conditions.db');
 
 	/* serve the static files */
 	app.use(express.static('static_files/'));
-  app.use(express.static('static_files/html/')); /* from what i think i know we don't need this */
+  	app.use(express.static('static_files/html/')); /* from what i think i know we don't need this */
 
 	/* fake database for conditions */
+	/*
 		const conditionsFake = {
 					'Alzheimers': {
 						title: "Alzheimer\'s Disease",
@@ -65,7 +67,7 @@
 						treatment: "",
 						comparisonImg: ""
 				},
-		}
+		} */
 
 
   /* should be able to get rid of this too */
@@ -75,10 +77,40 @@
 
 			const allRegions = rows.map(e => e.region); //give everything from 'rows' and pull the 'region' text out from them
 			res.send(allRegions);
-			console.log(allRegions + 'the regions');
+			console.log(allRegions + ' the regions');
 		});
 
 		//res.send(allOptions);
+	});
+
+	app.get ('/conditions', (req,res) => {
+
+		db1.all('SELECT title FROM url_to_image', (err, rows) =>{
+			const allConditions = rows.map(e => e.title);
+			//console.log(rows);
+			res.send(allConditions);
+			//console.log(allConditions + 'the conditions');
+
+		});
+	});
+
+	app.get('/conditions/:name', (req, res) => {
+		const conditionsToLookup = req.params.name;
+
+		db1.all (
+			'SELECT * FROM url_to_image WHERE title=$title',
+			{
+				$title: conditionsToLookup, 
+			},
+			(err, rows) => {
+				console.log(rows);
+				if(rows.length > 0) {
+					res.send(rows[0]);
+				} else {
+					res.send({});
+				}
+			}
+		);
 	});
 
 	app.get('/options/:optionsid', (req, res) => {
@@ -105,6 +137,7 @@
 	});
 
 	/* get conditions */
+	/*
 		app.get ('/conditions/:name', (req, res) => {
 			const conditionToLookup = req.params.name;
 			console.log ('conditionToLookup: ', conditionToLookup);
@@ -119,7 +152,7 @@
 			else {
 				res.send({});
 			}
-		});
+		}); */
 	/* finish conditions */
 
 	app.listen(3000, () => {
