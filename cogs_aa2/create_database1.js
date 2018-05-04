@@ -29,11 +29,11 @@ db1.serialize(() => {
   db1.run("INSERT INTO url_to_image VALUES ('MS', 'Multiple Sclerosis', 'M.S.', 'A disease in which the immune system eats away at the protective covering of nerves.', 'symptoms of M.S.', 'treatment of M.S.','image of M.S.')");
 
 
-  console.log('successfully created the users_to_pets table in regions_detail.db1');
+  console.log('successfully created the url_to_image table in regions_detail.db1');
 
   // print them out to confirm their contents:
-  db1.each("SELECT title, subtitle, description, symptom, treatment, image FROM url_to_image", (err, row) => {
-      console.log(row.title + ": " + row.subtitle + ' - ' + row.symptom + row.treatment + ' - ' + row.image);
+  db1.each("SELECT url, title, subtitle, description, symptom, treatment, image FROM url_to_image", (err, row) => {
+      console.log(row.url + row.title + "& " + row.subtitle + ' - ' + row.symptom + row.treatment + ' - ' + row.image);
   });
 });
 

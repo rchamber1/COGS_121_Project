@@ -98,9 +98,9 @@
 		const conditionsToLookup = req.params.name;
 
 		db1.all (
-			'SELECT * FROM url_to_image WHERE title=$title',
+			'SELECT * FROM url_to_image WHERE url=$url',
 			{
-				$title: conditionsToLookup, 
+				$url: conditionsToLookup, 
 			},
 			(err, rows) => {
 				console.log(rows);
