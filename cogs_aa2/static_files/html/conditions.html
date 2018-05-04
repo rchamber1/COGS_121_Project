@@ -3,17 +3,182 @@
 <title>COGS 121</title>
 
 <script src="jquery-3.3.1.min.js"></script>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<script type="text/javascript">
- $(document).ready(() => {
-     ('#searchBtn')
- })
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
 </script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="../css/conditions.css"/>
+
+<!-- javascript for ajax code -->
+<script type="text/javascript">
+
+$(document).ready(() => {
+
+  /*click request for Alzheimers*/
+  $("#Alzheimers").click((req, res) => {
+    const requestURL = 'conditions/Alzheimers';
+    $.ajax({
+      url: requestURL,
+      type: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        console.log('received data: ', data);
+
+        if (data.title) {
+          console.log('show this as title: '+ data.title);
+          $('#conditionName').html(data.title);
+          $('#description-content').html(data.description);
+          $('#symptoms-content').html(data.symptoms);
+          $('#treatment-content').html(data.treatment);
+          $('#compare-img').attr('src', data.comparisonImg);
+        } else {
+          $('#conditionName').html('Condition not available.');
+        }
+      },
+    });
+  });
+  /*end of alzheimers ajax code*/
+
+  /*click request for Parkinsons*/
+  $("#Parkinsons").click((req, res) => {
+    const requestURL = 'conditions/Parkinsons';
+    $.ajax({
+      url: requestURL,
+      type: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        console.log('received data: ', data);
+
+        if (data.title) {
+          console.log('show this as title: '+ data.title);
+          $('#conditionName').html(data.title);
+          $('#description-content').html(data.description);
+          $('#symptoms-content').html(data.symptoms);
+          $('#treatment-content').html(data.treatment);
+          $('#compare-img').attr('src', data.comparisonImg);
+        } else {
+          $('#conditionName').html('Condition not available.');
+        }
+      },
+    });
+  });
+  /*end of parkinsons ajax code*/
+
+  /*click request for Seizure*/
+  $("#Seizure").click((req, res) => {
+    const requestURL = 'conditions/Seizure';
+    $.ajax({
+      url: requestURL,
+      type: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        console.log('received data: ', data);
+
+        if (data.title) {
+          console.log('show this as title: '+ data.title);
+          $('#conditionName').html(data.title);
+          $('#description-content').html(data.description);
+          $('#symptoms-content').html(data.symptoms);
+          $('#treatment-content').html(data.treatment);
+          $('#compare-img').attr('src', data.comparisonImg);
+        } else {
+          $('#conditionName').html('Condition not available.');
+        }
+      },
+    });
+  });
+  /*end of seizure ajax code*/
+
+  /*click request for Stroke*/
+  $("#Stroke").click((req, res) => {
+    const requestURL = 'conditions/Stroke';
+    $.ajax({
+      url: requestURL,
+      type: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        console.log('received data: ', data);
+
+        if (data.title) {
+          console.log('show this as title: '+ data.title);
+          $('#conditionName').html(data.title);
+          $('#description-content').html(data.description);
+          $('#symptoms-content').html(data.symptoms);
+          $('#treatment-content').html(data.treatment);
+          $('#compare-img').attr('src', data.comparisonImg);
+        } else {
+          $('#conditionName').html('Condition not available.');
+        }
+      },
+    });
+  });
+  /*end of stroke ajax code*/
+
+  /*click request for ALS*/
+  $("#Als").click((req, res) => {
+    const requestURL = 'conditions/ALS';
+    $.ajax({
+      url: requestURL,
+      type: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        console.log('received data: ', data);
+
+        if (data.title) {
+          console.log('show this as title: '+ data.title);
+          $('#conditionName').html(data.title);
+          $('#description-content').html(data.description);
+          $('#symptoms-content').html(data.symptoms);
+          $('#treatment-content').html(data.treatment);
+          $('#compare-img').attr('src', data.comparisonImg);
+        } else {
+          $('#conditionName').html('Condition not available.');
+        }
+      },
+    });
+  });
+  /*end of als ajax code*/
+
+  /*click request for Alzheimers*/
+  $("#Ms").click((req, res) => {
+    const requestURL = 'conditions/MS';
+    $.ajax({
+      url: requestURL,
+      type: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        console.log('received data: ', data);
+
+        if (data.title) {
+          console.log('show this as title: '+ data.title);
+          $('#conditionName').html(data.title);
+          $('#description-content').html(data.description);
+          $('#symptoms-content').html(data.symptoms);
+          $('#treatment-content').html(data.treatment);
+          $('#compare-img').attr('src', data.comparisonImg);
+        } else {
+          $('#conditionName').html('Condition not available.');
+        }
+      },
+    });
+  });
+  /*end of ms ajax code*/
+
+});
+
+</script>
+<!-- end of ajax code -->
 
 </head>
+
+<!-- body of html page -->
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+
+  <!-- start of head navbar -->
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="home.html">Logo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -24,93 +189,108 @@
       <li class="nav-item active">
         <a class="nav-link" href="profile.html">Conditions Page <span class="sr-only">(current)</span></a>
       </li>
-
     </ul>
+
     <ul class="navbar-nav ml-auto">
         <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              Account
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="favorites.html">Favorite</a>
-                <a class="dropdown-item" href="profile.html">Profile</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="index.html">Logout</a>
+            <a class="dropdown-item" href="favorites.html">Favorite</a>
+            <a class="dropdown-item" href="profile.html">Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="index.html">Logout</a>
           </div>
         </li>
     </ul>
   </div>
-</nav> <!-- end of head navbar-->
+</nav>
+<!-- end of head navbar-->
 
+<!-- start of page content -->
         <section id = "body_container">
             <div class = "content">
                 <div class = "container">
+
                     <div class = "row">
                         <br><br>
-                        <div class="col-lg col-md">
-                            <div class="card" style="width: 200px;">
-                              <img class="card-img-top" src="../img/conditions.jpg" alt="Card image cap">
-                              <div class="card-body">
-                                <a href="info.html"><p class="card-text">Seizure</p></a>
-                              </div>
-                            </div>
+                        <!-- place holder for name of condition -->
+                        <h1 class="display-4" id="conditionName"> Parkinson's Disease </h1>
+                        <br><br><br>
+                    </div> <!-- end of title row-->
+
+                    <br><br>
+
+                        <!-- div for the conditions buttons -->
+                        <div class="div-conditions-buttons row">
+                          <br>
+                          <div class="col"><button id="Alzheimers"> Alzheimer's </button></div>
+                          <div class="col"><button id="Parkinsons"> Parkinson's </button></div>
+                          <div class="col"><button id="Seizure"> Seizure </button></div>
+                          <div class="col"><button id="Stroke"> Stroke </button></div>
+                          <div class="col"><button id="Als"> A.L.S. </button></div>
+                          <div class="col"><button id="Ms"> M.S. </button></div>
                         </div>
 
-                        <div class="col-lg col-md">
-                            <div class="card" style="width: 200px;">
-                              <img class="card-img-top" src="../img/conditions.jpg" alt="Card image cap">
-                              <div class="card-body">
-                                <a href="info.html"><p class="card-text">Stroke</p></a>
-                              </div>
-                            </div>
-                        </div>
-                    </div>
-<br>
-                    <div class = "row">
                         <br><br>
-                        <div class="col-lg col-md">
-                            <div class="card" style="width: 200px;">
-                              <img class="card-img-top" src="../img/conditions.jpg" alt="Card image cap">
-                              <div class="card-body">
-                                <a href="info.html"><p class="card-text">Alzheimer's</p></a>
-                              </div>
-                            </div>
+
+                        <!-- description -->
+                        <div class="row">
+                          <h4> Description </h4>
+                        </div>
+                        <div class="row">
+                          <p id="description-content">A disorder of the central nervous system that affects movement, often including tremors.</p>
                         </div>
 
-                        <div class="col-lg col-md">
-                            <div class="card" style="width: 200px;">
-                              <img class="card-img-top" src="../img/conditions.jpg" alt="Card image cap">
-                              <div class="card-body">
-                                <a href="info.html"><p class="card-text">Parkinson's</p></a>
-                              </div>
-                            </div>
+                        <!-- symptoms -->
+                        <div class="row">
+                          <h4> Symptoms </h4>
                         </div>
-                    </div>
-<br>
-                    <div class = "row">
-                        <br><br>
-                        <div class="col-lg col-md">
-                            <div class="card" style="width: 200px;">
-                              <img class="card-img-top" src="../img/conditions.jpg" alt="Card image cap">
-                              <div class="card-body">
-                                <a href="info.html"><p class="card-text">M.S.</p></a>
-                              </div>
-                            </div>
+                        <div class="row"
+                          <p id="symptoms-content">Parkinson's often starts with a tremor in one hand. Other symptoms are slow movement, stiffness, and loss of balance.</p>
+                        </div>
+                        <br>
+
+                        <!-- treatment -->
+                        <div class="row">
+                          <h4> Treatment </h4>
+                        </div>
+                        <div class="row"
+                          <p id="treatment-content">There are many medications available to treat the Parkinson’s symptoms, although none yet
+                            that reverse the effects of the disease. It is common for people with PD to take a variety of
+                            these medications — all at different doses and at different times of day — to manage symptoms.</p>
+                        </div>
+                        <br>
+
+                        <!-- comparison image -->
+                        <div class="row">
+                          <h4> Normal vs Affected Brain </h4>
+                        </div>
+                        <div class="row">
+                          <img id="compare-img" class="card-img-top" src="../img/parkinsonsComp.jpg" alt="Card image cap">
                         </div>
 
-                        <div class="col-lg col-md">
-                            <div class="card" style="width: 200px;">
-                              <img class="card-img-top" src="../img/conditions.jpg" alt="Card image cap">
-                              <div class="card-body">
-                                <a href="info.html"><p class="card-text">A.L.S</p></a>
-                              </div>
-                            </div>
-                        </div>
                     </div>
                 </div>
             </div>
         </section>
+<!-- end of content -->
+
+<!-- example code --> <!--
+<div class="col-lg col-md">
+    <div class="card" style="width: 200px;">
+      <img class="card-img-top" src="../img/conditions.jpg" alt="Card image cap">
+      <div class="card-body">
+        <a href="info.html"><p class="card-text">A.L.S</p></a>
+      </div>
+    </div>
+</div> -->
+<!-- example code ends -->
+
 <br><br>
+
+<!-- start of code for the back button -->
         <section id = "body_container">
             <div class = "content">
                 <div class = "container">
@@ -120,17 +300,15 @@
                         <div class= "col-lg-8">
                             <br><br>
 
-                            <button id="backBtn" ><a href="info.html">BACK</a></button>
+                            <button id="backBtn" ><a href="conditions.html">BACK</a></button>
                         </div>
                         <div class="col-lg-2"></div>
                     </div>
                 </div>
             </div>
         </section>
+<!-- end code for back button -->
 
-  </div>
-</div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </body>
