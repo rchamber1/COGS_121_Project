@@ -1,18 +1,112 @@
-<html>
+<!DOCTYPE html>
 <head>
 <title>COGS 121</title>
 
 <script src="jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-<script type="text/javascript">
- $(document).ready(() => {
-     ('#searchBtn')
- })
+
+
+ <script type="text/javascript"> //copied from account.html 
+// jQuery convention for running when the document has been fully loaded:
+$(document).ready(() => {
+  
+  $('#submit_btn').click(() => {
+    //const userNameInput = $('#exampleInputEmail1').val();
+    var userNameInput = document.getElementById("exampleInputEmail1").value;
+    var userPassInput = document.getElementById("exampleInputPassword1").value;
+    console.log('USERNAME: ' + userNameInput + ' PASSWORD: ' + userPassInput);
+      
+    const urlInput = 'users/' + userNameInput;
+
+    $.ajax({
+        url: urlInput,
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => {
+            //user exists
+            if(data.password != userPassInput) {
+                //incorrect password
+                console.log("WRONG password");
+            }
+            else {
+                //direct the user to homepage
+                console.log("CORRECT password");
+                window.location.replace("home.html");
+            }
+        },
+    });
+  });
+
+  $('#readButton').click(() => {
+    const requestURL = 'users/' + $('#nameBox').val();
+    console.log('making ajax request to:', requestURL);
+    // From: http://learn.jquery.com/ajax/jquery-ajax-methods/
+    // Using the core $.ajax() method since it's the most flexible.
+    // ($.get() and $.getJSON() are nicer convenience functions)
+    $.ajax({
+      // all URLs are relative to http://localhost:3000/
+      url: requestURL,
+      type: 'GET',
+      dataType : 'json', // this URL returns data in JSON format
+      success: (data) => {
+        console.log('You received some data!', data);
+        if (data.password) {
+          $('#status').html('Successfully fetched data at URL: ' + requestURL);
+          $('#jobDiv').html('My job is ' + data.password);
+        } else {
+          $('#status').html('Error: could not find user at URL: ' + requestURL);
+          // clear the display
+          $('#jobDiv').html('');
+        }
+      },
+    });
+  });
+
+  $('#allUsersButton').click(() => {
+    $.ajax({
+      url: 'users',
+      type: 'GET',
+      dataType : 'json',
+      success: (data) => {
+        console.log('You received some data!', data);
+        $('#status').html('All users: ' + data);
+      },
+    });
+  });
+  }); //end of account.html
+
 </script>
 
 </head>
 <body>
+
+
+
+
+
+
+  <h1>Welcome to PetsApp!</h1>
+
+  Name: <input id="nameBox" type="text" size="20"/>
+  <button id="readButton">Get profile</button>
+  <button id="allUsersButton">Get all usernames</button>
+
+  <div id="jobDiv"></div>
+  <img id="petImage"></img>
+
+  <!--
+  <hr/>
+  Name: <input id="insertNameBox" type="text" size="20"/>
+  Job: <input id="insertJobBox" type="text" size="20"/>
+  Pet: <input id="insertPetBox" type="text" size="20"/>
+  <button id="insertButton">Insert into database</button>
+  -->
+  <hr/>
+  <div id="status"></div>
+
+
+
 
 <div class = "content-wrap">
     <div class = "content">
@@ -47,7 +141,7 @@
                                     <label for="exampleInputPassword1">Password</label>
                                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                                 </div>
-                                <button id="submit_btn" type="submit" class="btn btn-outline-primary" ><a href = "home.html">Submit</a></button>
+                                <button id="submit_btn" type="submit" class="btn btn-outline-primary" >Submit</button>
                             </form>
                         </div>
                         <div class="col-lg-4"></div>
@@ -63,7 +157,7 @@
                         </div>
                         <div class="col-lg-2">
                             <br><br>
-                            <button id = "fbBtn" type="button" class="btn btn-outline-info"><a href = "home.html">Facebook</a></button>
+                            <button id = "fbBtn" type="button" class="btn btn-outline-info">Facebook</button>
                         </div>
                         <div class="col-lg-4"></div>
 
@@ -75,8 +169,5 @@
 
   </div>
 </div>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
 </body>
 </html>

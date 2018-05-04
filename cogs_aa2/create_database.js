@@ -12,6 +12,7 @@
 
 const sqlite3 = require('sqlite3');
 const db = new sqlite3.Database('regions_detail.db');
+const userdb = new sqlite3.Database('pets.db');
 
 // run each database statement *serially* one after another
 // (if you don't do this, then all statements will run in parallel,
@@ -35,3 +36,27 @@ db.serialize(() => {
 });
 
 db.close();
+
+
+// run each database statement *serially* one after another
+// (if you don't do this, then all statements will run in parallel,
+//  which we don't want)
+/*
+userdb.serialize(() => {
+  // create a new database table:
+  userdb.run("CREATE TABLE users_to_pets (name TEXT, job TEXT, pet TEXT)");
+
+  // insert 3 rows of data:
+  userdb.run("INSERT INTO users_to_pets VALUES ('Philip', 'professor', 'cat.jpg')");
+  userdb.run("INSERT INTO users_to_pets VALUES ('John', 'student', 'dog.jpg')");
+  userdb.run("INSERT INTO users_to_pets VALUES ('Carol', 'engineer', 'bear.jpg')");
+
+  console.log('successfully created the users_to_pets table in pets.db');
+
+  // print them out to confirm their contents:
+  userdb.each("SELECT name, job, pet FROM users_to_pets", (err, row) => {
+      console.log(row.name + ": " + row.job + ' - ' + row.pet);
+  });
+});
+
+userdb.close(); */
