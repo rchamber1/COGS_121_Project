@@ -20,5 +20,10 @@
 
 ### UI Improvements... 
 ## Login Screen
-![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone4/screenshots/Screenshot%202018-05-02%2004.39.45.png)
-Nothing much was improved on our home screen, just a few changes on the buttons and the forms' proportion on the page. 
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone5/screenshot/Screenshot%202018-05-16%2000.49.12.png)
+Our home page had the major changes with the simple text button being changed to infographic buttons. We chose a color scheme, so the layout overall had changes in colors.  
+
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone5/screenshot/Screenshot%202018-05-16%2000.49.28.png)
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone5/screenshot/Screenshot%202018-05-16%2000.49.03.png)
+Our conditions and regions page had some changes in regards to fonts, colors, but we are still looking for the best layout. 
+
