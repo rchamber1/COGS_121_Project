@@ -35,3 +35,12 @@ Our conditions and regions page had some changes in regards to fonts, colors, bu
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone5/screenshot/screencapture-localhost-3000-tracking-html-2018-05-16-05_47_46.png)
 This tracking page has been added to the web app and provides the biggest change to the UI skeleton. This page contains a table with the the current logged in user's total tracked study time. The table has Ajax implemented and switches between the total amount of time the user has spent on a page and the average time the user has spent per page. Switching between the two will give the user a better understanding of how they spend their time on each of the pages. The Ajax updates are made when the corresponding buttons above the title are clicked. The goal of this page is to give the user feedback/stats on their study habits on each of the brain structures and conditions.
 
+### User Actions
+
+## Regions and Condtions Pages
+The user should be able to navigate to each of these pages and alter between the various available options. Under regions, the user may choose to select Hindbrain, Midbrain, Forebrain, or Cortex options, while under conditions, the user may select from a variety including some among seizure, stroke, Parkinson's, Alzheimer's, ALS, and MS.
+
+## Tracking Page
+The user should be able to naviagete to the page to track their progress. The two available options are statistics on average page visit time and statistics on total page visit time for each of the available pages. These statistics can be used to determine what information has been studied the most and which pages need to be studied more. 
+
+
