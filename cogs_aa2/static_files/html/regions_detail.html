@@ -6,22 +6,74 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet"> <!-- stylesheet css--> 
-
+<!--<script src="../js/regions.js"></script>-->
 <script type="text/javascript">
+
+  let timerGoing = false;
+  let time = 0;
+  let prevPage = '';
+  let totalTime = 0;
+
+  function handleTime(currentPage){
+
+    let currentTime = Date.now();
+    if(timerGoing){
+      totalTime = (currentTime - time)/1000;
+      console.log(totalTime);
+      console.log(prevPage);
+      let pageTimeRow = prevPage + 'Time';
+      let pageVisitsRow = prevPage + 'Visits';
+
+      //userdb.run("UPDATE users_to_pets SET " + pageTimeRow + " = " + totalTime + 
+      //" WHERE name = 'Ryan'");
+
+      ////
+
+      $.ajax({
+        // all URLs are relative to http://localhost:3000/
+        url: 'users/Amparo',
+        type: 'POST', // <-- this is POST, not GET
+        data: {
+                prevPage: prevPage,
+                totalTime: totalTime,
+              },
+        success: (data) => {
+          $('#status').html(data.message);
+        }
+      });
+
+
+
+
+      ////
+
+      // Get existing dtabase time from prevPage
+      // Add totalTime to that
+      // Push new value to database
+      if(prevPage != currentPage){
+      // Add one to prevPage page visits
+      }
+      
+    }else{
+      timerGoing = true;
+    }
+
+    time = currentTime;
+    prevPage = currentPage;
+
+  };
+
  $(document).ready(() => {
 
+    timerGoing = false;
+
      $('#midbrain').click(() => {
+        
+        handleTime('midbrain');
+
         const requestURL = 'options/' + 'Midbrain';
 
-      /*
-      $.ajax({
-        url: 'options/',
-        type: 'GET',
-        dataType: 'json',
-        success: (data) => { //when my ajax succeeds 
-          //$('#hero_title').html(data[8]);
-          //$('#bread_title').html(data[8]);
-      }}); */
+      
 
       $.ajax({
         url: requestURL,
@@ -37,10 +89,15 @@
         }
 
       })
+
+
      }); //end of midbrain
 
 
      $('#hindbrain').click(() => {
+
+        handleTime('hindbrain');
+
         const requestURL = 'options/' + 'Hindbrain';
 
         $.ajax({
@@ -59,6 +116,9 @@
      }); // end of hindbrain
 
     $('#cerebral').click(() => {
+
+        handleTime('cerebral');
+
         const requestURL = 'options/' + 'Cerebral Cortex';
 
       $.ajax({
@@ -77,6 +137,9 @@
      }); //end of cerebral
 
     $('#forebrain').click(() => {
+
+        handleTime('forebrain');
+
         const requestURL = 'options/' + 'Forebrain';
 
       $.ajax({
@@ -95,7 +158,7 @@
      }); //end of forebrain
  });
 
-</script>
+</script> 
 
 </head>
 <body>

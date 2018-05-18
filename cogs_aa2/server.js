@@ -115,6 +115,8 @@ app.get('/users', (req, res) => {
 // use this library to parse HTTP POST requests
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true})); // hook up with your app
+
+//MAKING POSTS
 app.post('/users', (req, res) => {
   console.log(req.body);
 
@@ -134,6 +136,98 @@ app.post('/users', (req, res) => {
       }
     }
   );
+});
+
+
+
+
+app.post('/users/Amparo', (req, res) => {
+
+   let sectionBrain = req.body.prevPage;
+   let timeBrain = req.body.totalTime; 
+   console.log('this is sectionBrain '+ sectionBrain);
+   console.log('thie is timeBrain '+ timeBrain);
+	
+  
+  	if (sectionBrain == 'hindbrain') {
+	userdb.run( "UPDATE users_to_pets SET hindbrain = $guo WHERE name = 'Amparo'",
+		    // parameters to SQL query:
+		    {
+		      //$whatever: sectionBrain,
+		      $guo: timeBrain
+
+		    },
+	
+    // callback function to run when the query finishes:
+    (err) => {
+      if (err) {
+        res.send({message: 'error in app.post(/users)'});
+      } else {
+        res.send({message: 'successfully run app.post(/users)'});
+      }
+    }
+  ); 
+} else if(sectionBrain == 'midbrain') {
+	userdb.run( "UPDATE users_to_pets SET midbrain = $guo WHERE name = 'Amparo'",
+		    // parameters to SQL query:
+		    {
+		      
+		      //$whatever: sectionBrain,
+		      $guo: timeBrain 
+
+		    },
+	
+    // callback function to run when the query finishes:
+    (err) => {
+      if (err) {
+        res.send({message: 'error in app.post(/users)'});
+      } else {
+        res.send({message: 'successfully run app.post(/users)'});
+      }
+    }
+  );
+} else if(sectionBrain == 'forebrain'){
+	userdb.run( "UPDATE users_to_pets SET forebrain = $guo WHERE name = 'Amparo'",
+		    // parameters to SQL query:
+		    {
+		      
+		      //$whatever: sectionBrain,
+		      $guo: timeBrain
+
+		    },
+	
+    // callback function to run when the query finishes:
+    (err) => {
+      if (err) {
+        res.send({message: 'error in app.post(/users)'});
+      } else {
+        res.send({message: 'successfully run app.post(/users)'});
+      }
+    }
+  );
+} else if(sectionBrain == 'cerebral'){
+	userdb.run( "UPDATE users_to_pets SET cerebral = $guo WHERE name = 'Amparo'",
+		    // parameters to SQL query:
+		    {
+		      
+		      //$whatever: sectionBrain,
+		      $guo: timeBrain
+
+		    },
+	
+    // callback function to run when the query finishes:
+    (err) => {
+      if (err) {
+        res.send({message: 'error in app.post(/users)'});
+      } else {
+        res.send({message: 'successfully run app.post(/users)'});
+      }
+    }
+  );
+} else {
+
+}
+
 });
 
 
@@ -165,6 +259,7 @@ app.get('/users/:userid', (req, res) => {
   );
 });
 
+//userdb.run("UPDATE users_to_pets SET password = 'newPassword' WHERE name = 'Ryan'");
 
 
 app.listen(3000, () => {

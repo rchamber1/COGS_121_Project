@@ -19,18 +19,23 @@ const userdb = new sqlite3.Database('pets.db');
 //  which we don't want)
 userdb.serialize(() => {
   // create a new database table:
-  userdb.run("CREATE TABLE users_to_pets (name TEXT, password TEXT)");
+  userdb.run("CREATE TABLE users_to_pets (name TEXT, password TEXT, " + 
+    "hindbrain INTEGER, hindbrainVisits INTEGER, midbrain INTEGER, midbrainVisits INTEGER, " +
+    "forebrain INTEGER, forebrainVisits INTEGER, cerebral INTEGER, cerebralVisits INTEGER, " +
+    "alzheimers INTEGER, alzheimersVisits INTEGER, parkinsons INTEGER, parkinsonsVisits INTEGER, " +
+    "seizure INTEGER, seizureVisits INTEGER, stroke INTEGER, strokeVisits INTEGER, ms INTEGER, " +
+    "msVisits INTEGER, als INTEGER, alsVisits INTEGER)");
 
   // insert 3 rows of data:
-  userdb.run("INSERT INTO users_to_pets VALUES ('Amparo', 'dance')");
-  userdb.run("INSERT INTO users_to_pets VALUES ('Ellisa', 'dance')");
-  userdb.run("INSERT INTO users_to_pets VALUES ('Ryan', 'dance')");
+  userdb.run("INSERT INTO users_to_pets VALUES ('Amparo', 'dance', 0, 0 , 0 , 0 , 0 , 0, 0, 0, 0, 0 , 0 , 0, 0 ,0 ,0 ,0 , 0, 0, 0, 0)");
+  userdb.run("INSERT INTO users_to_pets VALUES ('Ellisa', 'dance', 0, 0 , 0 , 0 , 0 , 0, 0, 0, 0, 0 , 0 , 0, 0 ,0 ,0 ,0 , 0, 0, 0, 0)");
+  userdb.run("INSERT INTO users_to_pets VALUES ('Ryan', 'dance', 0, 0 , 0 , 0 , 0 , 0, 0, 0, 0, 0 , 0 , 0, 0 ,0 ,0 ,0 , 0, 0, 0, 0)");
 
   console.log('successfully created the users_to_pets table in pets.db');
 
   // print them out to confirm their contents:
   userdb.each("SELECT name, password FROM users_to_pets", (err, row) => {
-      console.log(row.name + ": " + row.password );
+      console.log(row.name + ": " + row.password + " " + row.hindbrain + " " + row.midbrain + " " + row.forebrain + " " + row.cerebral );
   });
 });
 
