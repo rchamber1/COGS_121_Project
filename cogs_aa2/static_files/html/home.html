@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>COGS 121</title>
+<title>NeuroViz</title>
 
 <script src="jquery-3.3.1.min.js"></script>
 <script
@@ -8,8 +8,11 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous">
 </script>
+<link rel="stylesheet" href="../css/style.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link rel="stylesheet" href="../css/home_edit.css"/>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
 <!--functionality javascript code-->
 <script type="text/javascript">
 
@@ -52,7 +55,7 @@
 
 <!-- body of html page starts -->
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "navbar_color">
   <a class="navbar-brand" href="home.html">Logo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -91,7 +94,7 @@
                 <div class = "row">
                     <div class = "col-lg-4"></div>
                     <div class = "col-lg-4"></div>
-                    <div class = "col-lg-4">
+                    <div class = "col-lg-4" id= "search_form">
                         <form class="form-inline my-2 my-lg-0">
                             <br><br>
                           <input class="form-control ml-sm-2 " type="search" placeholder="Search" aria-label="Search" id="homeSearch">
@@ -102,46 +105,54 @@
             </div>
         </section>
 
-        <h1> Brain areas and conditions related</h1>
-        <section id = "mid_home">
+       
+        <section id = "top_row">
             <div class = "content">
                 <div class = "container">
                     <div class = "row">
                         <br><br>
-                        <div class="col-lg-2"></div>
-                        <div class= "col-lg-8">
-                            <br><br>
-                                <a href="brainmodel.html"><img src="../img/brain2.jpg" class ="img-fluid"></a>
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+
+                        <div class= "col-lg-4 col-md-4 col-sm-4">
+                           <a href="regions_detail.html"><img src="../img/region_btn.png" class ="img-fluid"></a>
+                           <figcaption class="figure-caption text-center">Brain Regions</figcaption>
                         </div>
-                        <div class="col-lg-2"></div>
+
+                        <div class= "col-lg-4 col-md-4 col-sm-4">
+                           <a href="conditions.html"><img src="../img/condition_btn.png" class ="img-fluid"></a>
+                           <figcaption class="figure-caption text-center">Conditions</figcaption>
+                        </div>
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+
                     </div>
                 </div>
             </div>
         </section>
 
-        <section id = "bottom_home">
+        <section id = "bottom_row">
             <div class = "content">
                 <div class = "container">
                     <div class = "row">
-                        <div class="col-md-3"></div>
-                        <div class= "col-md-2">
-                            <br><br>
-                            <a href="regions_detail.html"><button type="button" class="btn btn-outline-info" id="regionsBtn">Regions</button></a>
+                        <br><br>
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
 
+                        <div class= "col-lg-4 col-md-4 col-sm-4">
+                           <a href="tracking.html"><img src="../img/track_btn.png" class ="img-fluid"></a>
+                           <figcaption class="figure-caption text-center">Tracking</figcaption>
                         </div>
-                        <div class= "col-md-2">
-                            <br><br>
-                            <a href="conditions.html"><button type="button" class="btn btn-outline-info" id="conditionsBtn">Condition</button></a>
+
+                        <div class= "col-lg-4 col-md-4 col-sm-4">
+                           <a href="brainmodel.html"><img src="../img/brainimg_btn.png" class ="img-fluid"></a>
+                           <figcaption class="figure-caption text-center">Brain Image</figcaption>
                         </div>
-                        <div class= "col-md-2">
-                            <br><br>
-                            <a href="tracking.html"><button type="button" class="btn btn-outline-info" id="conditionsBtn">Tracking</button></a>
-                        </div>
-                        <div class="col-md-3"></div>
+                        <div class="col-lg-2 col-md-2 col-sm-2"></div>
+                        
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
+    
+     </div>
 
   </div>
 </div>

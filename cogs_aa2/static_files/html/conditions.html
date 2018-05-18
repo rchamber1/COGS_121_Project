@@ -1,6 +1,6 @@
 <html>
 <head>
-<title>COGS 121</title>
+<title>NeuroViz</title>
 
 <script src="jquery-3.3.1.min.js"></script>
 <script
@@ -8,6 +8,7 @@
   integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
   crossorigin="anonymous">
 </script>
+<link rel="stylesheet" href="../css/style.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <link rel="stylesheet" href="../css/style.css"/>
@@ -218,6 +219,18 @@ $(document).ready(() => {
         <section id = "top_container">
             <div class = "content">
                 <div class = "container">
+                    <div class = "row" id="region_btns">
+                  <div class = "col-lg-3"></div>
+                  <div class = "col-lg-6">
+                            <button type="button" class="btn btn-outline-dark" id="Parkinsons"> Parkinson's </button>
+                            <button type="button" class="btn btn-outline-dark" id="Alzheimers"> Alzheimer's </button>
+                            <button type="button" class="btn btn-outline-dark" id="Seizure"> Seizure </button>
+                            <button type="button" class="btn btn-outline-dark" id="Stroke"> Stroke </button>
+                            <button type="button" class="btn btn-outline-dark" id="Als"> A.L.S. </button>
+                            <button type="button" class="btn btn-outline-dark" id="Ms"> M.S. </button>
+                  </div>
+                  <div class = "col-lg-3"></div>
+                </div>
 
                     <div class = "row">
                       <div class="col-md">
@@ -227,12 +240,13 @@ $(document).ready(() => {
                             <hr>
                             <p id="subtitle-content"> </p>
                             <!-- for the conditions buttons -->
+                            <!--
                             <button type="button" class="btn btn-outline-dark" id="Parkinsons"> Parkinson's </button>
                             <button type="button" class="btn btn-outline-dark" id="Alzheimers"> Alzheimer's </button>
                             <button type="button" class="btn btn-outline-dark" id="Seizure"> Seizure </button>
                             <button type="button" class="btn btn-outline-dark" id="Stroke"> Stroke </button>
                             <button type="button" class="btn btn-outline-dark" id="Als"> A.L.S. </button>
-                            <button type="button" class="btn btn-outline-dark" id="Ms"> M.S. </button>
+                            <button type="button" class="btn btn-outline-dark" id="Ms"> M.S. </button> --> 
                               </div>
                           </div>
                       </div>

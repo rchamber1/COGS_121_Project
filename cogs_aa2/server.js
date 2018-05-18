@@ -7,6 +7,7 @@
 	const db = new sqlite3.Database('regions_detail.db');
 	const userdb = new sqlite3.Database('pets.db');
 	const db1 = new sqlite3.Database('conditions.db');
+	const db2 = new sqlite3.Database('tracking.db');
 
 	/* serve the static files */
 	app.use(express.static('static_files/'));
@@ -82,6 +83,41 @@
 
 
 	/* finish conditions */
+/* tracking page */
+	app.get ('/tracking', (req,res) => {
+
+		db2.all('SELECT type FROM track_time', (err, rows) => {
+			const trackingData = rows.map(e => e.type);
+			console.log(rows);
+			res.send(trackingData);
+
+			//console.log(trackingData + 'the conditions');
+			//res.send(trackingData);
+		});
+	});
+
+	app.get('/tracking/:time', (req, res) => {
+		const timeToLookup = req.params.time;
+		console.log(req.params.time);
+		console.log(timeToLookup);
+
+		db2.all (
+			'SELECT * FROM track_time WHERE type=$type',
+			{
+				$type: timeToLookup
+			},
+			(err, rows) => {
+				console.log(rows);
+				if(rows.length > 0) {
+					res.send(rows[0]);
+				} else {
+					res.send({});
+				}
+			}
+		);
+
+	});
+
 
 
 
@@ -121,11 +157,12 @@ app.post('/users', (req, res) => {
   console.log(req.body);
 
   userdb.run(
-    'INSERT INTO users_to_pets VALUES ($name, $password )',
+	'INSERT INTO users_to_pets VALUES ($name, $password)',
     // parameters to SQL query:
     {
       $name: req.body.name,
       $password: req.body.password,
+
     },
     // callback function to run when the query finishes:
     (err) => {

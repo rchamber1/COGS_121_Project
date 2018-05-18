@@ -1,12 +1,16 @@
 <!DOCTYPE html>
 <head>
-<title>COGS 121</title>
+<title>NeuroViz</title>
+
 
 <script src="jquery-3.3.1.min.js"></script>
+
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
-
-
+<link rel="stylesheet" href="../css/login_style.css"/>
+<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
  <script type="text/javascript"> //copied from account.html 
 // jQuery convention for running when the document has been fully loaded:
 $(document).ready(() => {
@@ -81,41 +85,13 @@ $(document).ready(() => {
 </head>
 <body>
 
-
-
-
-
-
-  
-  <button id="readButton">Get profile</button>
-  <button id="allUsersButton">Get all usernames</button>
-
-  <div id="jobDiv"></div>
-  <img id="petImage"></img>
-
-  <!--
-  <hr/>
-  Name: <input id="insertNameBox" type="text" size="20"/>
-  Job: <input id="insertJobBox" type="text" size="20"/>
-  Pet: <input id="insertPetBox" type="text" size="20"/>
-  <button id="insertButton">Insert into database</button>
-  -->
-  <hr/>
-  <div id="status"></div>
-
-
-
-
-<div class = "content-wrap">
-    <div class = "content">
-<br><br>
-
+  <!-- HOME CONTENT -->
         <section id = "top_login">
             <div class = "container">
                 <div class = "row">
-                    <div class = "col-lg-4"></div>
-                    <div class = "col-lg-4"><h4>logo image placeholder</h4></div>
-                    <div class = "col-lg-4"></div>
+                    <div class = "col-lg-8"></div>
+                    <div class = "col-lg-4"><img src="../img/logo_temp.png" width="70%;"></div>
+
                 </div>
             </div>
         </section>
@@ -126,46 +102,49 @@ $(document).ready(() => {
 
                     <div class = "row">
                         <br><br>
-                        <div class="col-lg-4"></div>
-                        <div class= "col-lg-4">
+                        <div class="col-lg-8"></div>
+                        <div class= "col-lg-4" id="login_box">
                             <br><br>
                             <form>
                                 <div class="form-group">
-                                    <label for="exampleInputEmail1">Email address</label>
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+                                    <!-- <label for="exampleInputEmail1">Email address</label> -->
+                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter e-mail">
                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
                                 <div class="form-group" id="pw_div">
-                                    <label for="exampleInputPassword1">Password</label>
+                                    <!-- <label for="exampleInputPassword1">Password</label> -->
                                     <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
                                 </div>
                                 <button id="submit_btn" type="submit" class="btn btn-outline-primary" >Submit</button>
                             </form>
                         </div>
-                        <div class="col-lg-4"></div>
 
-                    </div> <!-- end of row-->
+                    </div> 
 
                     <div class = "row">
                         <br><br>
-                        <div class="col-lg-4"></div>
+                        <div class="col-lg-8"></div>
                         <div class= "col-lg-2">
                             <br><br>
-                            <button id ="signupBtn" type="button" class="btn btn-outline-danger"><a href = "account.html">Signup</a></button>
+                            <button id ="signup_btn" type="button" class="btn btn-outline-danger"><a href = "account.html">Signup</a></button>
                         </div>
                         <div class="col-lg-2">
                             <br><br>
-                            <button id = "fbBtn" type="button" class="btn btn-outline-info">Facebook</button>
+                            <button id = "fb_btn" type="button" class="btn btn-outline-info">Facebook</button>
                         </div>
-                        <div class="col-lg-4"></div>
 
-                    </div> <!-- end of row-->
-
+                    </div> 
                 </div>
             </div>
         </section>
+<br><br><br><br><br><br><br><br><br><br>
+  <button id="readButton">Get profile</button>
+  <button id="allUsersButton">Get all usernames</button>
 
-  </div>
-</div>
+  <div id="jobDiv"></div>
+  <img id="petImage"></img>
+  <hr/>
+  <div id="status"></div>
+
 </body>
 </html>

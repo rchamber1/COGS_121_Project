@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<head>
+  <title>NeuroViz</title>
+  <script src="jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="../css/style.css"/>
+
+  <script type="text/javascript">
+
+    $(document).ready(() => {
+
+        /*click on total time button*/
+        $('#totalTime').click(() => {
+          const requestURL = 'tracking/totalTime';
+          $.ajax({
+            url: requestURL,
+            type: 'GET',
+            dataType: 'json',
+            success: (data) => {
+              console.log("imma fuck this up!!");
+
+              console.log ('received data: ', data);
+              if (data.type) {
+                $('#timeTitle').html('Total Time Spent');
+                $('#visits1').html(data.visits1);
+                $('#visits2').html(data.visits2);
+                $('#visits3').html(data.visits3);
+                $('#visits4').html(data.visits4);
+                $('#time1').html(data.time1);
+                $('#time2').html(data.time2);
+                $('#time3').html(data.time3);
+                $('#time4').html(data.time4);
+              } else {
+                $('#tracking-table').html();
+                alert ("No times available");
+              }
+            }
+          });
+        });
+
+        /*click on average time button*/
+        $('#avgTime').click(() => {
+          const requestURL = 'tracking/avgTime';
+          $.ajax({
+            url: requestURL,
+            type: 'GET',
+            dataType: 'json',
+            success: (data) => {
+              console.log("imma fuck you up too motherfucker!!");
+
+              console.log ('received data: ', data);
+
+              if (data.type) {
+                $('#timeTitle').html('Average Time Spent');
+                $('#visits1').html(data.visits1);
+                $('#visits2').html(data.visits2);
+                $('#visits3').html(data.visits3);
+                $('#visits4').html(data.visits4);
+                $('#time1').html(data.time1);
+                $('#time2').html(data.time2);
+                $('#time3').html(data.time3);
+                $('#time4').html(data.time4);
+              } else {
+                $('#tracking-table').html();
+                alert ("No times available");
+              }
+            }
+          });
+        });
+    });
+
+  </script>
+
+</head>
+
+<body>
+
+  <!-- start of head nav bar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="home.html">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html"> Home <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="favorites.html">Favorite</a>
+            <a class="dropdown-item" href="profile.html">Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="index.html">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- end of head navbar-->
+
+  <br>
+
+  <div class="container" id="top_jumbo">
+    <button type="button" id="totalTime" class="btn btn-outline-dark track-btn"> Total Time </button>
+    <button type="button" id="avgTime" class="btn btn-outline-dark track-btn"> Average Time </button>
+  </div>
+
+  <br>
+
+  <div class="jumbotron jumbotron-fluid">
+    <h1 id="track-title"> Your Progress: </h1>
+  </div>
+
+  <br>
+
+  <table id="tracking-table" class="table-bordered" align="center">
+    <tr>
+      <th id="corner-heading"></th>
+      <th id="timeTitle"> Average Time Spent </th>
+      <th> Number of Visits </th>
+    </tr>
+
+    <tr>
+      <th id="p1title"> Hindbrain </th>
+      <td id="time1"> 16 min </td>
+      <td id="visits1"> 5 times </td>
+    </tr>
+
+    <tr>
+      <th id="p2title"> Alzheimer's </th>
+      <td id="time2"> 5 min </td>
+      <td id="visits2"> 4 times </td>
+    </tr>
+
+    <tr>
+      <th id="p3title"> Forebrain </th>
+      <td id="time3"> 10 min </td>
+      <td id="visits3"> 1 time </td>
+    </tr>
+
+    <tr>
+      <th id="p4title"> Stroke </th>
+      <td id="time4"> 15 min </td>
+      <td id="visits4"> 2 times </td>
+    </tr>
+
+  </table>
+
+  <br><br><br>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+
+</html>
