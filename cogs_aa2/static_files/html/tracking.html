@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<head>
+  <title>NeuroViz</title>
+  <script src="jquery-3.3.1.min.js"></script>
+  <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
+
+  <script type="text/javascript">
+
+    $(document).ready(() => {
+
+        /*click on total time button*/
+        $('#totalTime').click(() => {
+          const requestURL = 'tracking/totalTime';
+          $.ajax({
+            url: requestURL,
+            type: 'GET',
+            dataType: 'json',
+            success: (data) => {
+              alert(data);
+              console.log ('received data: ', data);
+            }
+          });
+        });
+
+        /*click on average time button*/
+        $('#avgTime').click(() => {
+          const requestURL = 'tracking/avgTime';
+
+        });
+    });
+
+  </script>
+
+</head>
+
+<body>
+
+  <!-- start of head nav bar -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="home.html">Logo</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav text-center">
+        <li class="nav-item active">
+          <a class="nav-link" href="home.html"> Home <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Account
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="favorites.html">Favorite</a>
+            <a class="dropdown-item" href="profile.html">Profile</a>
+            <div class="dropdown-divider"></div>
+            <a class="dropdown-item" href="index.html">Logout</a>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  <!-- end of head navbar-->
+
+  <br>
+
+  <div class="container" id="top_jumbo">
+    <button id="totalTime" type="button" class="btn btn-outline-dark track-btn"> Total Time </button>
+    <button id="avgTime" type="button" class="btn btn-outline-dark track-btn"> Average Time </button>
+  </div>
+
+  <br>
+
+  <div class="jumbotron jumbotron-fluid">
+    <div class="container" id="top_jumbo">
+     <h1 id="track-title"> Your Progress: </h1>
+    </div>
+  </div>
+
+  <br>
+
+  <table id="tracking-table" class="table-bordered" align="center">
+    <tr>
+      <th id="corner-heading"></th>
+      <th> Total Time </th>
+      <th> Visited </th>
+      <th> Average Time </th>
+    </tr>
+
+    <tr>
+      <th> Hindbrain </th>
+      <td> 80 min </td>
+      <td> 5 times </td>
+      <td> 16 min </td>
+    </tr>
+
+    <tr>
+      <th> Alzheimer's </th>
+      <td> 20 min </td>
+      <td> 4 times </td>
+      <td> 5 min </td>
+    </tr>
+
+    <tr>
+      <th> Forebrain </th>
+      <td> 10 min </td>
+      <td> 1 time </td>
+      <td> 10 min </td>
+    </tr>
+
+    <tr>
+      <th> Stroke </th>
+      <td class="bottom-border"> 15 min </td>
+      <td class="bottom-border"> 2 times </td>
+      <td class="bottom-border"> 2.5 min </td>
+    </tr>
+  </table>
+  <br><br><br>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+</body>
+
+</html>

@@ -1,11 +1,15 @@
 <html>
 <head>
-<title>COGS 121</title>
+<title>NeuroViz</title>
 
 <script src="jquery-3.3.1.min.js"></script>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="../css/style.css"/>
 <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
 <link href="../css/style.css" rel="stylesheet"> <!-- stylesheet css--> 
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
 
 <script type="text/javascript">
  $(document).ready(() => {
@@ -99,7 +103,7 @@
 
 </head>
 <body>
- <nav class="navbar navbar-expand-lg navbar-light bg-light">
+ <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "navbar_color">
   <a class="navbar-brand" href="home.html">Logo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -112,7 +116,7 @@
           <!-- start of breadcrumb -->    
           <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
-              <li class="breadcrumb-item"><a href="home.html">Home</a></li>
+              <li class="breadcrumb-item" id="home_bread"><a href="home.html">Home</a></li>
               <li class="breadcrumb-item active" aria-current="page" id="bread_title"></li>
             </ol>
           </nav><!-- end of breadcrumb -->
@@ -139,6 +143,18 @@
         <section id ="top_container">
           <div class="content">
             <div class="container">
+
+               <div class = "row" id="region_btns">
+                  <div class = "col-lg-3"></div>
+                  <div class = "col-lg-6">
+                      <button type="button" class="btn btn-outline-dark" id="hindbrain">hindbrain</button>
+                      <button type="button" class="btn btn-outline-dark" id="midbrain">midbrain</button>
+                      <button type="button" class="btn btn-outline-dark" id="forebrain">forebrain</button>
+                      <button type="button" class="btn btn-outline-dark" id="cerebral">cerebral cortex</button>
+                  </div>
+                  <div class = "col-lg-3"></div>
+                </div>
+
               <div class="row">
                 <div class="col-md">
                   <div class="jumbotron jumbotron-fluid">
@@ -146,14 +162,12 @@
                       <h1 class="display-4" id="hero_title"></h1>
                       <hr>
                       <p id="lead"> </p>
-                      <button type="button" class="btn btn-outline-dark" id="hindbrain">hindbrain</button>
-                      <button type="button" class="btn btn-outline-dark" id="midbrain">midbrain</button>
-                      <button type="button" class="btn btn-outline-dark" id="forebrain">forebrain</button>
-                      <button type="button" class="btn btn-outline-dark" id="cerebral">cerebral cortex</button>
                         </div>
                     </div>
                   </div>
                 </div>
+
+
               </div>
             </div>
           </div>
@@ -172,103 +186,6 @@
                                
                         <div class="col-md-2"></div>
                         </div>
-                        <!--
-                        <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                          <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="3"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="4"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="5"></li>
-
-                          </ol>
-                          <div class="carousel-inner">
-                            <div class="carousel-item active">
-                              <div class="carousel-content">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
-                                  <h3 ></h3>
-                                  <p></p>
-                                </div>
-                               
-                                <div class="col-md-2"></div>
-                              </div>
-                            </div>
-
-                            
-                            <div class="carousel-item">
-                              <div class="carousel-content">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
-                                  <h3>Temporal Lobe</h3>
-                                  <p> (lateral): Higher Visual, Audition, Emotion & Language Comprehension
-                                    <li>- Includes primary Auditory projection area (A1) from MGN of Thalamus & higher Auditory areas including Wernickes Area (in Left hemisphere) involved in language comprehension</li>
-                                    <li>- Inferior Temporal (IT) includes higher Visual area, along “Who/What” pathway, including Face Cells</li> 
-                                    <li>- Medial Temporal (MT), part of other main visual pathway (to Parietal), the “Where/How” pathway - Includes many Motion Sensitive cells, including Optic Flow detectors</li>
-                                    <li>Anterior Temporal implicated in Emotional expression and interpretation, especially Right Hemisphere</li>
-                                    </p>
-                                </div>
-                               
-                                <div class="col-md-2"></div>
-                              </div>
-                            </div>
-
-                            <div class="carousel-item">
-                              <div class="carousel-content">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
-                                  <h3>Parietal Lobe</h3>
-                                  <p>  (dorsal posterior): Higher Visual, Somatosensory Processing and Spatial Mapping
-                                  <li>- Primary projection area (S1) for Somatosensory info, from VPN of Thalamus, maps body surface - “Penfield Map” of body surface along the Postcentral Gyrus, just posterior to Central Sulcus</li>
-                                  <li>- Parietal Lobe also includes higher visual areas of “Where/How” pathway - e.g. Canonical Cells, that respond to “affordances” of object (how it can be handled, used) - e.g. w/Premotor Cortex, part of “Mirror Cell System”, that reacts when see self or other do action</li>
-                                    </p>
-                                </div>
-                               
-                                <div class="col-md-2"></div>
-                              </div>
-                            </div>
-
-                          <div class="carousel-item">
-                              <div class="carousel-content">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
-                                  <h3>Frontal Lobe</h3>
-                                  <p> (anterior) Motor Cortex, Language Production, and Strategy
-                                  <li>- Precentral Gyrus anterior to Central Sulcus = Motor Cortex, (map of body like S1 but for motor control)</li>
-                                  <li>- Premotor Areas: Anterior to motor cortex, implicated in preparing to act, Planning - Includes “Mirror Cells” (w/Parietal) which respond to seeing self or other perform familiar manual tasks - Includes Broca’s Area (anterior to ventral motor cortex) specialized for language production</li>
-                                  <li>Prefrontal Cortex most anterior portion, involved in planning, self control. Humans’ most developed - Damage => deficits in emotional expression, social inhibition, planning, impulse control - Prefronal Lobotomy = sever connections, once common treatment for excitable psychotics</li>
-                                    </p>
-                                </div>
-                               
-                                <div class="col-md-2"></div>
-                              </div>
-                            </div>
-
-
-                          <div class="carousel-item">
-                              <div class="carousel-content">
-                                <div class="col-md-2"></div>
-                                <div class="col-md-8">
-                                  <h3>Corpus Callosum</h3>
-                                  <p> Beneath cortex, inferior to Cingulate Gyrus, superior to rest of Limbic System
-                                  <li>- A bundle of axons communicating between the two hemispheres of the Cerebral Cortex - Part of “White Matter” of brain, connecting the (grey) cell bodies of “Grey Matter” - Brain = 66% White Matter, by volume</li>
-                                </div>
-                               
-                                <div class="col-md-2"></div>
-                              </div>
-                            </div>
-                           
-                          </div>
-                          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                          </a>
-                          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                          </a>
-                        </div> -->
                     </div>
                   </div>
                 </div>
@@ -282,10 +199,11 @@
                               <div class="col-lg-2"></div>
                               <div class= "col-lg-8">
                                   <br><br>
-
-                                  <button id="backBtn" ><a href="regions.html">BACK</a></button>
+                                  <a href="home.html"><img src = "../img/back_btn.png"></a>
                               </div>
                               <div class="col-lg-2"></div>
+
+
                           </div>
                       </div>
                   </div>
