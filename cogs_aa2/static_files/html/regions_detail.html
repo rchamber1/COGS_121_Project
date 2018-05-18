@@ -25,12 +25,19 @@
       totalTime = (currentTime - time)/1000;
       console.log(totalTime);
       console.log(prevPage);
-      let pageTimeRow = prevPage + 'Time';
-      let pageVisitsRow = prevPage + 'Visits';
+      //let pageTimeRow = prevPage + 'Time';
+      //let pageVisitsRow = prevPage + 'Visits';
 
       //userdb.run("UPDATE users_to_pets SET " + pageTimeRow + " = " + totalTime + 
       //" WHERE name = 'Ryan'");
-
+      $.ajax({
+        url: 'users/Amparo',
+        type: 'GET',
+        dataType: 'json',
+        success: (data) => {
+          data.prevPage 
+        }
+      });
       ////
 
       $.ajax({

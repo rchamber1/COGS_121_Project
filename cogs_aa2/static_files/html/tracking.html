@@ -5,6 +5,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
   <link rel="stylesheet" href="../css/style.css"/>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
 
   <script type="text/javascript">
 
@@ -12,25 +15,24 @@
 
         /*click on total time button*/
         $('#totalTime').click(() => {
-          const requestURL = 'tracking/totalTime';
+          const requestURL = 'tracking/' + 'Amparo';
           $.ajax({
             url: requestURL,
             type: 'GET',
             dataType: 'json',
             success: (data) => {
-              console.log("imma fuck this up!!");
 
               console.log ('received data: ', data);
-              if (data.type) {
+              if (data.name) {
                 $('#timeTitle').html('Total Time Spent');
                 $('#visits1').html(data.visits1);
                 $('#visits2').html(data.visits2);
                 $('#visits3').html(data.visits3);
                 $('#visits4').html(data.visits4);
-                $('#time1').html(data.time1);
-                $('#time2').html(data.time2);
-                $('#time3').html(data.time3);
-                $('#time4').html(data.time4);
+                $('#time1').html(data.hindbrain);
+                $('#time2').html(data.midbrain);
+                $('#time3').html(data.forebrain);
+                $('#time4').html(data.cerebral);
               } else {
                 $('#tracking-table').html();
                 alert ("No times available");
@@ -77,7 +79,7 @@
 <body>
 
   <!-- start of head nav bar -->
-  <nav class="navbar navbar-expand-lg navbar-light">
+  <nav class="navbar navbar-expand-lg navbar-light" id = "navbar_color">
     <a class="navbar-brand" href="home.html">Logo</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
@@ -110,47 +112,47 @@
   <br>
 
   <div class="container" id="top_jumbo">
-    <button type="button" id="totalTime" class="btn btn-outline-dark track-btn"> Total Time </button>
-    <button type="button" id="avgTime" class="btn btn-outline-dark track-btn"> Average Time </button>
-  </div>
+    <!--<button type="button" id="totalTime" class="btn btn-outline-dark track-btn"> Update Time </button>-->
+    <!--<button type="button" id="avgTime" class="btn btn-outline-dark track-btn"> Average Time </button>
+  </div>-->
 
-  <br>
 
   <div class="jumbotron jumbotron-fluid">
-    <h1 id="track-title"> Your Progress: </h1>
+    <h1 id="track-title"> Your Progress </h1>
   </div>
 
   <br>
-
-  <table id="tracking-table" class="table-bordered" align="center">
+  <button type="button" id="totalTime" class="btn btn-outline-dark track-btn"> Update Time </button>
+  <table id="tracking-table" class="table-bordered" align="center" border="1">
     <tr>
       <th id="corner-heading"></th>
-      <th id="timeTitle"> Average Time Spent </th>
-      <th> Number of Visits </th>
+      <th id="timeTitle"> Average Time Spent (seconds) </th>
+     <!-- <th> Number of Visits </th>-->
     </tr>
 
     <tr>
       <th id="p1title"> Hindbrain </th>
-      <td id="time1"> 16 min </td>
-      <td id="visits1"> 5 times </td>
+      <hr>
+      <td id="time1"> 16  </td>
+      <!-- <td id="visits1"> </td> -->
     </tr>
 
     <tr>
-      <th id="p2title"> Alzheimer's </th>
-      <td id="time2"> 5 min </td>
-      <td id="visits2"> 4 times </td>
+      <th id="p2title"> Midbrain </th>
+      <td id="time2"> 5 </td>
+      <!--<td id="visits2"> 4 times </td>-->
     </tr>
 
     <tr>
       <th id="p3title"> Forebrain </th>
-      <td id="time3"> 10 min </td>
-      <td id="visits3"> 1 time </td>
+      <td id="time3"> 10 </td>
+      <!--<td id="visits3"> 1 time </td>-->
     </tr>
 
     <tr>
-      <th id="p4title"> Stroke </th>
-      <td id="time4"> 15 min </td>
-      <td id="visits4"> 2 times </td>
+      <th id="p4title"> Cerebral Cortex </th>
+      <td id="time4"> 15 </td>
+      <!--<td id="visits4"> 2 times </td>-->
     </tr>
 
   </table>

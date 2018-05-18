@@ -79,7 +79,7 @@ figcaption {
 
 }
 
-#top_jumbo {
+#top_jumbo, #track-title {
   text-align: center;
 }
 
@@ -111,6 +111,10 @@ figcaption {
   background-color: none;
 }
 
+table tr {
+  border-width: 1px;
+  border-color: black;
+}
 
 
 
