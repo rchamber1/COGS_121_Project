@@ -15,7 +15,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
 <!--functionality javascript code-->
 <script type="text/javascript">
-
+  /*
   //on page startup
   $(document).ready(() => {
     console.log("hello browser!!!!");
@@ -34,7 +34,7 @@
         if (data.inst) {
           $('#status').html('Successfully fetched data at URL: ' + srchREQ);
           $('#jobDiv').html('The ' + data.inst);
-          /*$('#petImage').attr('src', data.pet).attr('width', '300px');-->*/
+          /*$('#petImage').attr('src', data.pet).attr('width', '300px');-->
           console.log("hello 33333333!!!!");
         } else {
           $('#status').html('Error: could not find user at URL: ' + srchREQ);
@@ -47,7 +47,7 @@
        });
 
      });
- });
+ }); */
 
 </script>
 
@@ -69,17 +69,9 @@
 
     </ul>
     <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="favorites.html">Favorite</a>
-                <a class="dropdown-item" href="profile.html">Profile</a>
-                <div class="dropdown-divider"></div>
-                <a class="dropdown-item" href="index.html">Logout</a>
-          </div>
-        </li>
+       <li class="nav-item active">
+        <a class="nav-link" href="home.html"> Logout <span class="sr-only">(current)</span></a>
+      </li>
     </ul>
   </div>
 </nav> <!-- end of head navbar-->
@@ -89,6 +81,7 @@
 
 <div class = "content-wrap">
     <div class = "content">
+      <!--
         <section id = "top_home">
             <div class = "container-fluid">
                 <div class = "row">
@@ -98,12 +91,13 @@
                         <form class="form-inline my-2 my-lg-0">
                             <br><br>
                           <input class="form-control ml-sm-2 " type="search" placeholder="Search" aria-label="Search" id="homeSearch">
-                          <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchBtn" ><!--<a href="search.html">-->Search<!--</a>--></button>
-                        </form> <!-- search form-->
+                          <button class="btn btn-outline-success my-2 my-sm-0" type="button" id="searchBtn" ></button>
+                        </form> 
                     </div>
                 </div>
             </div>
         </section>
+      --> 
 
        
         <section id = "top_row">

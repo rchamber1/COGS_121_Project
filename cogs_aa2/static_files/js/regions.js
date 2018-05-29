@@ -1,6 +1,3 @@
-
-
-
 let timerG = false;
 let time = 0;
 let prevP = '';

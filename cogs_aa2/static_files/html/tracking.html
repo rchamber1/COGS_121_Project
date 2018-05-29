@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <title>NeuroViz</title>
   <script src="jquery-3.3.1.min.js"></script>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -9,70 +10,9 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
 
-  <script type="text/javascript">
+  <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
 
-    $(document).ready(() => {
-
-        /*click on total time button*/
-        $('#totalTime').click(() => {
-          const requestURL = 'tracking/' + 'Amparo';
-          $.ajax({
-            url: requestURL,
-            type: 'GET',
-            dataType: 'json',
-            success: (data) => {
-
-              console.log ('received data: ', data);
-              if (data.name) {
-                $('#timeTitle').html('Total Time Spent');
-                $('#visits1').html(data.visits1);
-                $('#visits2').html(data.visits2);
-                $('#visits3').html(data.visits3);
-                $('#visits4').html(data.visits4);
-                $('#time1').html(data.hindbrain);
-                $('#time2').html(data.midbrain);
-                $('#time3').html(data.forebrain);
-                $('#time4').html(data.cerebral);
-              } else {
-                $('#tracking-table').html();
-                alert ("No times available");
-              }
-            }
-          });
-        });
-
-        /*click on average time button*/
-        $('#avgTime').click(() => {
-          const requestURL = 'tracking/avgTime';
-          $.ajax({
-            url: requestURL,
-            type: 'GET',
-            dataType: 'json',
-            success: (data) => {
-              console.log("imma fuck you up too motherfucker!!");
-
-              console.log ('received data: ', data);
-
-              if (data.type) {
-                $('#timeTitle').html('Average Time Spent');
-                $('#visits1').html(data.visits1);
-                $('#visits2').html(data.visits2);
-                $('#visits3').html(data.visits3);
-                $('#visits4').html(data.visits4);
-                $('#time1').html(data.time1);
-                $('#time2').html(data.time2);
-                $('#time3').html(data.time3);
-                $('#time4').html(data.time4);
-              } else {
-                $('#tracking-table').html();
-                alert ("No times available");
-              }
-            }
-          });
-        });
-    });
-
-  </script>
 
 </head>
 
@@ -121,6 +61,25 @@
     <h1 id="track-title"> Your Progress </h1>
   </div>
 
+  <div class="container">
+
+      <div id="chart1"></div>
+      <!-- input text box --> 
+      <br><br>
+      <div>
+        <form >
+          <input type="text" name="input_time" placeholder="Input the number of hours to study" size ="32">
+        </form>
+      </div>
+      <br></br>
+
+      <div id="chart2"></div>
+      <br></br>
+      <div id="chart3"></div>
+      <br></br>
+  </div>
+
+
   <br>
   <button type="button" id="totalTime" class="btn btn-outline-dark track-btn"> Update Time </button>
   <table id="tracking-table" class="table-bordered" align="center" border="1">
@@ -161,6 +120,81 @@
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+   <!-- JS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/c3@0.6.0/c3.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.3.1/dist/jquery.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/d3@5.4.0/dist/d3.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/c3@0.6.0/c3.min.js"></script>
+
+  <script src= "../js/total_gauge.js"></script> 
+  <script src="../js/regions_bar.js"></script>
+  <script src="../js/conditions_bar.js"></script>
+
+
+    <script type="text/javascript">
+
+    $(document).ready(() => {
+
+        /*click on total time button*/
+        $('#totalTime').click(() => {
+          const requestURL = 'tracking/' + 'Amparo';
+          $.ajax({
+            url: requestURL,
+            type: 'GET',
+            dataType: 'json',
+            success: (data) => {
+
+              console.log ('received data: ', data);
+              if (data.name) {
+                $('#timeTitle').html('Total Time Spent');
+                $('#visits1').html(data.visits1);
+                $('#visits2').html(data.visits2);
+                $('#visits3').html(data.visits3);
+                $('#visits4').html(data.visits4);
+                $('#time1').html(data.hindbrain);
+                $('#time2').html(data.midbrain);
+                $('#time3').html(data.forebrain);
+                $('#time4').html(data.cerebral);
+              } else {
+                $('#tracking-table').html();
+                alert ("No times available");
+              }
+            }
+          });
+        });
+
+        /*click on average time button*/
+        $('#avgTime').click(() => {
+          const requestURL = 'tracking/avgTime';
+          $.ajax({
+            url: requestURL,
+            type: 'GET',
+            dataType: 'json',
+            success: (data) => {
+
+              console.log ('received data: ', data);
+
+              if (data.type) {
+                $('#timeTitle').html('Average Time Spent');
+                $('#visits1').html(data.visits1);
+                $('#visits2').html(data.visits2);
+                $('#visits3').html(data.visits3);
+                $('#visits4').html(data.visits4);
+                $('#time1').html(data.time1);
+                $('#time2').html(data.time2);
+                $('#time3').html(data.time3);
+                $('#time4').html(data.time4);
+              } else {
+                $('#tracking-table').html();
+                alert ("No times available");
+              }
+            }
+          });
+        });
+    });
+
+
+  </script>
 </body>
 
 </html>
