@@ -20,18 +20,20 @@
 
 ### UI Improvements... 
 ## Login Screen
-![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone6/screenshots/Screenshot%2018-05-30%05.57.09.png)
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone6/screenshots/Screenshot%202018-05-30%2005.57.09.png)
 
 ## Home Page
-![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone5/screenshot/Screenshot%202018-05-16%2000.49.12.png)
-
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone6/screenshots/Screenshot%202018-05-30%2005.57.18.png)
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone6/screenshots/Screenshot%202018-05-30%2005.57.25.png)
 
 ## Regions/Conditions Page
-![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone5/screenshot/Screenshot%202018-05-16%2000.49.28.png)
-![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone5/screenshot/Screenshot%202018-05-16%2000.49.03.png)
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone6/screenshots/Screenshot%202018-05-30%2005.58.36.png)
 
 ## Tracking Page
-![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone5/screenshot/screencapture-localhost-3000-tracking-html-2018-05-16-05_47_46.png)
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone6/screenshots/Screenshot%202018-05-30%2005.58.48.png)
+
+## Brain Visualizer
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone6/screenshots/Screenshot%202018-05-30%2005.59.02.png)
 
 
 
