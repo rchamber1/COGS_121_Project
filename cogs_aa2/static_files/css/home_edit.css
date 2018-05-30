@@ -11,7 +11,7 @@ h3{
 .form-control {
     width: 50%;
 }
-button#regionsBtn, button#conditionsBtn{
+button #regionsBtn, button #conditionsBtn{
     width: 100px;
     height: 80px;
 }
