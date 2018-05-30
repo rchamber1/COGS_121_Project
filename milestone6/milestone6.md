@@ -20,7 +20,7 @@
 
 ### UI Improvements... 
 ## Login Screen
-![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone5/screenshot/Screenshot%202018-05-16%2003.25.01.png)
+![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone6/screenshots/Screenshot%2018-05-30%05.57.09.png)
 
 ## Home Page
 ![alt text](https://github.com/rchamber1/COGS_121_Project/blob/master/milestone5/screenshot/Screenshot%202018-05-16%2000.49.12.png)
