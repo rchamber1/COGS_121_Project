@@ -21,7 +21,7 @@ body,html {
 }
 
  #regionsBtn, #conditionsBtn, #trackingBtn{
-    color: #40afa8; 
+    color: #40afa8;
 }
 
 .form-group #exampleInputEmail1 {
@@ -67,7 +67,7 @@ figcaption {
   font-family: 'Roboto';
 }
 
-/* end of homepage*/ 
+/* end of homepage*/
 
 /* regions page */
 .breadcrumb {
@@ -79,7 +79,7 @@ figcaption {
 
 }
 
-#top_jumbo {
+#top_jumbo, #track-title {
   text-align: center;
 }
 
@@ -107,20 +107,19 @@ figcaption {
   margin-top: 2%;
 }
 
+/* back button*/
 #backBtn {
   background-color: none;
 }
 
+table tr {
+  border-width: 1px;
+  border-color: black;
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
+/* conditions */
+.card-img-top {
+    width: auto;
+    border-top-left-radius: calc(.25rem - 1px);
+    border-top-right-radius: calc(.25rem - 1px);
+}

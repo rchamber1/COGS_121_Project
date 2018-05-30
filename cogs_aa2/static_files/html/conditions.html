@@ -10,7 +10,9 @@
 </script>
 <link rel="stylesheet" href="../css/style.css"/>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-<link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
 <link rel="stylesheet" href="../css/style.css"/>
 
 <!-- javascript for ajax code -->
@@ -61,7 +63,7 @@ $(document).ready(() => {
           $('#description-content').html(data.description);
           $('#symptoms-content').html(data.symptom);
           $('#treatment-content').html(data.treatment);
-          $('#compare-img').attr('src' + data.image);
+          $('#compare-img').attr('src', data.image);
         } else {
           $('#conditionName').html('Condition not available.');
         }
@@ -185,7 +187,7 @@ $(document).ready(() => {
 <body>
 
   <!-- start of head navbar -->
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
+<nav class="navbar navbar-expand-lg navbar-light bg-light" id = "navbar_color">
   <a class="navbar-brand" href="home.html">Logo</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -214,6 +216,27 @@ $(document).ready(() => {
   </div>
 </nav>
 <!-- end of head navbar-->
+
+<!-- start of code for the back button -->
+        <section id = "body_container">
+            <div class = "content">
+                <div class = "container">
+                    <div class = "row">
+                        <br><br>
+                        <div class="col-lg-2"></div>
+                        <div class= "col-lg-8">
+                            <br><br>
+
+                            <button id="backBtn" ><a href="home.html">BACK</a></button>
+                        </div>
+                        <div class="col-lg-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+<!-- end code for back button -->
+
+<br>
 
 <!-- start of page content -->
         <section id = "top_container">
@@ -246,7 +269,7 @@ $(document).ready(() => {
                             <button type="button" class="btn btn-outline-dark" id="Seizure"> Seizure </button>
                             <button type="button" class="btn btn-outline-dark" id="Stroke"> Stroke </button>
                             <button type="button" class="btn btn-outline-dark" id="Als"> A.L.S. </button>
-                            <button type="button" class="btn btn-outline-dark" id="Ms"> M.S. </button> --> 
+                            <button type="button" class="btn btn-outline-dark" id="Ms"> M.S. </button> -->
                               </div>
                           </div>
                       </div>
@@ -257,45 +280,45 @@ $(document).ready(() => {
             <div class="content">
               <div class="container">
 
-                      <!-- description -->
+
                      <div class="row">
+
+                        <!-- description -->
+                        <div class="col-sm">
                           <h4> Description </h4>
-                      </div>
-
-                      <div class="row">
+                          <br>
                           <p id="description-content">A disorder of the central nervous system that affects movement, often including tremors.</p>
-                      </div>
+                        </div>
 
+                        <div class="col-sm">
                         <!-- symptoms -->
-                      <div class="row">
                           <h4> Symptoms </h4>
-                      </div>
-
-                      <div class="row">
+                          <br>
                           <p id="symptoms-content">Parkinson's often starts with a tremor in one hand. Other symptoms are slow movement, stiffness, and loss of balance.</p>
-                      </div>
-                        <br>
-                        <!-- treatment -->
-                       <div class="row">
-                          <h4> Treatment </h4>
-                      </div>
+                        </div>
 
-                      <div class="row">
+                      </div>
+                      <br>
+                       <div class="row">
+
+                         <!-- treatment -->
+                        <div class="col-sm">
+                          <h4> Treatment </h4>
+                          <br>
                           <p id="treatment-content">There are many medications available to treat the Parkinson’s symptoms, although none yet
                             that reverse the effects of the disease. It is common for people with PD to take a variety of
                             these medications — all at different doses and at different times of day — to manage symptoms.</p>
-                      </div>
-           <!-- comparison image -->
+                        </div>
 
-                      <div class="row">
+                        <!-- comparison image -->
+                        <div class="col-sm">
                           <h4> Normal vs Affected Brain </h4>
-                      </div>
+                          <br>
+                          <img id="compare-img" height="300" class="card-img-top" src="../img/parkinson_brain.jpg" alt="Card image cap">
+                        </div>
 
-                      <div class="row">
-                          <img id="compare-img" class="card-img-top" src="../img/parkinsonsComp.jpg" alt="Card image cap">
                       </div>
-
-                    </div> <!-- end of content div -->
+                      <!-- end of content div -->
               </div>
           </div>
         </section> <!-- end of body container -->
@@ -312,24 +335,7 @@ $(document).ready(() => {
 </div> -->
 <!-- example code ends -->
 
-<!-- start of code for the back button -->
-        <section id = "body_container">
-            <div class = "content">
-                <div class = "container">
-                    <div class = "row">
-                        <br><br>
-                        <div class="col-lg-2"></div>
-                        <div class= "col-lg-8">
-                            <br><br>
 
-                            <button id="backBtn" ><a href="conditions.html">BACK</a></button>
-                        </div>
-                        <div class="col-lg-2"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-<!-- end code for back button -->
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>

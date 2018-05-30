@@ -83,11 +83,12 @@
 
 
 	/* finish conditions */
+
 /* tracking page */
 	app.get ('/tracking', (req,res) => {
 
-		db2.all('SELECT type FROM track_time', (err, rows) => {
-			const trackingData = rows.map(e => e.type);
+		userdb.all('SELECT name FROM users_to_pets', (err, rows) => {
+			const trackingData = rows.map(e => e.name);
 			console.log(rows);
 			res.send(trackingData);
 
@@ -96,15 +97,15 @@
 		});
 	});
 
-	app.get('/tracking/:time', (req, res) => {
-		const timeToLookup = req.params.time;
-		console.log(req.params.time);
-		console.log(timeToLookup);
+	app.get('/tracking/:name', (req, res) => {
+		const nameToLookup = req.params.name;
+		console.log(req.params.name);
+		console.log(nameToLookup);
 
-		db2.all (
-			'SELECT * FROM track_time WHERE type=$type',
+		userdb.all (
+			'SELECT * FROM users_to_pets WHERE name=$name',
 			{
-				$type: timeToLookup
+				$name: nameToLookup
 			},
 			(err, rows) => {
 				console.log(rows);
@@ -119,19 +120,6 @@
 	});
 
 
-
-
-
-
-	/* testing users*/
-	/* testing users*/
-	/* testing users*/
-	/* testing users*/
-	/* testing users*/
-	/* testing users*/
-	/* testing users*/
-	/* testing users*/
-	/* testing users*/
 app.get('/users', (req, res) => {
   // db.all() fetches all results from an SQL query into the 'rows' variable:
   userdb.all('SELECT name FROM users_to_pets', (err, rows) => {
@@ -187,6 +175,8 @@ app.post('/users/Amparo', (req, res) => {
 	
   
   	if (sectionBrain == 'hindbrain') {
+  	//let timeToAdd = userdb.run("SELECT sectionBrain FROM users_to_pets WHERE name = 'Amparo'");
+  	//console.log('ddddddddddd   ' + timeToAdd);
 	userdb.run( "UPDATE users_to_pets SET hindbrain = $guo WHERE name = 'Amparo'",
 		    // parameters to SQL query:
 		    {
