@@ -37,35 +37,12 @@ $(document).ready(() => {
                 //direct the user to homepage
                 console.log("CORRECT password");
                 window.location.replace("home.html");
+
             }
         },
     });
   });
 
-  $('#readButton').click(() => {
-    const requestURL = 'users/' + $('#nameBox').val();
-    console.log('making ajax request to:', requestURL);
-    // From: http://learn.jquery.com/ajax/jquery-ajax-methods/
-    // Using the core $.ajax() method since it's the most flexible.
-    // ($.get() and $.getJSON() are nicer convenience functions)
-    $.ajax({
-      // all URLs are relative to http://localhost:3000/
-      url: requestURL,
-      type: 'GET',
-      dataType : 'json', // this URL returns data in JSON format
-      success: (data) => {
-        console.log('You received some data!', data);
-        if (data.password) {
-          $('#status').html('Successfully fetched data at URL: ' + requestURL);
-          $('#jobDiv').html('My job is ' + data.password);
-        } else {
-          $('#status').html('Error: could not find user at URL: ' + requestURL);
-          // clear the display
-          $('#jobDiv').html('');
-        }
-      },
-    });
-  });
 
   $('#allUsersButton').click(() => {
     $.ajax({
@@ -79,6 +56,10 @@ $(document).ready(() => {
     });
   });
   }); //end of account.html
+
+  $('#submit_btn').click(() => {
+    const userid = $("#exampleInputEmail1").val();
+  });
 
 </script>
 
@@ -108,7 +89,7 @@ $(document).ready(() => {
                             <form>
                                 <div class="form-group">
                                     <!-- <label for="exampleInputEmail1">Email address</label> -->
-                                    <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter e-mail">
+                                    <input type="userName" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter e-mail">
                                     <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
                                 </div>
                                 <div class="form-group" id="pw_div">
@@ -128,23 +109,16 @@ $(document).ready(() => {
                             <br><br>
                             <button id ="signup_btn" type="button" class="btn btn-outline-danger"><a href = "account.html">Signup</a></button>
                         </div>
+                        <!--
                         <div class="col-lg-2">
                             <br><br>
                             <button id = "fb_btn" type="button" class="btn btn-outline-info">Facebook</button>
-                        </div>
+                        </div>-->
 
                     </div> 
                 </div>
             </div>
-        </section>
-<br><br><br><br><br><br><br><br><br><br>
-  <button id="readButton">Get profile</button>
-  <button id="allUsersButton">Get all usernames</button>
-
-  <div id="jobDiv"></div>
-  <img id="petImage"></img>
-  <hr/>
-  <div id="status"></div>
+        </section> 
 
 </body>
 </html>

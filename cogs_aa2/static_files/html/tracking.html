@@ -20,31 +20,25 @@
 
   <!-- start of head nav bar -->
   <nav class="navbar navbar-expand-lg navbar-light" id = "navbar_color">
-    <a class="navbar-brand" href="home.html">Logo</a>
+   <a class="navbar-brand" href="home.html">BrainViz
+    <!--<img src="../img/logo_navbar.png" width="20%" height="auto" class="img-fluid">-->
+  </a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav text-center">
-        <li class="nav-item active">
-          <a class="nav-link" href="home.html"> Home <span class="sr-only">(current)</span></a>
-        </li>
-      </ul>
+    <ul class="navbar-nav text-center">
+      <li class="nav-item active">
+        <a class="nav-link" href="tracking.html">Tracking Page <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
 
-      <ul class="navbar-nav ml-auto">
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Account
-          </a>
-          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-            <a class="dropdown-item" href="favorites.html">Favorite</a>
-            <a class="dropdown-item" href="profile.html">Profile</a>
-            <div class="dropdown-divider"></div>
-            <a class="dropdown-item" href="index.html">Logout</a>
-          </div>
-        </li>
-      </ul>
+    <ul class="navbar-nav ml-auto">
+       <li class="nav-item active">
+        <a class="nav-link" href="index.html"> Logout <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
     </div>
   </nav>
   <!-- end of head navbar-->
@@ -52,10 +46,6 @@
   <br>
 
   <div class="container" id="top_jumbo">
-    <!--<button type="button" id="totalTime" class="btn btn-outline-dark track-btn"> Update Time </button>-->
-    <!--<button type="button" id="avgTime" class="btn btn-outline-dark track-btn"> Average Time </button>
-  </div>-->
-
 
   <div class="jumbotron jumbotron-fluid">
     <h1 id="track-title"> Your Progress </h1>
@@ -66,12 +56,13 @@
       <div id="chart1"></div>
       <!-- input text box --> 
       <br><br>
+      <!--
       <div>
         <form >
           <input type="text" name="input_time" placeholder="Input the number of hours to study" size ="32">
         </form>
       </div>
-      <br></br>
+      <br></br>-->
 
       <div id="chart2"></div>
       <br></br>
@@ -92,25 +83,25 @@
     <tr>
       <th id="p1title"> Hindbrain </th>
       <hr>
-      <td id="time1"> 16  </td>
+      <td id="time1"> </td>
       <!-- <td id="visits1"> </td> -->
     </tr>
 
     <tr>
       <th id="p2title"> Midbrain </th>
-      <td id="time2"> 5 </td>
+      <td id="time2"> </td>
       <!--<td id="visits2"> 4 times </td>-->
     </tr>
 
     <tr>
       <th id="p3title"> Forebrain </th>
-      <td id="time3"> 10 </td>
+      <td id="time3"> </td>
       <!--<td id="visits3"> 1 time </td>-->
     </tr>
 
     <tr>
       <th id="p4title"> Cerebral Cortex </th>
-      <td id="time4"> 15 </td>
+      <td id="time4"> </td>
       <!--<td id="visits4"> 2 times </td>-->
     </tr>
 
@@ -126,8 +117,9 @@
   <script src="https://cdn.jsdelivr.net/npm/d3@5.4.0/dist/d3.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/c3@0.6.0/c3.min.js"></script>
 
-  <script src= "../js/total_gauge.js"></script> 
-  <script src="../js/regions_bar.js"></script>
+
+  <!--<script src= "../js/total_gauge.js"></script> -->
+  <!--<script src="../js/regions_bar.js"></script>-->
   <script src="../js/conditions_bar.js"></script>
 
 
@@ -136,10 +128,10 @@
     $(document).ready(() => {
 
         /*click on total time button*/
-        $('#totalTime').click(() => {
-          const requestURL = 'tracking/' + 'Amparo';
+        //$('#totalTime').click(() => {
+          //const requestURL = 'tracking/' + loggedinuser;
           $.ajax({
-            url: requestURL,
+            url: 'users/Amparo',
             type: 'GET',
             dataType: 'json',
             success: (data) => {
@@ -155,13 +147,52 @@
                 $('#time2').html(data.midbrain);
                 $('#time3').html(data.forebrain);
                 $('#time4').html(data.cerebral);
+              
+              var chart2 = c3.generate({
+              bindto: '#chart2',
+              data: {
+                columns: [
+                  ['Total Time', document.getElementById('time1').innerHTML, document.getElementById('time2').innerHTML, document.getElementById('time3').innerHTML, document.getElementById('time4').innerHTML],
+                  //['Average Time', 4, 3, 2, 1]
+                ],
+                type: 'bar'
+              },
+              axis: {
+                x: {
+                  label: {
+                    text: 'Region',
+                    position: 'outer-center',
+                  },
+                  type: 'category',
+                  categories: ['hindbrain', 'midbrain', 'forebrain', 'cerebral cortex'],
+                  tick: {
+                    centered: true
+                  }
+                },
+                y: {
+                  label: {
+                    text: 'Time (hours)',
+                    position: 'outer-middle'
+                  },
+                  max: 5,
+                  min: 0,
+                  padding: {
+                    top: 0,
+                    bottom: 0
+                  }
+                }
+              },
+              legend: {
+                show: true
+              }
+      });
               } else {
                 $('#tracking-table').html();
                 alert ("No times available");
               }
             }
           });
-        });
+        //});
 
         /*click on average time button*/
         $('#avgTime').click(() => {
@@ -191,7 +222,11 @@
             }
           });
         });
+
+      console.log('this is the value: '+ document.getElementById('time1').innerHTML);
+    
     });
+
 
 
   </script>

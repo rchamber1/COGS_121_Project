@@ -4,6 +4,11 @@ body,html {
   width: 100%;
   background-color: #d6e2e0 !important;
 }
+.navbar-brand {
+  font-family: 'Aldrich';
+  color: #5a5150 !important;
+  letter-spacing: -1px;
+}
 
 #navbar_color {
   background-color: #99c4a2 !important;
@@ -12,7 +17,7 @@ body,html {
 #navbar_color a {
   font-family: 'Mina';
 }
-#navbar_color .navbar-brand, #navbar_color .nav-link {
+#navbar_color .nav-link {
   color: white;
 }
 
@@ -58,7 +63,8 @@ body,html {
   margin-bottom: 2%;
 }
 #top_row img, #bottom_row img {
-  max-width: 80%;
+  display: block;
+  max-width: 60%;
   height: auto;
   margin: 2%;
 }
@@ -67,6 +73,18 @@ figcaption {
   font-family: 'Roboto';
 }
 
+.overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  opacity: 0;
+  transition: .5s ease;
+  background-color: #008CBA;
+}
 /* end of homepage*/
 
 /* regions page */
@@ -123,3 +141,45 @@ table tr {
     border-top-left-radius: calc(.25rem - 1px);
     border-top-right-radius: calc(.25rem - 1px);
 }
+
+/*account.html */
+#register, #register1 {
+  font-family: 'Roboto';
+}
+#account_container label{
+  font-family: 'Roboto';
+  font-size: 18px;
+  margin-right: 2%;
+  margin-bottom: 2%;
+}
+
+#account_container .row {
+  padding-top: 2%;
+}
+
+#account_container input{
+  border-top:0;
+  border-left: 0;
+  border-right: 0;
+  background-color: transparent;
+  border-bottom-color: white;
+  border-bottom-width: 2px;
+  margin-bottom: 2%;
+  width: 30%;
+}
+
+#account_container ::placeholder, #info1 p, #info2 p {
+  font-family: 'Mina';
+} 
+
+#info2 p {
+  margin-top: 3%; 
+}
+
+
+
+
+
+
+
+

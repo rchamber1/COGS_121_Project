@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<head>
+<title>NeuroViz</title>
+
+<script src="jquery-3.3.1.min.js"></script>
+<script
+  src="http://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous">
+</script>
+<link rel="stylesheet" href="../css/style.css"/>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
+
+<script type="text/javascript">
+ $(document).ready(() => {
+     ('#searchBtn')
+ })
+</script>
+
+
+
+<script src="jquery-3.3.1.min.js"></script>
+
+<script type="text/javascript">
+// jQuery convention for running when the document has been fully loaded:
+$(document).ready(() => {
+  $('#readButton').click(() => {
+    const requestURL = 'users/' + $('#nameBox').val();
+    console.log('making ajax request to:', requestURL);
+    // From: http://learn.jquery.com/ajax/jquery-ajax-methods/
+    // Using the core $.ajax() method since it's the most flexible.
+    // ($.get() and $.getJSON() are nicer convenience functions)
+    $.ajax({
+      // all URLs are relative to http://localhost:3000/
+      url: requestURL,
+      type: 'GET',
+      dataType : 'json', // this URL returns data in JSON format
+      success: (data) => {
+        console.log('You received some data!', data);
+        if (data.password) {
+          $('#status').html('Successfully fetched data at URL: ' + requestURL);
+          $('#jobDiv').html('My job is ' + data.password);
+        } else {
+          $('#status').html('Error: could not find user at URL: ' + requestURL);
+          // clear the display
+          $('#jobDiv').html('');
+        }
+      },
+    });
+  });
+  $('#allUsersButton').click(() => {
+    $.ajax({
+      url: 'users',
+      type: 'GET',
+      dataType : 'json',
+      success: (data) => {
+        console.log('You received some data!', data);
+        $('#status').html('All users: ' + data);
+      },
+    });
+  });
+
+
+  //var firstInput = document.getElementById("insertPsw1").value;
+  //var secondInput = document.getElementById("insertPsw2").value;
+
+  //if( firstInput === secondInput){
+  /*if( 1 === 2){*/
+    $('#insertButton').click(() => {
+
+      var firstInput = document.getElementById("insertPsw1").value;
+      var secondInput = document.getElementById("insertPsw2").value;
+      var userid = 'users/' + document.getElementById("insertUsername").value;
+      var equalPasswords = firstInput === secondInput;
+      console.log(userid);
+      console.log(equalPasswords);
+
+      if(equalPasswords) {
+      $.ajax({
+        // all URLs are relative to http://localhost:3000/
+        url: 'users',
+        type: 'POST', // <-- this is POST, not GET
+        data: {
+                name: $('#insertUsername').val(),
+                password: $('#insertPsw1').val(),
+              },
+        success: (data) => {
+          window.location.replace("index.html");
+        }
+      });
+    }else{
+      //$("pass").html('Invalid username or password');
+      //document.getElementById("content").innerHTML = "Invalid username or password";
+    }
+    });
+//}else {
+  //console.log('no matching password');
+  //$("pass").update('Invalid username or password');
+//}
+  // define a generic Ajax error handler:
+  // http://api.jquery.com/ajaxerror/
+  $(document).ajaxError(() => {
+    $('#status').html('Error: unknown ajaxError!');
+  });
+});
+</script>
+</head>
+<body>
+ <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "navbar_color">
+  <a class="navbar-brand" href="#">BrainViz
+    <!--<img src="../img/logo_navbar.png" width="20%" height="auto" class="img-fluid">-->
+  </a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav text-center">
+      <li class="nav-item active">
+        <a class="nav-link" href="home.html"> Signup <span class="sr-only">(current)</span></a>
+      </li>
+
+    </ul>
+    <ul class="navbar-nav ml-auto">
+       <li class="nav-item active">
+        <a class="nav-link" href="index.html"> Logout <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+  </div>
+</nav> <!-- end of head navbar-->
+
+
+
+  <button id="readButton">Get profile</button>
+  <button id="allUsersButton">Get all usernames</button>
+
+  <div id="jobDiv"></div>
+  <img id="petImage"></img>
+
+  <hr/>
+  <div id="status"></div>
+        <section id = "body_container">
+            <div class = "content">
+                <div class = "container">
+                    <div class = "row">
+                        <br><br>
+                        <div class="col-lg-2"></div>
+                        <div class= "col-lg-8">
+                            <br><br>
+
+                               <form action="#" onsubmit="return false" >
+                                <div class="form-group">
+                                <div class="container" id="account_container">
+
+                                  <div class="row">
+                                  <h1 id="register">Register</h1>
+                                </div>
+                                  <div class="row">
+                                  <p id="register1">Please fill in this form to create an account.</p>
+                                </div>
+                                  <hr>
+                                  <div class="row">
+                                 
+                                  <input id="insertUsername" type="text"  placeholder="Enter Username" name="email" required>
+                                </div>
+                                  <div class="row">
+                                  
+                                  <input id="insertPsw1" type="password" placeholder="Enter Password" name="psw" required>
+                                </div>
+                                <div class="row">
+                                  
+                                  <input id="insertPsw2" type="password" placeholder="Repeat Password" name="psw-repeat" required>
+                                  <hr>
+                                </div>
+                           
+                                  <div class="row">
+                                    <button id="insertButton" type="submit" class="registerbtn">Register</button>
+                                    <div id="pass"></div>
+                                  </div>
+                                </div>
+                                
+                                <div class="row" id="info2">
+                                <div class="container signin">
+                                  <p>Already have an account? <a href="index.html">Sign in</a>.</p>
+                                </div>
+                              </div>
+                              </div>
+                              </form>
+
+
+
+
+                        </div>
+                        <div class="col-lg-2"></div>
+                    </div>
+                </div>
+            </div>
+        </section>

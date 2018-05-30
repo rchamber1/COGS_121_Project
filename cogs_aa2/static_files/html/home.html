@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
 <!--functionality javascript code-->
 <script type="text/javascript">
   /*
@@ -56,7 +57,9 @@
 <!-- body of html page starts -->
 <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "navbar_color">
-  <a class="navbar-brand" href="home.html">Logo</a>
+  <a class="navbar-brand" href="home.html">BrainViz
+    <!--<img src="../img/logo_navbar.png" width="20%" height="auto" class="img-fluid">-->
+  </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
   </button>
@@ -70,7 +73,7 @@
     </ul>
     <ul class="navbar-nav ml-auto">
        <li class="nav-item active">
-        <a class="nav-link" href="home.html"> Logout <span class="sr-only">(current)</span></a>
+        <a class="nav-link" href="index.html"> Logout <span class="sr-only">(current)</span></a>
       </li>
     </ul>
   </div>
@@ -108,13 +111,14 @@
                         <div class="col-lg-2 col-md-2 col-sm-2"></div>
 
                         <div class= "col-lg-4 col-md-4 col-sm-4">
-                           <a href="regions_detail.html"><img src="../img/region_btn.png" class ="img-fluid"></a>
-                           <figcaption class="figure-caption text-center">Brain Regions</figcaption>
+                           <a href="regions_detail.html" id="region_btn"><img src="../img/region_btn.png" class ="img-fluid"></a>
+                           <a href="regions_detail.html" id="region_text"><img src="../img/regions_hover.png" class ="img-fluid"></a>
+                           
                         </div>
 
                         <div class= "col-lg-4 col-md-4 col-sm-4">
-                           <a href="conditions.html"><img src="../img/condition_btn.png" class ="img-fluid"></a>
-                           <figcaption class="figure-caption text-center">Conditions</figcaption>
+                           <a href="conditions.html" id="conditions_btn"><img src="../img/condition_btn.png" class ="img-fluid"></a>
+                           <a href="conditions.html" id="conditions_text"><img src="../img/condition_hover.png" class ="img-fluid"></a>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2"></div>
 
@@ -131,13 +135,13 @@
                         <div class="col-lg-2 col-md-2 col-sm-2"></div>
 
                         <div class= "col-lg-4 col-md-4 col-sm-4">
-                           <a href="tracking.html"><img src="../img/track_btn.png" class ="img-fluid"></a>
-                           <figcaption class="figure-caption text-center">Tracking</figcaption>
+                           <a href="tracking.html" id="tracking_btn"><img src="../img/track_btn.png" class ="img-fluid"></a>
+                           <a href="tracking.html" id="tracking_text"><img src="../img/tracking_hover.png" class ="img-fluid"></a>
                         </div>
 
                         <div class= "col-lg-4 col-md-4 col-sm-4">
-                           <a href="brainmodel.html"><img src="../img/brainimg_btn.png" class ="img-fluid"></a>
-                           <figcaption class="figure-caption text-center">Brain Image</figcaption>
+                           <a href="brainmodel.html" id="model_btn"><img src="../img/brainimg_btn.png" class ="img-fluid"></a>
+                           <a href="brainmodel.html" id="model_text"><img src="../img/model_hover.png" class ="img-fluid"></a>
                         </div>
                         <div class="col-lg-2 col-md-2 col-sm-2"></div>
                         
@@ -153,6 +157,88 @@
 
   <script type="text/javascript">
     var $j = $.noConflict(true);
+
+    $(document).ready (
+      function() {
+        $("#region_text").hide();
+        $("#conditions_text").hide();
+        $("#tracking_text").hide();
+        $("#model_text").hide();
+
+      }
+    );
+    //region_btn 
+    $("#region_btn").hover (
+      function() {
+        $("#region_text").show();
+        $("#region_btn").hide();
+      }
+    );
+
+    $("#region_text").hover (
+      function() {
+      },
+      function() {
+        $("#region_btn").show();
+        $("#region_text").hide();
+      }
+      );
+    //end of region_btn
+    
+    //conditions_btn 
+    $("#conditions_btn").hover (
+      function() {
+        $("#conditions_text").show();
+        $("#conditions_btn").hide();
+      }
+    );
+
+    $("#conditions_text").hover (
+      function() {
+      },
+      function() {
+        $("#conditions_btn").show();
+        $("#conditions_text").hide();
+      }
+      );
+    //end of conditions_btn
+
+    //tracking
+    $("#tracking_btn").hover (
+      function() {
+        $("#tracking_text").show();
+        $("#tracking_btn").hide();
+      }
+    );
+
+    $("#tracking_text").hover (
+      function() {
+      },
+      function() {
+        $("#tracking_btn").show();
+        $("#tracking_text").hide();
+      }
+      );
+    //end of tracking_btn
+
+        //tracking
+    $("#model_btn").hover (
+      function() {
+        $("#model_text").show();
+        $("#model_btn").hide();
+      }
+    );
+
+    $("#model_text").hover (
+      function() {
+      },
+      function() {
+        $("#model_btn").show();
+        $("#model_text").hide();
+      }
+      );
+    //end of tracking_btn
+
   </script>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>

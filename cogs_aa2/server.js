@@ -9,6 +9,8 @@
 	const db1 = new sqlite3.Database('conditions.db');
 	const db2 = new sqlite3.Database('tracking.db');
 
+	let loggedinuser = null;
+
 	/* serve the static files */
 	app.use(express.static('static_files/'));
   	app.use(express.static('static_files/html/')); /* from what i think i know we don't need this */
@@ -140,22 +142,43 @@ app.get('/users', (req, res) => {
 const bodyParser = require('body-parser');
 app.use(bodyParser.urlencoded({extended: true})); // hook up with your app
 
-//MAKING POSTS
+//Creating accounts
 app.post('/users', (req, res) => {
   console.log(req.body);
+  
 
   userdb.run(
-	'INSERT INTO users_to_pets VALUES ($name, $password)',
+	'INSERT INTO users_to_pets VALUES ($name, $password, $hindbrain, $hindbrainVisits, $midbrain, $midbrainVisits, $forebrain, $forebrainVisits, $cerebral, $cerebralVisits, $alzheimers, $alzheimersVisits, $parkinsons, $parkinsonsVisits, $seizure, $seizureVisits, $stroke, $strokeVisits, $ms, $msVisits, $als, $alsVisits)',
     // parameters to SQL query:
     {
       $name: req.body.name,
       $password: req.body.password,
+      $hindbrain: 0,
+      $hindbrainVisits: 0, 
+      $midbrain:0, 
+      $midbrainVisits:0, 
+      $forebrain:0, 
+      $forebrainVisits:0, 
+      $cerebral:0, 
+      $cerebralVisits:0,
+      $alzheimers:0,
+      $alzheimersVisits:0, 
+      $parkinsons:0, 
+      $parkinsonsVisits:0, 
+      $seizure:0, 
+      $seizureVisits:0, 
+      $stroke:0, 
+      $strokeVisits:0, 
+      $ms:0, 
+      $msVisits:0, 
+      $als:0, 
+      $alsVisits:0,
 
     },
     // callback function to run when the query finishes:
     (err) => {
       if (err) {
-        res.send({message: 'error in app.post(/users)'});
+        res.send({message: 'error in app.post(/users1)'});
       } else {
         res.send({message: 'successfully run app.post(/users)'});
       }
@@ -165,9 +188,9 @@ app.post('/users', (req, res) => {
 
 
 
+app.post('/users/:userid', (req, res) => {
 
-app.post('/users/Amparo', (req, res) => {
-
+   
    let sectionBrain = req.body.prevPage;
    let timeBrain = req.body.totalTime; 
    console.log('this is sectionBrain '+ sectionBrain);
@@ -177,7 +200,7 @@ app.post('/users/Amparo', (req, res) => {
   	if (sectionBrain == 'hindbrain') {
   	//let timeToAdd = userdb.run("SELECT sectionBrain FROM users_to_pets WHERE name = 'Amparo'");
   	//console.log('ddddddddddd   ' + timeToAdd);
-	userdb.run( "UPDATE users_to_pets SET hindbrain = $guo WHERE name = 'Amparo'",
+	userdb.run( "UPDATE users_to_pets SET hindbrain = $guo WHERE name = '" + loggedinuser + "'",
 		    // parameters to SQL query:
 		    {
 		      //$whatever: sectionBrain,
@@ -188,14 +211,14 @@ app.post('/users/Amparo', (req, res) => {
     // callback function to run when the query finishes:
     (err) => {
       if (err) {
-        res.send({message: 'error in app.post(/users)'});
+        res.send({message: 'error in app.post(/users2)'});
       } else {
         res.send({message: 'successfully run app.post(/users)'});
       }
     }
   ); 
 } else if(sectionBrain == 'midbrain') {
-	userdb.run( "UPDATE users_to_pets SET midbrain = $guo WHERE name = 'Amparo'",
+	userdb.run( "UPDATE users_to_pets SET midbrain = $guo WHERE name = '" + loggedinuser + "'",
 		    // parameters to SQL query:
 		    {
 		      
@@ -207,14 +230,14 @@ app.post('/users/Amparo', (req, res) => {
     // callback function to run when the query finishes:
     (err) => {
       if (err) {
-        res.send({message: 'error in app.post(/users)'});
+        res.send({message: 'error in app.post(/users3)'});
       } else {
         res.send({message: 'successfully run app.post(/users)'});
       }
     }
   );
 } else if(sectionBrain == 'forebrain'){
-	userdb.run( "UPDATE users_to_pets SET forebrain = $guo WHERE name = 'Amparo'",
+	userdb.run( "UPDATE users_to_pets SET forebrain = $guo WHERE name = '" + loggedinuser + "'",
 		    // parameters to SQL query:
 		    {
 		      
@@ -226,14 +249,14 @@ app.post('/users/Amparo', (req, res) => {
     // callback function to run when the query finishes:
     (err) => {
       if (err) {
-        res.send({message: 'error in app.post(/users)'});
+        res.send({message: 'error in app.post(/users4)'});
       } else {
         res.send({message: 'successfully run app.post(/users)'});
       }
     }
   );
 } else if(sectionBrain == 'cerebral'){
-	userdb.run( "UPDATE users_to_pets SET cerebral = $guo WHERE name = 'Amparo'",
+	userdb.run( "UPDATE users_to_pets SET cerebral = $guo WHERE name = '" + loggedinuser + "'",
 		    // parameters to SQL query:
 		    {
 		      
@@ -245,7 +268,7 @@ app.post('/users/Amparo', (req, res) => {
     // callback function to run when the query finishes:
     (err) => {
       if (err) {
-        res.send({message: 'error in app.post(/users)'});
+        res.send({message: 'error in app.post(/users5)'});
       } else {
         res.send({message: 'successfully run app.post(/users)'});
       }
@@ -264,6 +287,11 @@ app.post('/users/Amparo', (req, res) => {
 //   http://localhost:3000/users/Philip
 //   http://localhost:3000/users/Carol
 //   http://localhost:3000/users/invalidusername
+
+
+
+
+//logging user
 app.get('/users/:userid', (req, res) => {
   const nameToLookup = req.params.userid; // matches ':userid' above
 
@@ -279,12 +307,15 @@ app.get('/users/:userid', (req, res) => {
       console.log(rows);
       if (rows.length > 0) {
         res.send(rows[0]);
+        let loggedinuser = req.params.userid;
+        console.log("current user:" + loggedinuser);
       } else {
         res.send({}); // failed, so return an empty object instead of undefined
       }
     }
   );
 });
+
 
 //userdb.run("UPDATE users_to_pets SET password = 'newPassword' WHERE name = 'Ryan'");
 

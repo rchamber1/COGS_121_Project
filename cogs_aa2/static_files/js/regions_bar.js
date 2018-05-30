@@ -1,9 +1,9 @@
-
+$(document).ready(() => {
 var chart2 = c3.generate({
 bindto: '#chart2',
         data: {
           columns: [
-            ['Total Time', 6, 8, 6, 5],
+            ['Total Time', document.getElementById('time1').innerHTML, document.getElementById('time2').innerHTML, document.getElementById('time3').innerHTML, document.getElementById('time4').innerHTML],
             ['Average Time', 4, 3, 2, 1]
           ],
           type: 'bar'
@@ -36,5 +36,6 @@ bindto: '#chart2',
         legend: {
           show: true
         }
+});
 });
 
