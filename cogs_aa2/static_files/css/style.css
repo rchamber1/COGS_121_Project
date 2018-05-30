@@ -1,5 +1,5 @@
 body,html {
-	overflow-x: hidden;
+  overflow-x: hidden;
   height:100%;
   width: 100%;
   background-color: #d6e2e0 !important;
@@ -88,15 +88,6 @@ figcaption {
 /* end of homepage*/
 
 /* regions page */
-.breadcrumb {
-  background-color: #99c4a2;
-  margin-top: 5px;
-}
-.breadcrumb >.active a{
-   font-family:'Mina';
-
-}
-
 #top_jumbo, #track-title {
   text-align: center;
 }
@@ -123,6 +114,14 @@ figcaption {
 
 #region_btns {
   margin-top: 2%;
+}
+
+#top_btns{
+  margin-top: 1%;
+  align-content: center;
+}
+#content_row{
+  margin-top:5%;
 }
 
 /* back button*/
@@ -175,6 +174,7 @@ table tr {
 #info2 p {
   margin-top: 3%; 
 }
+
 
 
 
