@@ -205,87 +205,26 @@ app.post('/users/Amparo', (req, res) => {
 
    console.log(x[0]);
 	
-  
-  	if (sectionBrain == 'hindbrain') {
+  	if (true) {
+		console.log("in true");
   	//let timeToAdd = userdb.run("SELECT sectionBrain FROM users_to_pets WHERE name = 'Amparo'");
   	//console.log('ddddddddddd   ' + timeToAdd);
-	userdb.run( "UPDATE users_to_pets SET hindbrain = hindbrain + $guo, hindbrainVisits = hindbrainVisits + 1 WHERE name = 'Amparo'",
-		    // parameters to SQL query:
-		    {
-		      //$whatever: sectionBrain,
-		      $guo: timeBrain,
-		    },
-
-	
-    // callback function to run when the query finishes:
-    (err) => {
-      if (err) {
-        res.send({message: 'error in app.post(/users2)'});
-      } else {
-        res.send({message: 'successfully run app.post(/users)'});
-      }
-    }
-  	); 
-} else if(sectionBrain == 'midbrain') {
-	userdb.run( "UPDATE users_to_pets SET midbrain = midbrain + $guo, midbrainVisits = midbrainVisits + 1 WHERE name = 'Amparo'",
-		    // parameters to SQL query:
-		    {
-		      
-		      //$whatever: sectionBrain,
-		      $guo: timeBrain 
-
-		    },
-	
-    // callback function to run when the query finishes:
-    (err) => {
-      if (err) {
-        res.send({message: 'error in app.post(/users3)'});
-      } else {
-        res.send({message: 'successfully run app.post(/users)'});
-      }
-    }
-  );
-} else if(sectionBrain == 'forebrain'){
-	userdb.run( "UPDATE users_to_pets SET forebrain =  forebrain + $guo, forebrainVisits = forebrainVisits +1 WHERE name = 'Amparo' ",
-		    // parameters to SQL query:
-		    {
-		      
-		      //$whatever: sectionBrain,
-		      $guo: timeBrain
-
-		    },
-	
-    // callback function to run when the query finishes:
-    (err) => {
-      if (err) {
-        res.send({message: 'error in app.post(/users4)'});
-      } else {
-        res.send({message: 'successfully run app.post(/users)'});
-      }
-    }
-  );
-} else if(sectionBrain == 'cerebral'){
-	userdb.run( "UPDATE users_to_pets SET cerebral = cerebral + $guo, cerebralVisits = cerebralVisits + 1 WHERE name = 'Amparo'",
-		    // parameters to SQL query:
-		    {
-		      
-		      //$whatever: sectionBrain,
-		      $guo: timeBrain
-
-		    },
-	
-    // callback function to run when the query finishes:
-    (err) => {
-      if (err) {
-        res.send({message: 'error in app.post(/users5)'});
-      } else {
-        res.send({message: 'successfully run app.post(/users)'});
-      }
-    }
-  );
-} else {
-
-}
+		userdb.run( "UPDATE users_to_pets SET " +  sectionBrain.toLowerCase() + " = " + sectionBrain.toLowerCase() + " + $guo, " +  sectionBrain.toLowerCase() +"Visits = "+ sectionBrain.toLowerCase() + "Visits + 1 WHERE name = 'Amparo'",
+			//userdb.run( "UPDATE users_to_pets SET hindbrain = hindbrain + $guo, hindbrainVisits = hindbrainVisits + 1 WHERE name = 'Amparo'",
+	    // parameters to SQL query:
+	    {
+	      $guo: timeBrain.toLowerCase()
+	    },
+  		// callback function to run when the query finishes:
+  		(err) => {
+    		if (err) {
+      		res.send({message: 'error in app.post(/users)'});
+    		} else {
+      		res.send({message: 'successfully run app.post(/users)'});
+    		}
+  		}
+  	);
+	}
 
 });
 
