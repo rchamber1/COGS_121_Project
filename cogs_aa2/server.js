@@ -188,6 +188,9 @@ app.post('/users', (req, res) => {
 
 
 
+
+
+//updating data to database
 app.post('/users/Amparo', (req, res) => {
 
    
@@ -195,18 +198,24 @@ app.post('/users/Amparo', (req, res) => {
    let timeBrain = req.body.totalTime; 
    console.log('this is sectionBrain '+ sectionBrain);
    console.log('thie is timeBrain '+ timeBrain);
+
+
+   let x = ['Amparo', 4, 5, 6];
+
+
+   console.log(x[0]);
 	
   
   	if (sectionBrain == 'hindbrain') {
   	//let timeToAdd = userdb.run("SELECT sectionBrain FROM users_to_pets WHERE name = 'Amparo'");
   	//console.log('ddddddddddd   ' + timeToAdd);
-	userdb.run( "UPDATE users_to_pets SET hindbrain = $guo WHERE name = 'Amparo'",
+	userdb.run( "UPDATE users_to_pets SET hindbrain = hindbrain + $guo, hindbrainVisits = hindbrainVisits + 1 WHERE name = 'Amparo'",
 		    // parameters to SQL query:
 		    {
 		      //$whatever: sectionBrain,
-		      $guo: timeBrain
-
+		      $guo: timeBrain,
 		    },
+
 	
     // callback function to run when the query finishes:
     (err) => {
@@ -216,9 +225,9 @@ app.post('/users/Amparo', (req, res) => {
         res.send({message: 'successfully run app.post(/users)'});
       }
     }
-  ); 
+  	); 
 } else if(sectionBrain == 'midbrain') {
-	userdb.run( "UPDATE users_to_pets SET midbrain = $guo WHERE name = 'Amparo'",
+	userdb.run( "UPDATE users_to_pets SET midbrain = midbrain + $guo, midbrainVisits = midbrainVisits + 1 WHERE name = 'Amparo'",
 		    // parameters to SQL query:
 		    {
 		      
@@ -237,7 +246,7 @@ app.post('/users/Amparo', (req, res) => {
     }
   );
 } else if(sectionBrain == 'forebrain'){
-	userdb.run( "UPDATE users_to_pets SET forebrain = $guo WHERE name = 'Amparo' ",
+	userdb.run( "UPDATE users_to_pets SET forebrain =  forebrain + $guo, forebrainVisits = forebrainVisits +1 WHERE name = 'Amparo' ",
 		    // parameters to SQL query:
 		    {
 		      
@@ -256,7 +265,7 @@ app.post('/users/Amparo', (req, res) => {
     }
   );
 } else if(sectionBrain == 'cerebral'){
-	userdb.run( "UPDATE users_to_pets SET cerebral = $guo WHERE name = 'Amparo'",
+	userdb.run( "UPDATE users_to_pets SET cerebral = cerebral + $guo, cerebralVisits = cerebralVisits + 1 WHERE name = 'Amparo'",
 		    // parameters to SQL query:
 		    {
 		      
