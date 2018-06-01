@@ -188,7 +188,7 @@ app.post('/users', (req, res) => {
 
 
 
-app.post('/users/:userid', (req, res) => {
+app.post('/users/Amparo', (req, res) => {
 
    
    let sectionBrain = req.body.prevPage;
@@ -200,7 +200,7 @@ app.post('/users/:userid', (req, res) => {
   	if (sectionBrain == 'hindbrain') {
   	//let timeToAdd = userdb.run("SELECT sectionBrain FROM users_to_pets WHERE name = 'Amparo'");
   	//console.log('ddddddddddd   ' + timeToAdd);
-	userdb.run( "UPDATE users_to_pets SET hindbrain = $guo WHERE name = '" + loggedinuser + "'",
+	userdb.run( "UPDATE users_to_pets SET hindbrain = $guo WHERE name = 'Amparo'",
 		    // parameters to SQL query:
 		    {
 		      //$whatever: sectionBrain,
@@ -218,7 +218,7 @@ app.post('/users/:userid', (req, res) => {
     }
   ); 
 } else if(sectionBrain == 'midbrain') {
-	userdb.run( "UPDATE users_to_pets SET midbrain = $guo WHERE name = '" + loggedinuser + "'",
+	userdb.run( "UPDATE users_to_pets SET midbrain = $guo WHERE name = 'Amparo'",
 		    // parameters to SQL query:
 		    {
 		      
@@ -237,7 +237,7 @@ app.post('/users/:userid', (req, res) => {
     }
   );
 } else if(sectionBrain == 'forebrain'){
-	userdb.run( "UPDATE users_to_pets SET forebrain = $guo WHERE name = '" + loggedinuser + "'",
+	userdb.run( "UPDATE users_to_pets SET forebrain = $guo WHERE name = 'Amparo' ",
 		    // parameters to SQL query:
 		    {
 		      
@@ -256,7 +256,7 @@ app.post('/users/:userid', (req, res) => {
     }
   );
 } else if(sectionBrain == 'cerebral'){
-	userdb.run( "UPDATE users_to_pets SET cerebral = $guo WHERE name = '" + loggedinuser + "'",
+	userdb.run( "UPDATE users_to_pets SET cerebral = $guo WHERE name = 'Amparo'",
 		    // parameters to SQL query:
 		    {
 		      
@@ -307,8 +307,8 @@ app.get('/users/:userid', (req, res) => {
       console.log(rows);
       if (rows.length > 0) {
         res.send(rows[0]);
-        let loggedinuser = req.params.userid;
-        console.log("current user:" + loggedinuser);
+        //let loggedinuser = req.params.userid;
+        //console.log("current user:" + loggedinuser);
       } else {
         res.send({}); // failed, so return an empty object instead of undefined
       }
