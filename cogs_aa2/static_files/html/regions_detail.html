@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
 <!--<script src="../js/regions.js"></script>-->
 <script type="text/javascript">
 
@@ -170,7 +171,7 @@
 </head>
 <body>
  <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "navbar_color">
-  <a class="navbar-brand" href="home.html">BrainViz
+  <a class="navbar-brand" href="home.html">NeuroViz
     <!--<img src="../img/logo_navbar.png" width="20%" height="auto" class="img-fluid">-->
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -181,14 +182,6 @@
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav text-center">
       <li class="nav-item active">
-          <!-- start of breadcrumb -->    
-          <!--
-          <nav aria-label="breadcrumb">
-            <ol class="breadcrumb">
-              <li class="breadcrumb-item" id="home_bread"><a href="home.html">Home</a></li>
-              <li class="breadcrumb-item active" aria-current="page" id="bread_title"></li>
-            </ol>
-          </nav>--><!-- end of breadcrumb -->
           <a class="nav-link" href="regions_detail.html">Regions Page <span class="sr-only">(current)</span></a>
       </li>
     </ul>
@@ -200,57 +193,74 @@
     </ul>
   </div>
 </nav> <!-- end of head navbar-->
+  
+    <section id="top_btns">
+      <div class="content">
+        <div class="container">
+          <div class="row">
+            <div class="col-lg">
+              <button type="button" class="btn btn-outline-dark" id="hindbrain">hindbrain</button>
+              <button type="button" class="btn btn-outline-dark" id="midbrain">midbrain</button>
+              <button type="button" class="btn btn-outline-dark" id="forebrain">forebrain</button>
+              <button type="button" class="btn btn-outline-dark" id="cerebral">cerebral cortex</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
 
+
+  <div class="row" id="content_row">
+    <div class="col-lg-1"></div>
+    <div class="col-lg-5">
         <section id ="top_container">
           <div class="content">
             <div class="container">
-
                <div class = "row" id="region_btns">
-                  <div class = "col-lg-3"></div>
-                  <div class = "col-lg-6">
-                      <button type="button" class="btn btn-outline-dark" id="hindbrain">hindbrain</button>
-                      <button type="button" class="btn btn-outline-dark" id="midbrain">midbrain</button>
-                      <button type="button" class="btn btn-outline-dark" id="forebrain">forebrain</button>
-                      <button type="button" class="btn btn-outline-dark" id="cerebral">cerebral cortex</button>
+                 <!-- <div class = "col-lg-3"></div>-->
+                  <div class = "col-lg">
+                      
                   </div>
-                  <div class = "col-lg-3"></div>
+                  <!--<div class = "col-lg-3"></div>-->
                 </div>
 
               <div class="row">
                 <div class="col-md">
                   <div class="jumbotron jumbotron-fluid">
                     <div class="container" id="top_jumbo">
-                      <h1 class="display-4" id="hero_title"></h1>
+                      <h1 class="display-4" id="hero_title">Hindbrain</h1>
                       <hr>
-                      <p id="lead"> </p>
+                      <p id="lead">Ancient, posterior part of brain consisting of Medulla, Pons and Cerebellum</p>
                         </div>
                     </div>
                   </div>
                 </div>
-
-
               </div>
             </div>
-          </div>
         </section>
 
         <section id = "body_container">
             <div class = "content">
-                <div class = "container-fluid">
+                <div class = "container">
                     <div class = "row" id="detail_div">
                         <br><br>
-                        <div class="col-md-2"></div>
-                        <div class="col-md-8">
+                        <!--<div class="col-md-2"></div>-->
+                        <div class="col-md">
                             <h3 id="detail_title"></h3>
-                            <p id="detail_content"></p>
+                            <p id="detail_content">(Latin for “Bridge) Relays info between Cortex & Cerebellum and between Brain & Spinal Cord. Pons (& Medulla) also include Cranial Nerves V through XII that carry sensory/motor info to/from the head. Plus they include Reticular Formation (involved in Arousal) and Raphe System (involved in Sleep)</p>
                         </div>
                                
-                        <div class="col-md-2"></div>
+                        <!--<div class="col-md-2"></div>-->
                         </div>
                     </div>
                   </div>
-                </div>
             </section>
+          </div>
+            <div class="col-lg-5">
+              <div class="sketchfab-embed-wrapper"><iframe width="640" height="480" src="https://sketchfab.com/models/6da6d56c0b8440f19917e625649e18f6/embed?annotation=9&amp;autostart=1&amp;camera=0&amp;preload=1" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/models/6da6d56c0b8440f19917e625649e18f6?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Anatomy of the Human Brain V4</a> by <a href="https://sketchfab.com/intervoke?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">INTERVOKE</a> on <a href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a> </p> </div>
+            </div>
+            <div class="col-lg-1"></div>
+        </div>
 
               <section id = "body_container">
                   <div class = "content">
