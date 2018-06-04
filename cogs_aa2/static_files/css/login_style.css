@@ -1,3 +1,6 @@
+/*
+This contains the code to control the overall style/layout of the entire website, declaring the font types, coloring, element positionings/padding, and all other stylistic aspects of the website.
+*/
 body,html {
 
 	overflow-x: hidden;
