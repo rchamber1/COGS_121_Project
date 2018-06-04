@@ -16,6 +16,8 @@ This page, much like the conditions page, houses the basic structure of the info
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
 <!--<script src="../js/regions.js"></script>-->
 <script type="text/javascript">
+  //the code below lets the user switch between information without having to refresh the page using ajax it also tracks the ammount of time the user spent on each of the regions of the brain  //
+
   const currentLoggedInUser = localStorage.getItem("currentUser");
   const userUrl = 'users/' + currentLoggedInUser;
 
@@ -29,10 +31,7 @@ This page, much like the conditions page, houses the basic structure of the info
       totalTime = (currentTime - time)/1000;
       console.log(totalTime);
       console.log(prevPage);
-      //let pageTimeRow = prevPage + 'Time';
-      //let pageVisitsRow = prevPage + 'Visits';
-      //userdb.run("UPDATE users_to_pets SET " + pageTimeRow + " = " + totalTime + 
-      //" WHERE name = 'Ryan'");
+    
       $.ajax({
         url: userUrl,
         type: 'GET',
@@ -41,8 +40,10 @@ This page, much like the conditions page, houses the basic structure of the info
           data.prevPage
         }
       });
-      ////
+    
+
       $.ajax({
+
         // all URLs are relative to http://localhost:3000/
         url: userUrl,
         type: 'POST', // <-- this is POST, not GET
@@ -54,6 +55,7 @@ This page, much like the conditions page, houses the basic structure of the info
           $('#status').html(data.message);
         }
       });
+
       ////
       // Get existing dtabase time from prevPage
       // Add totalTime to that
@@ -68,6 +70,8 @@ This page, much like the conditions page, houses the basic structure of the info
     time = currentTime;
     prevPage = currentPage;
   };
+
+  
  $(document).ready(() => {
     timerGoing = false;
      $('#midbrain').click(() => {

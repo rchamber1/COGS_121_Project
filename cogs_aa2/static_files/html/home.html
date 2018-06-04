@@ -104,17 +104,15 @@ This file contains the information for the front page of the website, once the u
 </div>
 
   <script type="text/javascript">
-    //var $j = $.noConflict(true);
-    //var firstTime = local.Storage.getItem("first_time");
+
 
     $(document).ready (
+
+      ///function to determine wether to display into.js
       function() {
 
-        //$("#region_text").hide();
-        //$("#conditions_text").hide();
-        //$("#tracking_text").hide();
-        //$("#model_text").hide();
-      
+       
+        //check i user has vistited home page already
         if(!(localStorage.getItem("firstVisit"))){
           introJs().goToStep(2).start();
          }
@@ -124,57 +122,7 @@ This file contains the information for the front page of the website, once the u
      
       }
     );
-    //region_btn 
-    /*
-    $("#region_btn").hover (
-      function() {
-        $("#region_btn").html("<img src='../img/regions_hover.png' class ='img-fluid'>");
-       // $("#region_text").show();
-        //$("#region_btn").hide();
-      },
-      function() {
-        $("#region_btn").html("<img src='../img/region_btn.png' class ='img-fluid'>");
-
-      }
-    ); */
-/*
-    $("#region_btn").on({
-      mouseenter: function() {
-        $("#region_btn").html("<img src='../img/regions_hover.png' class ='img-fluid'>");
-      },
-      mouseleave: function() {
-        $("#region_btn").html("<img src='../img/region_btn.png' class ='img-fluid'>");
-      }
-    });
-   
-    $("#conditions_btn").on({
-      mouseenter: function() {
-        $("#conditions_btn").html("<img src='../img/condition_hover.png' class ='img-fluid'>");
-      },
-      mouseleave: function() {
-        $("#conditions_btn").html("<img src='../img/condition_btn.png' class ='img-fluid'>");
-      }
-    });
-
-
-    $("#tracking_btn").on({
-      mouseenter: function() {
-        $("#tracking_btn").html("<img src='../img/tracking_hover.png' class ='img-fluid'>");
-      },
-      mouseleave: function() {
-        $("#tracking_btn").html("<img src='../img/track_btn.png' class ='img-fluid'>");
-      }
-    });
-
-    $("#model_btn").on({
-      mouseenter: function() {
-        $("#model_btn").html("<img src='../img/model_hover.png' class ='img-fluid'>");
-      },
-      mouseleave: function() {
-        $("#model_btn").html("<img src='../img/brainimg_btn.png' class ='img-fluid'>");
-      }
-    });
-*/
+    
 
 
   </script>
