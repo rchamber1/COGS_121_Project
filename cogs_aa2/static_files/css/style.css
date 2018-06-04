@@ -17,7 +17,7 @@ body,html {
 #navbar_color a {
   font-family: 'Mina';
 }
-#navbar_color .nav-link {
+#navbar_color #active_nav a {
   color: white;
 }
 
@@ -56,7 +56,7 @@ body,html {
 }
 
 #top_row, #bottom_row {
-  padding-bottom: 5%;
+  padding-bottom: 10%;
 }
 
 #top_row img {
@@ -85,6 +85,8 @@ figcaption {
   transition: .5s ease;
   background-color: #008CBA;
 }
+
+
 /* end of homepage*/
 
 /* regions page */
@@ -120,18 +122,9 @@ figcaption {
   margin-top: 1%;
   align-content: center;
 }
+
 #content_row{
-  margin-top:5%;
-}
-
-/* back button*/
-#backBtn {
-  background-color: none;
-}
-
-table tr {
-  border-width: 1px;
-  border-color: black;
+  margin-top:2%;
 }
 
 /* conditions */
@@ -175,6 +168,23 @@ table tr {
   margin-top: 3%; 
 }
 
+#chart_row {
+  margin-bottom: 4%;
+}
+
+#content_row2 {
+  margin-top:5%;
+}
+
+#bar_chart {
+  margin-top:2%;
+  margin-right: 5px;
+}
+
+#progress h5{
+  text-align:center;
+  font-family:  'Mina';
+}
 
 
 

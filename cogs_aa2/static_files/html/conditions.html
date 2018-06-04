@@ -13,16 +13,67 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
 <link rel="stylesheet" href="../css/style.css"/>
 
 <!-- javascript for ajax code -->
 <script type="text/javascript">
 
-$(document).ready(() => {
+  const currentLoggedInUser = localStorage.getItem("currentUser");
+  const userUrl = 'users/' + currentLoggedInUser;
 
+let timerGoing = false;
+let time = 0;
+let prevPage = '';
+let totalTime = 0;
+function handleTime(currentPage){
+  let currentTime = Date.now();
+  if(timerGoing){
+    totalTime = (currentTime - time)/1000;
+    console.log(totalTime);
+    console.log(prevPage);
+    //let pageTimeRow = prevPage + 'Time';
+    //let pageVisitsRow = prevPage + 'Visits';
+    //userdb.run("UPDATE users_to_pets SET " + pageTimeRow + " = " + totalTime +
+    //" WHERE name = 'Ryan'");
+    $.ajax({
+      url: userUrl,
+      type: 'GET',
+      dataType: 'json',
+      success: (data) => {
+        data.prevPage
+      }
+    });
+    ////
+    $.ajax({
+      // all URLs are relative to http://localhost:3000/
+      url: userUrl,
+      type: 'POST', // <-- this is POST, not GET
+      data: {
+              prevPage: prevPage,
+              totalTime: totalTime,
+            },
+      success: (data) => {
+        $('#status').html(data.message);
+      }
+    });
+    ////
+    // Get existing dtabase time from prevPage
+    // Add totalTime to that
+    // Push new value to database
+    if(prevPage != currentPage){
+    // Add one to prevPage page visits
+    }
+  }else{
+    timerGoing = true;
+  }
+  time = currentTime;
+  prevPage = currentPage;
+};
+$(document).ready(() => {
+  timerGoing = false;
   /*click request for Alzheimers*/
-  $("#Alzheimers").click((req, res) => {
+  $("#Alzheimers").click(() => {
+    handleTime('Alzheimers');
     const requestURL = 'conditions/Alzheimers';
     $.ajax({
       url: requestURL,
@@ -30,7 +81,6 @@ $(document).ready(() => {
       dataType: 'json',
       success: (data) => {
         console.log('received data: ', data);
-
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
@@ -46,9 +96,9 @@ $(document).ready(() => {
     });
   });
   /*end of alzheimers ajax code*/
-
   /*click request for Parkinsons*/
-  $("#Parkinsons").click((req, res) => {
+  $("#Parkinsons").click(() => {
+    handleTime ('Parkinsons');
     const requestURL = 'conditions/Parkinsons';
     $.ajax({
       url: requestURL,
@@ -56,7 +106,6 @@ $(document).ready(() => {
       dataType: 'json',
       success: (data) => {
         console.log('received data: ', data);
-
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
@@ -72,9 +121,9 @@ $(document).ready(() => {
     });
   });
   /*end of parkinsons ajax code*/
-
   /*click request for Seizure*/
-  $("#Seizure").click((req, res) => {
+  $("#Seizure").click(() => {
+    handleTime ('Seizure');
     const requestURL = 'conditions/Seizure';
     $.ajax({
       url: requestURL,
@@ -82,9 +131,8 @@ $(document).ready(() => {
       dataType: 'json',
       success: (data) => {
         console.log('received data: ', data);
-
+        console.log('show this as title: '+ data.title);
         if (data.title) {
-          console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
           $('#subtitle-content').html(data.subtitle);
           $('#description-content').html(data.description);
@@ -98,9 +146,9 @@ $(document).ready(() => {
     });
   });
   /*end of seizure ajax code*/
-
   /*click request for Stroke*/
-  $("#Stroke").click((req, res) => {
+  $("#Stroke").click(() => {
+    handleTime ('stroke');
     const requestURL = 'conditions/Stroke';
     $.ajax({
       url: requestURL,
@@ -108,7 +156,6 @@ $(document).ready(() => {
       dataType: 'json',
       success: (data) => {
         console.log('received data: ', data);
-
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
@@ -124,17 +171,16 @@ $(document).ready(() => {
     });
   });
   /*end of stroke ajax code*/
-
   /*click request for ALS*/
-  $("#Als").click((req, res) => {
+  $("#Als").click(() => {
     const requestURL = 'conditions/ALS';
     $.ajax({
       url: requestURL,
       type: 'GET',
       dataType: 'json',
       success: (data) => {
+        handleTime('ALS');
         console.log('received data: ', data);
-
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
@@ -150,9 +196,9 @@ $(document).ready(() => {
     });
   });
   /*end of als ajax code*/
-
-  /*click request for Alzheimers*/
-  $("#Ms").click((req, res) => {
+  /*click request for MS*/
+  $("#Ms").click(() => {
+    handleTime ('Ms');
     const requestURL = 'conditions/MS';
     $.ajax({
       url: requestURL,
@@ -160,7 +206,6 @@ $(document).ready(() => {
       dataType: 'json',
       success: (data) => {
         console.log('received data: ', data);
-
         if (data.title) {
           console.log('show this as title: '+ data.title);
           $('#conditionName').html(data.title);
@@ -176,9 +221,7 @@ $(document).ready(() => {
     });
   });
   /*end of ms ajax code*/
-
 });
-
 </script>
 <!-- end of ajax code -->
 
@@ -189,7 +232,7 @@ $(document).ready(() => {
 
   <!-- start of head navbar -->
 <nav class="navbar navbar-expand-lg navbar-light bg-light" id = "navbar_color">
-  <a class="navbar-brand" href="home.html">NeuroViz
+    <a class="navbar-brand" href="home.html">NeuroViz
     <!--<img src="../img/logo_navbar.png" width="20%" height="auto" class="img-fluid">-->
   </a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -197,13 +240,22 @@ $(document).ready(() => {
   </button>
 
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
-    <ul class="navbar-nav text-center">
-      <li class="nav-item active">
-        <a class="nav-link" href="conditions.html">Conditions Page <span class="sr-only">(current)</span></a>
+      <ul class="navbar-nav text-center">
+      <li class="nav-item" >
+          <a class="nav-link disabled" href="regions_detail.html">Regions <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active" id="active_nav">
+        <a class="nav-link " href="conditions.html">Conditions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="tracking.html">Tracking</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="brainmodel.html">Brain Model</a>
       </li>
     </ul>
 
-    <ul class="navbar-nav ml-auto">
+     <ul class="navbar-nav ml-auto">
        <li class="nav-item active">
         <a class="nav-link" href="index.html"> Logout <span class="sr-only">(current)</span></a>
       </li>
@@ -212,42 +264,21 @@ $(document).ready(() => {
 </nav>
 <!-- end of head navbar-->
 
-<!-- start of code for the back button -->
-        <section id = "body_container">
-            <div class = "content">
-                <div class = "container">
-                    <div class = "row">
-                        <br><br>
-                        <div class="col-lg-2"></div>
-                        <div class= "col-lg-8">
-                            <br><br>
-
-                            <button id="backBtn" ><a href="home.html">BACK</a></button>
-                        </div>
-                        <div class="col-lg-2"></div>
-                    </div>
-                </div>
-            </div>
-        </section>
-<!-- end code for back button -->
-
-<br>
-
 <!-- start of page content -->
         <section id = "top_container">
             <div class = "content">
                 <div class = "container">
                     <div class = "row" id="region_btns">
-                  <div class = "col-lg-3"></div>
-                  <div class = "col-lg-6">
-                            <button type="button" class="btn btn-outline-dark" id="Parkinsons"> Parkinson's </button>
-                            <button type="button" class="btn btn-outline-dark" id="Alzheimers"> Alzheimer's </button>
-                            <button type="button" class="btn btn-outline-dark" id="Seizure"> Seizure </button>
-                            <button type="button" class="btn btn-outline-dark" id="Stroke"> Stroke </button>
-                            <button type="button" class="btn btn-outline-dark" id="Als"> A.L.S. </button>
-                            <button type="button" class="btn btn-outline-dark" id="Ms"> M.S. </button>
-                  </div>
-                  <div class = "col-lg-3"></div>
+                    <div class = "col-lg-3"></div>
+                    <div class = "col-lg-6">
+                              <button type="button" class="btn btn-outline-dark" id="Parkinsons"> Parkinson's </button>
+                              <button type="button" class="btn btn-outline-dark" id="Alzheimers"> Alzheimer's </button>
+                              <button type="button" class="btn btn-outline-dark" id="Seizure"> Seizure </button>
+                              <button type="button" class="btn btn-outline-dark" id="Stroke"> Stroke </button>
+                              <button type="button" class="btn btn-outline-dark" id="Als"> A.L.S. </button>
+                              <button type="button" class="btn btn-outline-dark" id="Ms"> M.S. </button>
+                    </div>
+                    <div class = "col-lg-3"></div>
                 </div>
 
                     <div class = "row">

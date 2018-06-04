@@ -13,12 +13,11 @@ body,html {
 #navbar_color {
   background-color: #99c4a2 !important;
 }
-
 #navbar_color a {
   font-family: 'Mina';
 }
-#navbar_color .nav-link {
-  color: white;
+#navbar_color #active_nav a {
+  color: white !important;
 }
 
 #search_form {

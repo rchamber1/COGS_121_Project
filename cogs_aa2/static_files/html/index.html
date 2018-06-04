@@ -14,11 +14,14 @@
  <script type="text/javascript"> //copied from account.html 
 // jQuery convention for running when the document has been fully loaded:
 $(document).ready(() => {
-  
+  localStorage.clear();
   $('#submit_btn').click(() => {
     //const userNameInput = $('#exampleInputEmail1').val();
     var userNameInput = document.getElementById("exampleInputEmail1").value;
     var userPassInput = document.getElementById("exampleInputPassword1").value;
+
+    localStorage.setItem("currentUser", userNameInput);
+    
     console.log('USERNAME: ' + userNameInput + ' PASSWORD: ' + userPassInput);
       
     const urlInput = 'users/' + userNameInput;

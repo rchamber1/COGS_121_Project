@@ -13,14 +13,14 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
 <!--<script src="../js/regions.js"></script>-->
 <script type="text/javascript">
+  const currentLoggedInUser = localStorage.getItem("currentUser");
+  const userUrl = 'users/' + currentLoggedInUser;
 
   let timerGoing = false;
   let time = 0;
   let prevPage = '';
   let totalTime = 0;
-
   function handleTime(currentPage){
-
     let currentTime = Date.now();
     if(timerGoing){
       totalTime = (currentTime - time)/1000;
@@ -28,22 +28,20 @@
       console.log(prevPage);
       //let pageTimeRow = prevPage + 'Time';
       //let pageVisitsRow = prevPage + 'Visits';
-
       //userdb.run("UPDATE users_to_pets SET " + pageTimeRow + " = " + totalTime + 
       //" WHERE name = 'Ryan'");
       $.ajax({
-        url: 'users/Amparo',
+        url: userUrl,
         type: 'GET',
         dataType: 'json',
         success: (data) => {
-          data.prevPage 
+          data.prevPage
         }
       });
       ////
-
       $.ajax({
         // all URLs are relative to http://localhost:3000/
-        url: 'users/Amparo',
+        url: userUrl,
         type: 'POST', // <-- this is POST, not GET
         data: {
                 prevPage: prevPage,
@@ -53,9 +51,7 @@
           $('#status').html(data.message);
         }
       });
-
       ////
-
       // Get existing dtabase time from prevPage
       // Add totalTime to that
       // Push new value to database
@@ -66,24 +62,16 @@
     }else{
       timerGoing = true;
     }
-
     time = currentTime;
     prevPage = currentPage;
-
   };
-
  $(document).ready(() => {
-
     timerGoing = false;
-
      $('#midbrain').click(() => {
         
         handleTime('midbrain');
-
         const requestURL = 'options/' + 'Midbrain';
-
       
-
       $.ajax({
         url: requestURL,
         type:'GET',
@@ -91,24 +79,15 @@
         success: (data) => {
            $('#hero_title').html(data.region);
            //$('#bread_title').html(data.region);
-
            $('#lead').html(data.inst);
            $('#detail_content').html(data.detail);
-
+           $('#first_img').attr('src', data.img);
         }
-
       })
-
-
      }); //end of midbrain
-
-
      $('#hindbrain').click(() => {
-
         handleTime('hindbrain');
-
         const requestURL = 'options/' + 'Hindbrain';
-
         $.ajax({
         url: requestURL,
         type:'GET',
@@ -118,18 +97,13 @@
           // $('#bread_title').html(data.region);
            $('#lead').html(data.inst);
            $('#detail_content').html(data.detail);
-
-
+           $('#first_img').attr('src', data.img);
         }
       })
      }); // end of hindbrain
-
     $('#cerebral').click(() => {
-
         handleTime('cerebral');
-
         const requestURL = 'options/' + 'Cerebral Cortex';
-
       $.ajax({
         url: requestURL,
         type:'GET',
@@ -137,20 +111,15 @@
         success: (data) => {  
            $('#hero_title').html(data.region);
            //$('#bread_title').html(data.region);
-
            $('#lead').html(data.inst);
            $('#detail_content').html(data.detail);
+           $('#first_img').attr('src', data.img);
         }
-
       })
      }); //end of cerebral
-
     $('#forebrain').click(() => {
-
         handleTime('forebrain');
-
         const requestURL = 'options/' + 'Forebrain';
-
       $.ajax({
         url: requestURL,
         type:'GET',
@@ -158,14 +127,13 @@
         success: (data) => {
            $('#hero_title').html(data.region);
            //$('#bread_title').html(data.region);
-
            $('#lead').html(data.inst);
            $('#detail_content').html(data.detail);
+           $('#first_img').attr('src', data.img);
         }
       })
      }); //end of forebrain
  });
-
 </script> 
 
 </head>
@@ -181,8 +149,17 @@
   
   <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav text-center">
-      <li class="nav-item active">
-          <a class="nav-link" href="regions_detail.html">Regions Page <span class="sr-only">(current)</span></a>
+      <li class="nav-item active" id="active_nav">
+          <a class="nav-link" href="regions_detail.html">Regions <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="conditions.html">Conditions</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="tracking.html">Tracking</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="brainmodel.html">Brain Model</a>
       </li>
     </ul>
 
@@ -194,20 +171,26 @@
   </div>
 </nav> <!-- end of head navbar-->
   
-    <section id="top_btns">
+ <div class="row">
+  <div class="col-md">
+    <section>
       <div class="content">
         <div class="container">
-          <div class="row">
-            <div class="col-lg">
+          <div class="row" id="region_btns">
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
               <button type="button" class="btn btn-outline-dark" id="hindbrain">hindbrain</button>
               <button type="button" class="btn btn-outline-dark" id="midbrain">midbrain</button>
               <button type="button" class="btn btn-outline-dark" id="forebrain">forebrain</button>
               <button type="button" class="btn btn-outline-dark" id="cerebral">cerebral cortex</button>
             </div>
+            <div class="col-md-3"></div>
           </div>
         </div>
       </div>
     </section>
+  </div>
+</div>
 
 
   <div class="row" id="content_row">
@@ -216,14 +199,6 @@
         <section id ="top_container">
           <div class="content">
             <div class="container">
-               <div class = "row" id="region_btns">
-                 <!-- <div class = "col-lg-3"></div>-->
-                  <div class = "col-lg">
-                      
-                  </div>
-                  <!--<div class = "col-lg-3"></div>-->
-                </div>
-
               <div class="row">
                 <div class="col-md">
                   <div class="jumbotron jumbotron-fluid">
@@ -256,29 +231,18 @@
                   </div>
             </section>
           </div>
-            <div class="col-lg-5">
-              <div class="sketchfab-embed-wrapper"><iframe width="640" height="480" src="https://sketchfab.com/models/6da6d56c0b8440f19917e625649e18f6/embed?annotation=9&amp;autostart=1&amp;camera=0&amp;preload=1" frameborder="0" allow="autoplay; fullscreen; vr" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe> <p style="font-size: 13px; font-weight: normal; margin: 5px; color: #4A4A4A;"> <a href="https://sketchfab.com/models/6da6d56c0b8440f19917e625649e18f6?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Anatomy of the Human Brain V4</a> by <a href="https://sketchfab.com/intervoke?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">INTERVOKE</a> on <a href="https://sketchfab.com?utm_medium=embed&utm_source=website&utm_campain=share-popup" target="_blank" style="font-weight: bold; color: #1CAAD9;">Sketchfab</a> </p> </div>
+
+          <section id="body_container">
+            <div class="content">
+              <div class = "container">
+                <div class="col-lg">
+                  <img id="first_img" src="../img/region/hindbrain.jpg">
+                  <figcaption>Copyright © 2017 Society for Neuroscience</figcaption>
+                </div>
             </div>
-            <div class="col-lg-1"></div>
-        </div>
 
-              <section id = "body_container">
-                  <div class = "content">
-                      <div class = "container">
-                          <div class = "row">
-                              <br><br>
-                              <div class="col-lg-2"></div>
-                              <div class= "col-lg-8">
-                                  <br><br>
-                                  <a href="home.html"><img src = "../img/back_btn.png"></a>
-                              </div>
-                              <div class="col-lg-2"></div>
-
-
-                          </div>
-                      </div>
-                  </div>
-              </section>
+            </div>
+          </section>
 
   </div>
 </div>

@@ -29,8 +29,17 @@
 
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
     <ul class="navbar-nav text-center">
-      <li class="nav-item active">
-        <a class="nav-link" href="tracking.html">Tracking Page <span class="sr-only">(current)</span></a>
+      <li class="nav-item" >
+          <a class="nav-link disabled" href="regions_detail.html">Regions <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled " href="conditions.html">Conditions</a>
+      </li>
+      <li class="nav-item active" id="active_nav">
+        <a class="nav-link" href="tracking.html">Tracking</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="brainmodel.html">Brain Model</a>
       </li>
     </ul>
 
@@ -45,69 +54,68 @@
 
   <br>
 
-  <div class="container" id="top_jumbo">
-
-  <div class="jumbotron jumbotron-fluid">
-    <h1 id="track-title"> Your Progress </h1>
-  </div>
-
-  <div class="container">
-
-      <div id="chart1"></div>
-      <!-- input text box --> 
-      <br><br>
-      <!--
-      <div>
-        <form >
-          <input type="text" name="input_time" placeholder="Input the number of hours to study" size ="32">
-        </form>
+<div class="row" id="content_row2">
+    <div class="col-lg-5">
+        <section id ="top_container">
+          <div class="content">
+            <div class="container">
+              <div class="row">
+                <div class="col-md">
+                  <div id="progress"><h5>Your progress to current goal:</h5></div>
+                  <div id="chart1"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+        </section>
       </div>
-      <br></br>-->
 
-      <div id="chart2"></div>
-      <br></br>
-      <div id="chart3"></div>
-      <br></br>
-  </div>
+      <div class="col-lg-6" id="bar_chart">
+        <div class="row" id="chart_row">
+           <div id="chart2"></div>
+          </div>
 
+         <div class="row">
+          <div id="chart3"></div>
+          </div>
+        </div>
+        <div class="col-lg-1"></div>
 
-  <br>
-  <button type="button" id="totalTime" class="btn btn-outline-dark track-btn"> Update Time </button>
-  <table id="tracking-table" class="table-bordered" align="center" border="1">
+    </div>
+
+  <table id="tracking-table" class="table-bordered" align="center" border="1" style="visibility:hidden;">
     <tr>
       <th id="corner-heading"></th>
       <th id="timeTitle"> Average Time Spent (seconds) </th>
-     <!-- <th> Number of Visits </th>-->
+      <th> Number of Visits </th>
     </tr>
 
     <tr>
       <th id="p1title"> Hindbrain </th>
-      <hr>
+      
       <td id="time1"> </td>
-      <!-- <td id="visits1"> </td> -->
+      <td id="visits1"> </td> 
     </tr>
 
     <tr>
       <th id="p2title"> Midbrain </th>
       <td id="time2"> </td>
-      <!--<td id="visits2"> 4 times </td>-->
+      <td id="visits2"> </td>
     </tr>
 
     <tr>
       <th id="p3title"> Forebrain </th>
       <td id="time3"> </td>
-      <!--<td id="visits3"> 1 time </td>-->
+      <td id="visits3"></td>
     </tr>
 
     <tr>
       <th id="p4title"> Cerebral Cortex </th>
       <td id="time4"> </td>
-      <!--<td id="visits4"> 2 times </td>-->
+      <td id="visits4"></td>
     </tr>
 
   </table>
-
-  <br><br><br>
 
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
   <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
@@ -118,42 +126,110 @@
   <script src="https://cdn.jsdelivr.net/npm/c3@0.6.0/c3.min.js"></script>
 
 
-  <!--<script src= "../js/total_gauge.js"></script> -->
-  <!--<script src="../js/regions_bar.js"></script>-->
   <script src="../js/conditions_bar.js"></script>
 
 
     <script type="text/javascript">
 
-    $(document).ready(() => {
+    // var for storing total time
+    let totaltime = 0;
 
-        /*click on total time button*/
-        //$('#totalTime').click(() => {
-          //const requestURL = 'tracking/' + loggedinuser;
+    $(document).ready(() => {
+      const currentLoggedInUser = localStorage.getItem("currentUser");
+      const userUrl = 'users/' + currentLoggedInUser;
+      console.log(userUrl);
+
           $.ajax({
-            url: 'users/Amparo',
+            url: userUrl,
             type: 'GET',
             dataType: 'json',
             success: (data) => {
-
               console.log ('received data: ', data);
+
+              //adding times to totaltime
+              totaltime = data.midbrain + data.hindbrain + data.forebrain + data.cerebral;
+
+
               if (data.name) {
                 $('#timeTitle').html('Total Time Spent');
-                $('#visits1').html(data.visits1);
-                $('#visits2').html(data.visits2);
-                $('#visits3').html(data.visits3);
-                $('#visits4').html(data.visits4);
+                $('#visits1').html(data.hindbrainVisits);
+                $('#visits2').html(data.midbrainVisits);
+                $('#visits3').html(data.forebrainVisits);
+                $('#visits4').html(data.cerebralVisits);
                 $('#time1').html(data.hindbrain);
                 $('#time2').html(data.midbrain);
                 $('#time3').html(data.forebrain);
                 $('#time4').html(data.cerebral);
-              
+
+            console.log('this is totaltime:' + totaltime);
+            //graph for gauge chart
+            var chart1 = c3.generate({
+            bindto: '#chart1',
+            data: {
+                columns: [
+                    ['Minutes Studied', (totaltime/60)]
+                ],
+                type: 'gauge',
+                onclick: function (d, i) { console.log("onclick", d, i); },
+                onmouseover: function (d, i) { console.log("onmouseover", d, i); },
+                onmouseout: function (d, i) { console.log("onmouseout", d, i); }
+            },
+            gauge: {
+          //     label: {
+          //       format: function(value, ratio) {
+          //              return value;
+          //        },
+           //         show: false // to turn off the min/max labels.
+           //     },
+          //  min: 0, // 0 is default, //can handle negative min e.g. vacuum / voltage / current flow / rate of change
+           max: 15, // 100 is default
+           //units: '',
+           // width: 39 // for adjusting arc thickness
+            },
+            color: {
+                pattern: ['#FF0000', '#F97600', '#F6C600'], // the three color levels for the percentage values.
+                threshold: {
+                //   unit: 'percentage', // percentage is default
+                //   max: 200, // 100 is default
+                   values: [2, 7, 10]
+                }
+            },
+            size: {
+                height: 400
+
+            }
+        });
+           /********************* GRAPH FOR REGIONS ********************/
+            var regTimeD = [data.hindbrain, data.forebrain, data.midbrain, data.cerebral];
+            var regVisitD = [data.hindbrainVisits, data.forebrainVisits, data.midbrainVisits, data.cerebralVisits];
+
+            var rat = [];
+            var regmaxval;
+
+            //push all times to conditions total times array
+            var regIndex;
+            for (regIndex = 0; regIndex < 6; regIndex++) {
+              rat.push(regTimeD[regIndex]/regVisitD[regIndex]);
+
+              //totaltime = totaltime + regTimeD[regIndex];
+
+              regTimeD[regIndex] = regTimeD[regIndex]/60;
+              rat[regIndex] = rat[regIndex]/60;
+
+              //update to max value
+              if (regmaxval < regTimeD[regIndex]) {
+                regmaxval = regTimeD[regIndex];
+              } else if (regmaxval < rat[regIndex]) {
+                regmaxval = rat[regIndex];
+              }
+            }
+
               var chart2 = c3.generate({
               bindto: '#chart2',
               data: {
                 columns: [
-                  ['Total Time', document.getElementById('time1').innerHTML, document.getElementById('time2').innerHTML, document.getElementById('time3').innerHTML, document.getElementById('time4').innerHTML],
-                  ['Average Time', 4, 3, 2, 1]
+                  ['Total Time', regTimeD[0], regTimeD[1], regTimeD[2], regTimeD[3]],
+                  ['Average Time', rat[0], rat[1], rat[2], rat[3]]
                 ],
                 type: 'bar'
               },
@@ -174,7 +250,7 @@
                     text: 'Time (hours)',
                     position: 'outer-middle'
                   },
-                  max: 5,
+                  max: regmaxval,
                   min: 0,
                   padding: {
                     top: 0,
@@ -186,6 +262,93 @@
                 show: true
               }
       });
+              //console.log("hihihihihihih " + document.getElementById('visits1').innerHTML); 
+              /*******************GRAPH FOR CONDITIONS*************************/
+      //array to store conditions total time data
+      var condTimeD = [data.alzheimers, data.parkinsons, data.seizure, data.stroke, data.ms, data.als];
+      //array to store conditions visits data
+      var condVisitD = [data.alzheimersVisits, data.parkinsonsVisits, data.seizureVisits, data.strokeVisits, data.msVisits, data.alsVisits];
+      //cat -> array to store conditions average times
+
+
+
+      var cat = [];
+      var maxval = 0;
+
+      //push all times to conditions total times array
+      var condIndex;
+      for (condIndex = 0; condIndex < 6; condIndex++) {
+
+
+        //adding coditions time to totaltimes
+        totaltime=  totaltime + condTimeD[condIndex];
+
+          cat.push(condTimeD[condIndex]/condVisitD[condIndex]);
+
+          condTimeD[condIndex] = condTimeD[condIndex]/60;
+          cat[condIndex] = cat[condIndex]/60;
+
+          //update to max value
+          if (maxval < condTimeD[condIndex]) {
+            maxval = condTimeD[condIndex];
+          } else if (maxval < cat[condIndex]) {
+            maxval = cat[condIndex];
+          }
+      }
+
+      //calculate max value for chart
+      var modval = maxval%5;
+      if (modval > 0) {
+        maxval -= modval;
+        maxval += 5;
+      }
+
+      //unshift will push into the beginning of the array, shift will remove from the beginning of the array
+      //condTimeD.unshift('Total Time');
+      //cat.unshift('Average Time');
+
+      console.log("cat -> " + cat);
+      console.log("condTimeD -> " + condTimeD);
+
+      //graph for conditions
+      var chart3 = c3.generate({
+      bindto: '#chart3',
+      data: {
+        columns: [
+          ['Total Time', condTimeD[0], condTimeD[1], condTimeD[2], condTimeD[3], condTimeD[4], condTimeD[5]],
+          ['Average Time', cat[0], cat[1], cat[2],cat[3], cat[4], cat[5]]
+        ],
+        type: 'bar'
+      },
+      axis: {
+        x: {
+          label: {
+            text: 'Condition',
+            position: 'outer-center',
+          },
+          type: 'category',
+          categories: ["Alzheimer's", "Parkinson's", 'Seizure', 'Stroke', 'ALS', 'MS'],
+          tick: {
+            centered: true
+          }
+        },
+        y: {
+          label: {
+            text: 'Time (hours)',
+            position: 'outer-middle'
+          },
+          max: maxval,
+          min: 0,
+          padding: {
+            top: 0,
+            bottom: 0
+          }
+        }
+      },
+      legend: {
+        show: true
+      }
+});
               } else {
                 $('#tracking-table').html();
                 alert ("No times available");
@@ -193,8 +356,8 @@
             }
           });
         //});
-
         /*click on average time button*/
+
         $('#avgTime').click(() => {
           const requestURL = 'tracking/avgTime';
           $.ajax({
@@ -202,9 +365,7 @@
             type: 'GET',
             dataType: 'json',
             success: (data) => {
-
               console.log ('received data: ', data);
-
               if (data.type) {
                 $('#timeTitle').html('Average Time Spent');
                 $('#visits1').html(data.visits1);
@@ -222,13 +383,9 @@
             }
           });
         });
-
       console.log('this is the value: '+ document.getElementById('time1').innerHTML);
     
     });
-
-
-
   </script>
 </body>
 
