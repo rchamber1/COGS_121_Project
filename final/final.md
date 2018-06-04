@@ -23,19 +23,14 @@ Ryan Chambers - His contributions centered around many pieces of the project, as
 
 ## Source Code
 
-#### account_edit.css
-This file contains small additions to the 
-
 #### home_edit.css
-
+This file contains small additions to the home page of the website, including the four clickable buttons to navigate to each of the website elements.
 #### login_style.css
-
+This contains additions to the style of the login page, such as the static brain image and the positioning of the input text boxes.
 #### style.css
-
-#### style1.css
-
+This contains the code to control the overall style/layout of the entire website, declaring the font types, coloring, element positionings/padding, and all other stylistic aspects of the website.
 #### account.html
-
+This houses the source code for the page where users create an account. It allows them to enter a username, and a password (twice, which it verifies are matching). This username and password create an account which is stored in the database of users.
 #### brainmodel.html
 
 #### conditions.html
