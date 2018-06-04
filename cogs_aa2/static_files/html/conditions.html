@@ -75,6 +75,7 @@ $(document).ready(() => {
   $("#Alzheimers").click(() => {
     handleTime('Alzheimers');
     const requestURL = 'conditions/Alzheimers';
+
     $.ajax({
       url: requestURL,
       type: 'GET',
