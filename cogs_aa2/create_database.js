@@ -1,4 +1,4 @@
-//This creates the databse for the conditions page, simiarly storing the conditions information for each of the available brain conditions (including Alzheimer's, stroke, etc.).
+//This creates the database for the conditions page, simiarly storing the conditions information for each of the available brain conditions (including Alzheimer's, stroke, etc.).
 
 
 // Node.js + Express server backend for petsapp
