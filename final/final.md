@@ -37,6 +37,8 @@ This houses the source code for the page where users create an account. It allow
 This is home to the brain browser API we've included, which provides a 3D, interactable model of the brain for users to play around with and explore.
 #### conditions.html
 This houses the basic format and ajax calls for the conditions information. When opened, it defaults to Alzheimer's and allows for in-page reloading between each of the available conditions. This is also the source for the timing javascript functionality.
+#### home.html
+This file contains the information for the front page of the website, once the user has logged in. It allows the user to navigate to any of the available pages (conditions, regions, tracking, and the brain model) or logout.
 #### index.html
 This is the first page reached when running the site: the login page. If a user has already created an account, it will allow them to login, and if not, it has a feature to take them to the account page to create an account.
 #### regions_detail.html
