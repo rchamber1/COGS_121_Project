@@ -1,3 +1,7 @@
+/*
+This is the main driver for the backend of our site. It launches/hosts the site itself, and contains informaition for managing the database usage and user profiles.
+*/
+
 /* import express library */
 	const express = require('express');
 	const app = express();
