@@ -48,6 +48,7 @@ body,html {
 #submit_btn {
   margin-top: 50px;
 }
+/* end of login page*/
 
 /* home page */
 
@@ -112,7 +113,9 @@ figcaption {
 
 #detail_div h3, #detail_div p {
   font-family: 'Roboto';
-}
+} /* end of regions page*/ 
+
+/*start of home.html styling */
 
 #region_btns {
   margin-top: 2%;
@@ -126,6 +129,7 @@ figcaption {
 #content_row{
   margin-top:2%;
 }
+/***** end of home.html *****/
 
 /* conditions */
 .card-img-top {
@@ -134,7 +138,7 @@ figcaption {
     border-top-right-radius: calc(.25rem - 1px);
 }
 
-/*account.html */
+/* start of account.html */
 #register, #register1 {
   font-family: 'Roboto';
 }
@@ -163,11 +167,12 @@ figcaption {
 #account_container ::placeholder, #info1 p, #info2 p {
   font-family: 'Mina';
 } 
-
+/****end of signup page *****/ 
 #info2 p {
   margin-top: 3%; 
 }
 
+/* giving margin on the bottom for the bar chart */
 #chart_row {
   margin-bottom: 4%;
 }
@@ -180,6 +185,7 @@ figcaption {
   margin-top:2%;
   margin-right: 5px;
 }
+
 
 #progress h5{
   text-align:center;

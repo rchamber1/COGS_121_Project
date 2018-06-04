@@ -53,9 +53,11 @@ h3{
     width: 50%;
 }
 
+/*password input section */
 #pw_div {
   margin-top: 50px;
 }
+
 #submit_btn {
   margin-top: 50px;
   font-family:'Mina';
@@ -72,16 +74,6 @@ h3{
    color: white;
 }
 
-#fb_btn {
-  font-family:'Mina';
-  border-color: #5475EC;
-  background-color: #5475EC;
-  color:white;
-}
-
-#fb_btn a {
-  color: white;
-}
 #top_login {
   margin-top: 15%;
 }
