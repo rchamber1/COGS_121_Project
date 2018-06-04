@@ -1,3 +1,6 @@
+//This creates the databse for the conditions page, simiarly storing the conditions information for each of the available brain conditions (including Alzheimer's, stroke, etc.).
+
+
 // Node.js + Express server backend for petsapp
 // v2 - use SQLite (https://www.sqlite.org/index.html) as a database
 //
