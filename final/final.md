@@ -19,9 +19,12 @@ Ellisa Lee - She worked on designing UI layouts from low-fidelity to high-fideli
 	
 Amparo Davalos - Her contributions to team's project involved working in several areas of it. Some of the main contributions included incorporating the data visualization and working with the databases from different parts of the web application. In addition, she worked on implementing the initial stages of some of the UI as well as working on different pieces of functionality code with the rest of the team members.
 
+Ryan Chambers - His contributions centered around many pieces of the project, as all of the group memberes worked together for a majortiy of what was completed. He started with working on a high fidelity mock-up of the orginal app design. As work on the code started, his main contributions were in layout of the code files (i.e. how all of them would be organized and connected) as well as the javascript functionality for tracking the page time visits. He also spent time helping in design of the pages and formatting of the data storage and retrival.
+
 ## Source Code
 
 #### account_edit.css
+This file contains small additions to the 
 
 #### home_edit.css
 
