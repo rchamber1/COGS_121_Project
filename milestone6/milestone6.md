@@ -16,7 +16,7 @@
 	Brain Visualization
 
 ## Link to Video
-[a link](https://drive.google.com/file/d/1pY8k52e_Xj6ZYYy2GoFvj5Zcl8AbHNte/view?usp=sharing)
+[Link to 'NeuroViz' demo video](https://drive.google.com/file/d/1pY8k52e_Xj6ZYYy2GoFvj5Zcl8AbHNte/view?usp=sharing)
 
 ## ...
 
