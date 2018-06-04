@@ -36,24 +36,23 @@ This houses the source code for the page where users create an account. It allow
 #### brainmodel.html
 This is home to the brain browser API we've included, which provides a 3D, interactable model of the brain for users to play around with and explore.
 #### conditions.html
-
+This houses the basic format and ajax calls for the conditions information. When opened, it defaults to Alzheimer's and allows for in-page reloading between each of the available conditions. This is also the source for the timing javascript functionality.
 #### index.html
-
+This is the first page reached when running the site: the login page. If a user has already created an account, it will allow them to login, and if not, it has a feature to take them to the account page to create an account.
 #### regions_detail.html
-
+This page, much like the conditions page, houses the basic structure of the information for the regions of the brain, which pulls from a database to allocate. Ajax allows for in page reloads between each of the regions and javascript functions track and store the visits and page time on each of the pages.
 #### tracking.html
-
+This page houses the data visualizations to allow the users to track their studying progress. There is a guage chart that tracks total page time use overall, showing how close they are to reaching goals we have predetermined. There are also bar charts to represent the total and average time spent on each of the individual regions and conditions pages.
 #### img (image files)
-
-#### regions.js
-
+These are all of the static images utilized in running the site, including button images and brain images, among others.
 #### create_database.js
-
+This creates the database to store the information for the regions page, including the text information and headers which work in with the ajax.
 #### create_database1.js
-
+This creates the databse for the conditions page, simiarly storing the conditions information for each of the available brain conditions (including Alzheimer's, stroke, etc.).
 #### create_database2.js
-
+This creates the final database to house the user profile information (username, password), along with total page time and total page visits for each of the individual regions and conditions, which are later used for logging in and data visualization.
 #### server.js
+This is the main driver for the backend of our site. It launches/hosts the site itself, and contains informaition for managing the database usage and user profiles.
 
 
 ## Link to Video
