@@ -278,14 +278,10 @@ app.get('/users/:userid', (req, res) => {
 //userdb.run("UPDATE users_to_pets SET password = 'newPassword' WHERE name = 'Ryan'");
 
 
-<<<<<<< HEAD
+
 // app.listen(3000, () => {
 // 		console.log('Server started on http://localhost:3000/');
 // });
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
-=======
-app.listen(3000, () => {
-		console.log('Server started on http://localhost:3000/');
->>>>>>> 1e795eb1ecd220de1d5c576fcba4592359fd41e6
 });
