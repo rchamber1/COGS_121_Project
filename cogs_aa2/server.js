@@ -1,6 +1,7 @@
 /* import express library */
 	const express = require('express');
 	const app = express();
+	var http = require('http');
 
 	/* import sqlite3 */
 	const sqlite3 = require('sqlite3');
@@ -10,6 +11,8 @@
 	const db2 = new sqlite3.Database('tracking.db');
 
 	let loggedinuser = null;
+
+	app.set("port", process.env.PORT || 3000);
 
 	/* serve the static files */
 	app.use(express.static('static_files/'));
@@ -145,7 +148,7 @@ app.use(bodyParser.urlencoded({extended: true})); // hook up with your app
 //Creating accounts
 app.post('/users', (req, res) => {
   console.log(req.body);
-  
+
 
   userdb.run(
 	'INSERT INTO users_to_pets VALUES ($name, $password, $hindbrain, $hindbrainVisits, $midbrain, $midbrainVisits, $forebrain, $forebrainVisits, $cerebral, $cerebralVisits, $alzheimers, $alzheimersVisits, $parkinsons, $parkinsonsVisits, $seizure, $seizureVisits, $stroke, $strokeVisits, $ms, $msVisits, $als, $alsVisits)',
@@ -154,24 +157,24 @@ app.post('/users', (req, res) => {
       $name: req.body.name,
       $password: req.body.password,
       $hindbrain: 0,
-      $hindbrainVisits: 0, 
-      $midbrain:0, 
-      $midbrainVisits:0, 
-      $forebrain:0, 
-      $forebrainVisits:0, 
-      $cerebral:0, 
+      $hindbrainVisits: 0,
+      $midbrain:0,
+      $midbrainVisits:0,
+      $forebrain:0,
+      $forebrainVisits:0,
+      $cerebral:0,
       $cerebralVisits:0,
       $alzheimers:0,
-      $alzheimersVisits:0, 
-      $parkinsons:0, 
-      $parkinsonsVisits:0, 
-      $seizure:0, 
-      $seizureVisits:0, 
-      $stroke:0, 
-      $strokeVisits:0, 
-      $ms:0, 
-      $msVisits:0, 
-      $als:0, 
+      $alzheimersVisits:0,
+      $parkinsons:0,
+      $parkinsonsVisits:0,
+      $seizure:0,
+      $seizureVisits:0,
+      $stroke:0,
+      $strokeVisits:0,
+      $ms:0,
+      $msVisits:0,
+      $als:0,
       $alsVisits:0,
 
     },
@@ -195,9 +198,9 @@ app.post('/users/:Amparo', (req, res) => {
 
   const nameToLookup = req.params.Amparo; // matches ':userid' above
 
-   
+
    let sectionBrain = req.body.prevPage;
-   let timeBrain = req.body.totalTime; 
+   let timeBrain = req.body.totalTime;
    console.log('this is sectionBrain '+ sectionBrain);
    console.log('thie is timeBrain '+ timeBrain);
 
@@ -206,7 +209,7 @@ app.post('/users/:Amparo', (req, res) => {
 
 
    console.log(x[0]);
-	
+
   	if (true) {
 		console.log("in true");
   	//let timeToAdd = userdb.run("SELECT sectionBrain FROM users_to_pets WHERE name = 'Amparo'");
@@ -271,6 +274,9 @@ app.get('/users/:userid', (req, res) => {
 //userdb.run("UPDATE users_to_pets SET password = 'newPassword' WHERE name = 'Ryan'");
 
 
-app.listen(3000, () => {
-		console.log('Server started on http://localhost:3000/');
+// app.listen(3000, () => {
+// 		console.log('Server started on http://localhost:3000/');
+// });
+http.createServer(app).listen(app.get('port'), function(){
+  console.log('Express server listening on port ' + app.get('port'));
 });
