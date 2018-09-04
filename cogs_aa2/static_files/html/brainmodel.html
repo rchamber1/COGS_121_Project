@@ -1,3 +1,6 @@
+<!--
+This is home to the brain browser API we've included, which provides a 3D, interactable model of the brain for users to play around with and explore.
+-->
 <!DOCTYPE html>
 <head>
   <title>NeuroViz</title>
@@ -10,63 +13,6 @@
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Aldrich">
 
-  <script type="text/javascript">
-    $(document).ready(() => {
-        /*click on total time button*/
-        $('#totalTime').click(() => {
-          const requestURL = 'tracking/' + 'Amparo';
-          $.ajax({
-            url: requestURL,
-            type: 'GET',
-            dataType: 'json',
-            success: (data) => {
-              console.log ('received data: ', data);
-              if (data.name) {
-                $('#timeTitle').html('Total Time Spent');
-                $('#visits1').html(data.visits1);
-                $('#visits2').html(data.visits2);
-                $('#visits3').html(data.visits3);
-                $('#visits4').html(data.visits4);
-                $('#time1').html(data.hindbrain);
-                $('#time2').html(data.midbrain);
-                $('#time3').html(data.forebrain);
-                $('#time4').html(data.cerebral);
-              } else {
-                $('#tracking-table').html();
-                alert ("No times available");
-              }
-            }
-          });
-        });
-        /*click on average time button*/
-        $('#avgTime').click(() => {
-          const requestURL = 'tracking/avgTime';
-          $.ajax({
-            url: requestURL,
-            type: 'GET',
-            dataType: 'json',
-            success: (data) => {
-              console.log("imma fuck you up too motherfucker!!");
-              console.log ('received data: ', data);
-              if (data.type) {
-                $('#timeTitle').html('Average Time Spent');
-                $('#visits1').html(data.visits1);
-                $('#visits2').html(data.visits2);
-                $('#visits3').html(data.visits3);
-                $('#visits4').html(data.visits4);
-                $('#time1').html(data.time1);
-                $('#time2').html(data.time2);
-                $('#time3').html(data.time3);
-                $('#time4').html(data.time4);
-              } else {
-                $('#tracking-table').html();
-                alert ("No times available");
-              }
-            }
-          });
-        });
-    });
-  </script>
 </head>
 
 <body>
@@ -106,7 +52,7 @@
   <br>
 
   <br>
-
+  <!-- this code displays the 3d brain -->
    <section id = "body_container">
                   <div class = "content">
                       <div class = "container">

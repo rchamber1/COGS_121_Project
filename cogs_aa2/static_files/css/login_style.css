@@ -1,3 +1,6 @@
+/*
+This contains the code to control the overall style/layout of the entire website, declaring the font types, coloring, element positionings/padding, and all other stylistic aspects of the website.
+*/
 body,html {
 
 	overflow-x: hidden;
@@ -50,9 +53,11 @@ h3{
     width: 50%;
 }
 
+/*password input section */
 #pw_div {
   margin-top: 50px;
 }
+
 #submit_btn {
   margin-top: 50px;
   font-family:'Mina';
@@ -69,16 +74,6 @@ h3{
    color: white;
 }
 
-#fb_btn {
-  font-family:'Mina';
-  border-color: #5475EC;
-  background-color: #5475EC;
-  color:white;
-}
-
-#fb_btn a {
-  color: white;
-}
 #top_login {
   margin-top: 15%;
 }

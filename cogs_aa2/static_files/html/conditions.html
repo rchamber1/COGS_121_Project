@@ -1,3 +1,6 @@
+<!--
+This houses the basic format and ajax calls for the conditions information. When opened, it defaults to Alzheimer's and allows for in-page reloading between each of the available conditions. This is also the source for the timing javascript functionality.
+-->
 <html>
 <head>
 <title>NeuroViz</title>
@@ -17,6 +20,7 @@
 
 <!-- javascript for ajax code -->
 <script type="text/javascript">
+  //the code below lets the user switch between information without having to refresh the page using ajax it also tracks the ammount of time the user spent on each of the conditions //
 
   const currentLoggedInUser = localStorage.getItem("currentUser");
   const userUrl = 'users/' + currentLoggedInUser;
@@ -31,10 +35,7 @@ function handleTime(currentPage){
     totalTime = (currentTime - time)/1000;
     console.log(totalTime);
     console.log(prevPage);
-    //let pageTimeRow = prevPage + 'Time';
-    //let pageVisitsRow = prevPage + 'Visits';
-    //userdb.run("UPDATE users_to_pets SET " + pageTimeRow + " = " + totalTime +
-    //" WHERE name = 'Ryan'");
+    
     $.ajax({
       url: userUrl,
       type: 'GET',
@@ -289,14 +290,7 @@ $(document).ready(() => {
                             <h1 class="display-4" id="conditionName">Parkinson's Disease</h1>
                             <hr>
                             <p id="subtitle-content"> </p>
-                            <!-- for the conditions buttons -->
-                            <!--
-                            <button type="button" class="btn btn-outline-dark" id="Parkinsons"> Parkinson's </button>
-                            <button type="button" class="btn btn-outline-dark" id="Alzheimers"> Alzheimer's </button>
-                            <button type="button" class="btn btn-outline-dark" id="Seizure"> Seizure </button>
-                            <button type="button" class="btn btn-outline-dark" id="Stroke"> Stroke </button>
-                            <button type="button" class="btn btn-outline-dark" id="Als"> A.L.S. </button>
-                            <button type="button" class="btn btn-outline-dark" id="Ms"> M.S. </button> -->
+                            
                               </div>
                           </div>
                       </div>
@@ -349,18 +343,7 @@ $(document).ready(() => {
               </div>
           </div>
         </section> <!-- end of body container -->
-<!-- end of content -->
 
-<!-- example code --> <!--
-<div class="col-lg col-md">
-    <div class="card" style="width: 200px;">
-      <img class="card-img-top" src="../img/conditions.jpg" alt="Card image cap">
-      <div class="card-body">
-        <a href="info.html"><p class="card-text">A.L.S</p></a>
-      </div>
-    </div>
-</div> -->
-<!-- example code ends -->
 
 
 

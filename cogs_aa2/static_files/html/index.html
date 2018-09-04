@@ -1,3 +1,6 @@
+<!--
+This is the first page reached when running the site: the login page. If a user has already created an account, it will allow them to login, and if not, it has a feature to take them to the account page to create an account.
+-->
 <!DOCTYPE html>
 <head>
 <title>NeuroViz</title>
@@ -11,18 +14,18 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Mina">
- <script type="text/javascript"> //copied from account.html 
+ <script type="text/javascript"> 
 // jQuery convention for running when the document has been fully loaded:
-$(document).ready(() => {
+$(document).ready(() => {  
   localStorage.clear();
+
+  //the codoe below get the values that were entered by the user who is loging in and  checks if inromation is in the database
   $('#submit_btn').click(() => {
-    //const userNameInput = $('#exampleInputEmail1').val();
     var userNameInput = document.getElementById("exampleInputEmail1").value;
     var userPassInput = document.getElementById("exampleInputPassword1").value;
 
     localStorage.setItem("currentUser", userNameInput);
     
-    console.log('USERNAME: ' + userNameInput + ' PASSWORD: ' + userPassInput);
       
     const urlInput = 'users/' + userNameInput;
 
@@ -46,20 +49,9 @@ $(document).ready(() => {
     });
   });
 
-
-  $('#allUsersButton').click(() => {
-    $.ajax({
-      url: 'users',
-      type: 'GET',
-      dataType : 'json',
-      success: (data) => {
-        console.log('You received some data!', data);
-        $('#status').html('All users: ' + data);
-      },
-    });
-  });
   }); //end of account.html
 
+    //saves username entered
   $('#submit_btn').click(() => {
     const userid = $("#exampleInputEmail1").val();
   });

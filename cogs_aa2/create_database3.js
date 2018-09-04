@@ -1,3 +1,6 @@
+//This creates the final database to house the user profile information (username, password), along with total page time and total page visits for each of the individual regions and conditions, which are later used for logging in and data visualization.
+
+
 // Node.js + Express server backend for petsapp
 // v2 - use SQLite (https://www.sqlite.org/index.html) as a database
 //

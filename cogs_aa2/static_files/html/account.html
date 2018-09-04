@@ -1,3 +1,6 @@
+<!--
+This houses the source code for the page where users create an account. It allows them to enter a username, and a password (twice, which it verifies are matching). This username and password create an account which is stored in the database of users.
+-->
 <!DOCTYPE html>
 <head>
 <title>NeuroViz</title>
@@ -27,25 +30,29 @@
 
 <script type="text/javascript">
 // jQuery convention for running when the document has been fully loaded:
+
+
+// ajax call to make new accounts this gets the variables from the 
+//name boxes and forwards them to server.js where the data will be stored
 $(document).ready(() => {
   $('#readButton').click(() => {
     const requestURL = 'users/' + $('#nameBox').val();
     console.log('making ajax request to:', requestURL);
-    // From: http://learn.jquery.com/ajax/jquery-ajax-methods/
-    // Using the core $.ajax() method since it's the most flexible.
-    // ($.get() and $.getJSON() are nicer convenience functions)
     $.ajax({
       // all URLs are relative to http://localhost:3000/
       url: requestURL,
       type: 'GET',
       dataType : 'json', // this URL returns data in JSON format
       success: (data) => {
+
+        //checks that password is correct
         console.log('You received some data!', data);
         if (data.password) {
           $('#status').html('Successfully fetched data at URL: ' + requestURL);
           $('#jobDiv').html('My job is ' + data.password);
         } else {
           $('#status').html('Error: could not find user at URL: ' + requestURL);
+
           // clear the display
           $('#jobDiv').html('');
         }
@@ -64,12 +71,7 @@ $(document).ready(() => {
     });
   });
 
-
-  //var firstInput = document.getElementById("insertPsw1").value;
-  //var secondInput = document.getElementById("insertPsw2").value;
-
-  //if( firstInput === secondInput){
-  /*if( 1 === 2){*/
+    //makes sure all user inormation is savesd and does a post call to send infromation to serve.js where it will be saved database
     $('#insertButton').click(() => {
 
       var firstInput = document.getElementById("insertPsw1").value;
@@ -93,16 +95,12 @@ $(document).ready(() => {
         }
       });
     }else{
-      //$("pass").html('Invalid username or password');
-      //document.getElementById("content").innerHTML = "Invalid username or password";
+      
     }
     });
-//}else {
-  //console.log('no matching password');
-  //$("pass").update('Invalid username or password');
-//}
-  // define a generic Ajax error handler:
-  // http://api.jquery.com/ajaxerror/
+
+
+  //displays error if ajax failed
   $(document).ajaxError(() => {
     $('#status').html('Error: unknown ajaxError!');
   });
